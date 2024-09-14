@@ -20,9 +20,27 @@
       }
 
       .clear {
-        background-color: rgba(255,255,255,0);
-        color: whitesmoke;
+        background-color: rgb(255,255,255);
+        color: black;
       }
+	  
+	  .total {
+		background-color: rgb(20,255,20);
+        color: black;
+      }
+	  
+	  .remaining {
+	    background-color: rgb(255,60,60);
+		color: black;
+	  }
+	  
+	  .header0 {
+	    text-align: left; 
+		font-size: 20px; 
+		height: 40px;
+		text-decoration: underline;
+		text-decoration-thickness: 2px;
+	  }
 	  
 	  .header1 {
 		text-align: right;
@@ -34,13 +52,13 @@
     
   </head>
   <body>
-    <h1><u style="text-decoration: underline overline;">= Blank Canvas Calc Test =</u></h1>
+    <h1>= Blank Canvas Calc Test =</h1>
 
     <p>
 	  <!--Start of Canvas Table -->
       <table>
 		<tr>
-		  <td colspan=7 style="text-align: center; font-size: 20px;">Starting Canvas</td>
+		  <td colspan=3 class="header0">Starting Canvas</td>
 		</tr>
         <tr>
 		  <td class="header1">Type: </td>
@@ -92,37 +110,69 @@
         <tr>
 		  <td class="header1">Stats: </td>
           <td>
-			<input type="number" id="hp_old" placeholder=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
-			<input type="number" id="atk_old" placeholder=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
-			<input type="number" id="def_old" placeholder=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
-			<input type="number" id="spa_old" placeholder=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
-			<input type="number" id="spd_old" placeholder=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
-			<input type="number" id="spe_old" placeholder=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
+			<input type="number" id="hp_old" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
+			<input type="number" id="atk_old" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
+			<input type="number" id="def_old" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
+			<input type="number" id="spa_old" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
+			<input type="number" id="spd_old" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
+			<input type="number" id="spe_old" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
 		  </td>
         </tr>
 		<tr>
 		  <td class="header1">Abilities: </td>
 		  <td>
-			<textarea></textarea>
-			<textarea></textarea>
-			<textarea></textarea>
+			<select id="abi1">
+			  <option value=""></option>
+			  <optgroup id="abiNorm1" label="- Normal Abilities -">
+			  </optgroup>
+			  <optgroup id="abiSitu1" label="- Situational Abilities -">
+			  </optgroup>
+			  <optgroup id="abiUsel1" label="- Useless Abilities -">
+			  </optgroup>
+			</select>
+			<select id="abi2">
+			<option value=""></option>
+			  <optgroup id="abiNorm2" label="- Normal Abilities -">
+			  </optgroup>
+			  <optgroup id="abiSitu2" label="- Situational Abilities -">
+			  </optgroup>
+			  <optgroup id="abiUsel2" label="- Useless Abilities -">
+			  </optgroup>
+			  </select>
+			<select id="abi3">
+			  <option value=""></option>
+			  <optgroup id="abiNorm3" label="- Normal Abilities -">
+			  </optgroup>
+			  <optgroup id="abiSitu3" label="- Situational Abilities -">
+			  </optgroup>
+			  <optgroup id="abiUsel3" label="- Useless Abilities -">
+			  </optgroup>
+			</select>
 		  </td>
 		</tr>
 		<tr>
 		  <td class="header1">Given Moves: </td>
-		  <td><textarea cols=80% rows="4"></textarea></td>
+		  <td><textarea id="moves" cols=85; rows="2"></textarea></td>
 		</tr>
       </table>
 	  <!--End of Canvas Table-->	 
 	  
       <br><br>
 	  
-	  <!--Start of User Table-->
-	  <button type="button" onclick="setNewStats()">Set Stats</button><br>
+	  <!--Start of Fakemon Table-->
 	  <table>
 		<tr>
+		  <td colspan=2 class="header0">Fakemon</td>
+		  <td><button type="button" onclick="reset()">Reset</button></td>
+		</tr>
+		<tr>
 		  <td class="header1">Name: </td>
-          <td colspan=6><textarea rows=1 cols=30 maxlength=30></textarea></td>
+          <td><textarea id="name" rows=1 cols=30 maxlength=30></textarea></td>
+		  <td><button type="button" onclick="getType(); getNewStats(); getAbilities();">Get Canvas</button></td>
+		</tr>
+		<tr>
+		  <td class="header1">Weight: </td>
+		  <td><textarea id="weight" inputmode="number" placeholder=0 rows=1 cols=6 max=999.9 maxlength=5></textarea>
 		</tr>
 		<tr>
 		  <td class="header1">Type: </td>
@@ -170,43 +220,115 @@
 			  <option value="fairy">Fairy</option>
 			</select>
 		  </td>
+		  <td><button type="button" onclick="getType()">Get Type</button></td>
 		</tr>
 		<tr>
 		  <td class="header1">Stats: </td>
 		  <td>
-		    <input type="number" id="hp_new" placeholder=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
-            <input type="number" id="atk_new" placeholder=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
-			<input type="number" id="def_new" placeholder=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
-			<input type="number" id="spa_new" placeholder=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
-			<input type="number" id="spd_new" placeholder=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
-			<input type="number" id="spe_new" placeholder=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
+		    <input type="number" id="hp_new" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
+            <input type="number" id="atk_new" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
+			<input type="number" id="def_new" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
+			<input type="number" id="spa_new" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
+			<input type="number" id="spd_new" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
+			<input type="number" id="spe_new" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
 		  </td>
+		  <td><button type="button" onclick="getNewStats()">Get Stats</button></td>
 		</tr>
 		<tr>
 		  <td class="header1">Abilities: </td>
+		  <td>
+			<select id="abi1_new">
+			  <option value=""></option>
+			  <optgroup id="abiNorm1_new" label="- Normal Abilities -">
+			  </optgroup>
+			  <optgroup id="abiSitu1_new" label="- Situational Abilities -">
+			  </optgroup>
+			  <optgroup id="abiUsel1_new" label="- Useless Abilities -">
+			  </optgroup>
+			</select>
+			<select id="abi2_new">
+			  <option value=""></option>
+			  <optgroup id="abiNorm2_new" label="- Normal Abilities -">
+			  </optgroup>
+			  <optgroup id="abiSitu2_new" label="- Situational Abilities -">
+			  </optgroup>
+			  <optgroup id="abiUsel2_new" label="- Useless Abilities -">
+			  </optgroup>
+			</select>
+			<select id="abi3_new">
+			  <option value=""></option>
+			  <optgroup id="abiNorm3_new" label="- Normal Abilities -">
+			  </optgroup>
+			  <optgroup id="abiSitu3_new" label="- Situational Abilities -">
+			  </optgroup>
+			  <optgroup id="abiUsel3_new" label="- Useless Abilities -">
+			  </optgroup>
+			</select>
+		  </td>
+		  <td><button type="button" onclick="getAbilities()">Get Abilities</button></td>
 		</tr>
 		<tr>
 		  <td class="header1">New Moves: </td>
+		  <td><textarea id="moves_new" cols=85 rows=3></textarea></td>
 		</tr>
-		<!--Blank Row-->
+		<!--Inserting a blank row-->
 		<tr class="header1"></tr>
 		<tr>
 		  <td class="header1">Suggested moves: </td>
+		  <td><textarea id="moves_suggest" class="clear" cols=85 rows=3 disabled></textarea></td>
 		</tr>
       </table>
-	  <!--End of User Table-->
+	  <!--End of Fakemon Table-->
 	  
 	  <br><br>
 	  
 	  <!--Start of Cost Table-->
 	  <table>
-      Stat Cost:<br>
-      <textarea class=clear inputmode="number" id="hp_cost" placeholder=0 min=0 max=255 rows=1 cols=4 disabled></textarea>
-      <textarea class=clear inputmode="number" id="atk_cost" placeholder=0 min=0 max=255 rows=1 cols=4 disabled></textarea>
-      <textarea class=clear inputmode="number" id="def_cost" placeholder=0 min=0 max=255 rows=1 cols=4 disabled></textarea>
-      <textarea class=clear inputmode="number" id="spa_cost" placeholder=0 min=0 max=255 rows=1 cols=4 disabled></textarea>
-      <textarea class=clear inputmode="number" id="spd_cost" placeholder=0 min=0 max=255 rows=1 cols=4 disabled></textarea>
-      <textarea class=clear inputmode="number" id="spe_cost" placeholder=0 min=0 max=255 rows=1 cols=4 disabled></textarea>
+	    <tr>
+		  <td colspan=3 class="header0">Point Cost</td>
+		</tr>
+		<tr>
+		  <td class="header1">Total Cost: </td>
+		  <td>
+		    <textarea class="total" inputmode="number" id="total_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+		  </td>
+		</tr>
+		<tr>
+		  <td class="header1">Remaining Cost: </td>
+		  <td>
+		    <textarea class="remaining" inputmode="number" id="rem_cost" placeholder=50 rows=1 cols=4 disabled></textarea>
+		  </td>
+		</tr>
+		<tr>
+		  <td class="header1">Type: </td>
+		  <td>
+		    <textarea class="clear" inputmode="number" id="type1_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+			<textarea class="clear" inputmode="number" id="type2_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+		  </td>
+		</tr>
+		<tr>
+		  <td class="header1">Stats: </td>
+		  <td>
+		    <textarea class="clear" inputmode="number" id="hp_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+			<textarea class="clear" inputmode="number" id="atk_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+			<textarea class="clear" inputmode="number" id="def_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+			<textarea class="clear" inputmode="number" id="spa_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+			<textarea class="clear" inputmode="number" id="spd_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+			<textarea class="clear" inputmode="number" id="spe_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+	      </td>
+		</tr>
+		<tr>
+		  <td class="header1">Abilities: </td>
+		  <td>
+		    <textarea class="clear" inputmode="number" id="abi1_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+			<textarea class="clear" inputmode="number" id="abi2_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+			<textarea class="clear" inputmode="number" id="abi3_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+		  </td>
+		</tr>
+		<tr>
+		  <td class="header1">Moves: </td>
+		  <td><textarea class="clear" inputmode="number" id="move_cost" placeholder=0 rows=1 cols=4 disabled></textarea></td>
+		</tr>
 	  </table>
 	  <!--End of Cost Table-->
     </p>
@@ -221,8 +343,17 @@
 
 
     <script>
+	  //Start of Type Cost Calculation (WIP)
+	  function getType() {
+		type1_new.value = type1.value;
+		type2_new.value = type2.value;
+	  }
+	  
+	  //End of Type Cost Calculation
+	  
+	
       //Start of Stat Cost Calculation
-      function setNewStats() {
+      function getNewStats() {
         hp_new.value = hp_old.value;
         atk_new.value = atk_old.value;
         def_new.value = def_old.value;
@@ -271,24 +402,62 @@
       //End of Stat Cost Calculation
 	  
 	  
-	  
 	  //Ability Cost Calculation  
-	  //Normal Abilities, Length = 138
-	  let text1 = "Adaptability, Aroma Veil, Aerilate, As One (Glastrier), As One (Spectrier), Battle Bond, Beads of Ruin, Chilling Neigh, Chlorophyll, Corrosion, Comatose, Contrary, Dark Aura, Dauntless Shield, Defiant, Delta Stream, Desolate Land, Disguise, Download, Dragon's Maw, Drizzle, Drought, Earth Eater, Electric Surge, Electromorphosis, Embody Aspect (All), Fairy Aura, Filter, Flash Fire, Fluffy, Fur Coat, Galvanize, Good as Gold, Gorilla Tactics, Grassy Surge, Grim Neigh, Guts, Hadron Engine, Huge Power, Hustle, Ice Face, Ice Scales, Illusion, Imposter, Innards Out, Intimidate, Intrepid Sword, Iron Fist, Levitate, Libero, Lightning Rod, Magic Bounce, Magic Guard, Magnet Pull, Mega Launcher, Misty Surge, Mold Breaker, Moody, Mind's Eye, Motor Drive, Moxie, Multiscale, Neutralizing Gas, No Guard, Opportunist, Orichalcum Pulse, Parental Bond, Pixilate, Poison Heal, Poison Heal, Prankster, Primordial Sea, Prism Armor, Protean, Protosynthesis, Psychic Surge, Punk Rock, Pure Power, Purifying Salt, Quark Drive, Refrigerate, Regenerator, Rock Head, Rocky Payload, Sand Rush, Sand Spit, Seed Sower, Sand Stream, Sap Sipper, Scrappy, Serene Grace, Shadow Shield, Sharpness, Sheer Force, Simple, Skill Link, Slush Rush, Snow Warning, Solid Rock, Soul-Heart, Speed Boost, Stakeout, Stamina, Steelworker, Steely Spirit, Strong Jaw, Storm Drain, Sturdy, Supreme Overlord, Surge Surfer, Swift Swim, Sword of Ruin, Tablets of Ruin, Technician, Teraform Zero, Tera Shell, Teravolt, Thick Fat, Tinted Lens, Tough Claws, Toxic Boost, Toxic Chain, Toxic Debris, Transistor, Triage, Turboblaze, Unaware, Unburden, Vessel of Ruin, Volt Absorb, Water Absorb, Water Bubble, Weak Armor, Well-Baked Body, Wind Rider, Gale Wings, Flower Veil, Flare Boost, Wonder Skin";
+	  function getAbilities() {
+		abi1_new.value = abi1.value;
+		abi2_new.value = abi2.value;
+		abi3_new.value = abi3.value;
+	  }
+	  
+	  //Normal Abilities, Length = 136
+	  let text1 = "Adaptability, Aroma Veil, Aerilate, As One (Glastrier), As One (Spectrier), Battle Bond, Beads of Ruin, Chilling Neigh, Chlorophyll, Corrosion, Comatose, Contrary, Dark Aura, Dauntless Shield, Defiant, Delta Stream, Desolate Land, Disguise, Download, Dragon's Maw, Drizzle, Drought, Earth Eater, Electric Surge, Electromorphosis, Fairy Aura, Filter, Flash Fire, Fluffy, Fur Coat, Galvanize, Good as Gold, Gorilla Tactics, Grassy Surge, Grim Neigh, Guts, Hadron Engine, Huge Power, Hustle, Ice Face, Ice Scales, Illusion, Imposter, Innards Out, Intimidate, Intrepid Sword, Iron Fist, Levitate, Libero, Lightning Rod, Magic Bounce, Magic Guard, Magnet Pull, Mega Launcher, Misty Surge, Mold Breaker, Moody, Mind's Eye, Motor Drive, Moxie, Multiscale, Neutralizing Gas, No Guard, Opportunist, Orichalcum Pulse, Parental Bond, Pixilate, Poison Heal, Poison Heal, Prankster, Primordial Sea, Prism Armor, Protean, Protosynthesis, Psychic Surge, Punk Rock, Pure Power, Purifying Salt, Quark Drive, Refrigerate, Regenerator, Rock Head, Rocky Payload, Sand Rush, Sand Spit, Seed Sower, Sand Stream, Sap Sipper, Scrappy, Serene Grace, Shadow Shield, Sharpness, Sheer Force, Simple, Skill Link, Slush Rush, Snow Warning, Solid Rock, Soul-Heart, Speed Boost, Stakeout, Stamina, Steelworker, Steely Spirit, Strong Jaw, Storm Drain, Sturdy, Supreme Overlord, Surge Surfer, Swift Swim, Sword of Ruin, Tablets of Ruin, Technician, Tera Shell, Teravolt, Thick Fat, Tinted Lens, Tough Claws, Toxic Boost, Toxic Chain, Toxic Debris, Transistor, Triage, Turboblaze, Unaware, Unburden, Vessel of Ruin, Volt Absorb, Water Absorb, Water Bubble, Weak Armor, Well-Baked Body, Wind Rider, Gale Wings, Flower Veil, Flare Boost, Wonder Skin";
 	  const NormalAbilities = text1.split(", ");
 	  
 	  //Situational Abilities, Length = 72
 	  let text2 = "Aftermath, Analytic, Armor Tail, Berserk, Blaze, Cheek Pouch, Clear Body, Competitive, Cotton Down, Cud Chew, Cursed Body, Dazzling, Frisk, Flame Body, Forecast, Full Metal Body, Gooey, Guard Dog, Harvest, Heatproof, Inmunity, Infiltrator, Limber, Lingering Aroma, Marvel Scale, Mirror Armor, Mummy, Natural Cure, Neuroforce, Overcoat, Overgrow, Pastel Veil, Poison Touch, Pressure, Queenly Magesty, Quick Draw, Quick Feet, Ripen, Rough Skin, Sand Force, Shield Dust, Sniper, Solar Power, Soundproof, Shed Skin, Static, Steam Engine, Swarm, Sweet Veil, Synchronize, Tangling Hair, Thermal Exchange, Torrent, Trace, Unseen Fist, Victory Star, Wandering Spirit, Water Veil, White Smoke, Anger Shell, Bulletproof, Compound Eyes, Dry Skin, Poison Puppeteer, Reckless, Cloud Nine, Air Lock, Grass Pelt, Liquid Voice, Long Reach, Magician, Poison Point, Wind Power";
 	  const SituAbilities = text2.split(", ");
 	  
-	  //Useless Abilities, Length = 88
-	  let text3= "Anger Point, Anticipation, Aura Break, Bad Dreams, Ball Fetch, Battery, Battle Armor, Big Pecks, Color Change, Commander, Costar, Curious Medicine, Cute Charm, Damp, Dancer, Defeatist, Early Bird, Emergency Exit, Flower Gift, Forewarn, Friend Guard, Gluttony, Healer, Heavy Metal, Honey Gather, Hospitality, Hunger Switch, Hydration, Hyper Cutter, Ice Body, Illuminate, Inner Focus, Insomnia, Keen Eye, Klutz, Leaf Guard, Light Metal, Magma Armor, Merciless, Mimicry, Minus, Oblivious, Own Tempo, Perish Body, Pickpocket, Pickup, Plus, Power of Alchemy, Power Spot, Propeller Tail, Rain Dish, Rattled, Receiver, Rivalry, Run Away, Sand Veil, Shell Armor, Slow Start, Snow Cloak, Stall, Stalwart, Steadfast, Stench, Sticky Hold, Suction Cups, Supersweet Syrup, Super Luck, Symbiosis, Tangled Feet, Telepathy, Truant, Unnerve, Vital Spirit, Wimp Out, Zen Mode, Justified, Liquid Ooze, Mycelium Might, Screen Cleaner, Power Construct, RKS System, Schooling, Shields Down, Stance Change, Tera Shift, Zero to Hero, Gulp Missile, Effect Spore";
+	  //Useless Abilities, Length = 93
+	  let text3= "Anger Point, Anticipation, Aura Break, Bad Dreams, Ball Fetch, Battery, Battle Armor, Big Pecks, Color Change, Commander, Costar, Curious Medicine, Cute Charm, Damp, Dancer, Defeatist, Early Bird, Emergency Exit, Flower Gift, Forewarn, Friend Guard, Gluttony, Healer, Heavy Metal, Honey Gather, Hospitality, Hunger Switch, Hydration, Hyper Cutter, Ice Body, Illuminate, Inner Focus, Insomnia, Keen Eye, Klutz, Leaf Guard, Light Metal, Magma Armor, Merciless, Mimicry, Minus, Oblivious, Own Tempo, Perish Body, Pickpocket, Pickup, Plus, Power of Alchemy, Power Spot, Propeller Tail, Rain Dish, Rattled, Receiver, Rivalry, Run Away, Sand Veil, Shell Armor, Slow Start, Snow Cloak, Stall, Stalwart, Steadfast, Stench, Sticky Hold, Suction Cups, Supersweet Syrup, Super Luck, Symbiosis, Tangled Feet, Telepathy, Truant, Unnerve, Vital Spirit, Wimp Out, Zen Mode, Justified, Liquid Ooze, Mycelium Might, Screen Cleaner, Power Construct, RKS System, Schooling, Shields Down, Stance Change, Tera Shift, Zero to Hero, Gulp Missile, Effect Spore, Embody Aspect (Teal), Embody Aspect (Hearthflame), Embody Aspect (Wellspring), Embody Aspect (Cornerstone), Teraform Zero";
 	  const UselessAbilities = text3.split(", ");
 	  
+	  //Ability Dropdown Construction
+	  const abiNorm_array = [abiNorm1, abiNorm2, abiNorm3, abiNorm1_new, abiNorm2_new, abiNorm3_new];
+	  const abiSitu_array = [abiSitu1, abiSitu2, abiSitu3, abiSitu1_new, abiSitu2_new, abiSitu3_new];
+	  const abiUsel_array = [abiUsel1, abiUsel2, abiUsel3, abiUsel1_new, abiUsel2_new, abiUsel3_new];
+	  
+	  function makeAbilityDropdown(abilityArray, optgroup) {
+	    for (let i = 0; i < abilityArray.length; i++) {
+		  let optn = abilityArray[i];
+		  let elm = document.createElement("option");
+		  elm.textContent = optn;
+		  elm.value = optn;
+		  optgroup.appendChild(elm);
+	    }
+	  }
+	  
+	  for (let i = 0; i < abiNorm_array.length; i++) {
+	    makeAbilityDropdown(NormalAbilities, abiNorm_array[i]);
+		makeAbilityDropdown(SituAbilities, abiSitu_array[i]);
+		makeAbilityDropdown(UselessAbilities, abiUsel_array[i]);
+	  }
+	  
+	  /*
+	  let txt = ""
+	  for (let i = 0; i < test.length; i++) {
+	    txt += typeof test[i];
+	  }
+	  demo.innerHTML = txt
+	  */
+	  
+	  makeAbilityDropdown(NormalAbilities, abiNorm1);
+	  makeAbilityDropdown(SituAbilities, abiSitu1);
+	  makeAbilityDropdown(UselessAbilities, abiUsel1);
+	  //makeAbilityDropdown(ability2);
+	  //makeAbilityDropdown(ability3);  
 	  
 	  
 	  //End of Ability Cost Calculation
-	  
 	  
 	  
 	  //Move Cost Calculation
@@ -305,6 +474,24 @@
 	  
 	  //Universal Moves
 	  const UniversalMoves = ["Take Down","Rest","Sleep Talk","Snore","Protect","Facade","Substitute","Tera Blast"];
+	  
+	  //End of Move Cost Calculation
+	  
+	  //Reset
+	  function reset() {
+		type1_new.value = "";
+		type2_new.value = "";
+		abi1_new.value = "";
+		abi2_new.value = "";
+		abi3_new.value = "";
+		hp_new.value = 50;
+		atk_new.value = 50;
+		def_new.value = 50;
+		spa_new.value = 50;
+		spd_new.value = 50;
+		spe_new.value = 50;
+		moves_new.value = "";
+	  }
 	  
     </script>
   </body>
