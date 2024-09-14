@@ -63,7 +63,7 @@
 			<tr>
 				<td class="header1">Type: </td>
 				<td>
-					<select id="type1">
+					<select id="type1" onchange="getTypeCost();">
 						<option selected value=""></option>
 						<option value="normal">Normal</option>
 						<option value="fire">Fire</option>
@@ -84,7 +84,7 @@
 						<option value="steel">Steel</option>
 						<option value="fairy">Fairy</option>
 					</select>
-					<select id="type2">
+					<select id="type2" onchange="getTypeCost();">
 						<option selected value=""></option>
 						<option value="normal">Normal</option>
 						<option value="fire">Fire</option>
@@ -110,18 +110,18 @@
       <tr>
 				<td class="header1">Stats: </td>
 				<td>
-					<input type="number" id="hp_old" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
-					<input type="number" id="atk_old" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
-					<input type="number" id="def_old" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
-					<input type="number" id="spa_old" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
-					<input type="number" id="spd_old" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
-					<input type="number" id="spe_old" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
+					<input type="number" id="hp_old" value=50 min=0 max=255 step=5 onchange="showStatCost();getTotalCost()">
+					<input type="number" id="atk_old" value=50 min=0 max=255 step=5 onchange="showStatCost();getTotalCost()">
+					<input type="number" id="def_old" value=50 min=0 max=255 step=5 onchange="showStatCost();getTotalCost()">
+					<input type="number" id="spa_old" value=50 min=0 max=255 step=5 onchange="showStatCost();getTotalCost()">
+					<input type="number" id="spd_old" value=50 min=0 max=255 step=5 onchange="showStatCost();getTotalCost()">
+					<input type="number" id="spe_old" value=50 min=0 max=255 step=5 onchange="showStatCost();getTotalCost()">
 				</td>
       </tr>
 			<tr>
 				<td class="header1">Abilities: </td>
 				<td>
-					<select id="abi1">
+					<select id="abi1" onchange="getFirstAbiCost(abi1, abi1_new, abi1_cost);">
 						<option value=""></option>
 						<optgroup id="abiNorm1" label="- Normal Abilities -">
 						</optgroup>
@@ -130,7 +130,7 @@
 						<optgroup id="abiUsel1" label="- Useless Abilities -">
 						</optgroup>
 					</select>
-					<select id="abi2">
+					<select id="abi2" onchange="getAbiCost(abi2, abi2_new, abi2_cost);">
 						<option value=""></option>
 						<optgroup id="abiNorm2" label="- Normal Abilities -">
 						</optgroup>
@@ -139,7 +139,7 @@
 						<optgroup id="abiUsel2" label="- Useless Abilities -">
 						</optgroup>
 					</select>
-					<select id="abi3">
+					<select id="abi3" onchange="getAbiCost(abi3, abi3_new, abi3_cost);">
 						<option value=""></option>
 						<optgroup id="abiNorm3" label="- Normal Abilities -">
 						</optgroup>
@@ -168,7 +168,7 @@
 			<tr>
 				<td class="header1">Name: </td>
 				<td><textarea id="name" rows=1 cols=30 maxlength=30></textarea></td>
-				<td><button type="button" onclick="getType(); getNewStats(); getAbilities();">Get Canvas</button></td>
+				<td><button type="button" onclick="getType(); getNewStats(); getAbilities(); getTypeCost(); showStatCost();">Get Canvas</button></td>
 			</tr>
 			<tr>
 				<td class="header1">Weight: </td>
@@ -177,7 +177,7 @@
 			<tr>
 				<td class="header1">Type: </td>
 				<td>
-					<select id="type1_new">
+					<select id="type1_new" onchange="getTypeCost();">
 						<option selected value=""></option>
 						<option value="normal">Normal</option>
 						<option value="fire">Fire</option>
@@ -198,7 +198,7 @@
 						<option value="steel">Steel</option>
 						<option value="fairy">Fairy</option>
 					</select>
-					<select id="type2_new">
+					<select id="type2_new" onchange="getTypeCost();">
 						<option selected value=""></option>
 						<option value="normal">Normal</option>
 						<option value="fire">Fire</option>
@@ -220,63 +220,63 @@
 						<option value="fairy">Fairy</option>
 					</select>
 				</td>
-				<td><button type="button" onclick="getType()">Get Type</button></td>
+				<td><button type="button" onclick="getType(); getTypeCost();">Get Type</button></td>
 			</tr>
-		<tr>
-		  <td class="header1">Stats: </td>
-		  <td>
-		    <input type="number" id="hp_new" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
-        <input type="number" id="atk_new" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
-				<input type="number" id="def_new" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
-				<input type="number" id="spa_new" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
-				<input type="number" id="spd_new" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
-				<input type="number" id="spe_new" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
-		  </td>
-		  <td><button type="button" onclick="getNewStats()">Get Stats</button></td>
-		</tr>
-		<tr>
-		  <td class="header1">Abilities: </td>
-		  <td>
-				<select id="abi1_new">
-					<option value=""></option>
-					<optgroup id="abiNorm1_new" label="- Normal Abilities -">
-					</optgroup>
-					<optgroup id="abiSitu1_new" label="- Situational Abilities -">
-					</optgroup>
-					<optgroup id="abiUsel1_new" label="- Useless Abilities -">
-					</optgroup>
-				</select>
-				<select id="abi2_new">
-					<option value=""></option>
-					<optgroup id="abiNorm2_new" label="- Normal Abilities -">
-					</optgroup>
-					<optgroup id="abiSitu2_new" label="- Situational Abilities -">
-					</optgroup>
-					<optgroup id="abiUsel2_new" label="- Useless Abilities -">
-					</optgroup>
-				</select>
-				<select id="abi3_new">
-					<option value=""></option>
-					<optgroup id="abiNorm3_new" label="- Normal Abilities -">
-					</optgroup>
-					<optgroup id="abiSitu3_new" label="- Situational Abilities -">
-					</optgroup>
-					<optgroup id="abiUsel3_new" label="- Useless Abilities -">
-					</optgroup>
-				</select>
-		  </td>
-		  <td><button type="button" onclick="getAbilities()">Get Abilities</button></td>
-		</tr>
-		<tr>
-		  <td class="header1">New Moves: </td>
-		  <td><textarea id="moves_new" cols=85 rows=3></textarea></td>
-		</tr>
-		<!--Inserting a blank row-->
-		<tr class="header1"></tr>
-		<tr>
-		  <td class="header1">Suggested moves: </td>
-		  <td><textarea id="moves_suggest" class="noinput" cols=85 rows=3 disabled></textarea></td>
-		</tr>
+			<tr>
+				<td class="header1">Stats: </td>
+				<td>
+					<input type="number" id="hp_new" value=50 min=0 max=255 step=5 onchange="showStatCost();getTotalCost()">
+					<input type="number" id="atk_new" value=50 min=0 max=255 step=5 onchange="showStatCost();getTotalCost()">
+					<input type="number" id="def_new" value=50 min=0 max=255 step=5 onchange="showStatCost();getTotalCost()">
+					<input type="number" id="spa_new" value=50 min=0 max=255 step=5 onchange="showStatCost();getTotalCost()">
+					<input type="number" id="spd_new" value=50 min=0 max=255 step=5 onchange="showStatCost();getTotalCost()">
+					<input type="number" id="spe_new" value=50 min=0 max=255 step=5 onchange="showStatCost();getTotalCost()">
+				</td>
+				<td><button type="button" onclick="getNewStats();showStatCost();">Get Stats</button></td>
+			</tr>
+			<tr>
+				<td class="header1">Abilities: </td>
+				<td>
+					<select id="abi1_new" onchange="getFirstAbiCost(abi1, abi1_new, abi1_cost);">
+						<option value=""></option>
+						<optgroup id="abiNorm1_new" label="- Normal Abilities -">
+						</optgroup>
+						<optgroup id="abiSitu1_new" label="- Situational Abilities -">
+						</optgroup>
+						<optgroup id="abiUsel1_new" label="- Useless Abilities -">
+						</optgroup>
+					</select>
+					<select id="abi2_new" onchange="getAbiCost(abi2, abi2_new, abi2_cost);">
+						<option value=""></option>
+						<optgroup id="abiNorm2_new" label="- Normal Abilities -">
+						</optgroup>
+						<optgroup id="abiSitu2_new" label="- Situational Abilities -">
+						</optgroup>
+						<optgroup id="abiUsel2_new" label="- Useless Abilities -">
+						</optgroup>
+					</select>
+					<select id="abi3_new" onchange="getAbiCost(abi3, abi3_new, abi3_cost);">
+						<option value=""></option>
+						<optgroup id="abiNorm3_new" label="- Normal Abilities -">
+						</optgroup>
+						<optgroup id="abiSitu3_new" label="- Situational Abilities -">
+						</optgroup>
+						<optgroup id="abiUsel3_new" label="- Useless Abilities -">
+						</optgroup>
+					</select>
+				</td>
+				<td><button type="button" onclick="getAbilities(); getFirstAbiCost(abi1, abi1_new, abi1_cost); getAbiCost(abi2, abi2_new, abi2_cost); getAbiCost(abi3, abi3_new, abi3_cost);">Get Abilities</button></td>
+			</tr>
+			<tr>
+				<td class="header1">New Moves: </td>
+				<td><textarea id="moves_new" cols=85 rows=3></textarea></td>
+			</tr>
+			<!--Inserting a blank row-->
+			<tr class="header1"></tr>
+			<tr>
+				<td class="header1">Suggested moves: </td>
+				<td><textarea id="moves_suggest" class="noinput" cols=85 rows=3 disabled></textarea></td>
+			</tr>
 		</table>
 		<!--End of Fakemon Table-->
 	  
@@ -284,81 +284,84 @@
 	  
 	  <!--Start of Cost Table-->
 	  <table>
-	    <tr>
-		  <td colspan=3 class="header0">Point Cost</td>
-		</tr>
-		<tr>
-		  <td class="header1">Total Cost: </td>
-		  <td>
-		    <textarea class="total" inputmode="number" id="total_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
-		  </td>
-		</tr>
-		<tr>
-		  <td class="header1">Remaining Cost: </td>
-		  <td>
-		    <textarea class="remaining" inputmode="number" id="rem_cost" placeholder=50 rows=1 cols=4 disabled></textarea>
-		  </td>
-		</tr>
-		<tr>
-		  <td class="header1">Type: </td>
-		  <td>
-		    <textarea class="noinput" inputmode="number" id="type1_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
-			<textarea class="noinput" inputmode="number" id="type2_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
-		  </td>
-		</tr>
-		<tr>
-		  <td class="header1">Stats: </td>
-		  <td>
-		    <textarea class="noinput" inputmode="number" id="hp_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
-			<textarea class="noinput" inputmode="number" id="atk_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
-			<textarea class="noinput" inputmode="number" id="def_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
-			<textarea class="noinput" inputmode="number" id="spa_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
-			<textarea class="noinput" inputmode="number" id="spd_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
-			<textarea class="noinput" inputmode="number" id="spe_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+			<tr>
+				<td colspan=3 class="header0">Point Cost</td>
+			</tr>
+			<tr>
+				<td class="header1">Total Cost: </td>
+				<td>
+					<textarea class="total" inputmode="number" id="total_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td class="header1">Remaining Cost: </td>
+				<td>
+					<textarea class="remaining" inputmode="number" id="rem_cost" placeholder=50 rows=1 cols=4 disabled></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td class="header1">Type: </td>
+				<td>
+					<textarea class="noinput" inputmode="number" id="type1_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+					<textarea class="noinput" inputmode="number" id="type2_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td class="header1">Stats: </td>
+				<td>
+					<textarea class="noinput" inputmode="number" id="hp_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+					<textarea class="noinput" inputmode="number" id="atk_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+					<textarea class="noinput" inputmode="number" id="def_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+					<textarea class="noinput" inputmode="number" id="spa_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+					<textarea class="noinput" inputmode="number" id="spd_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+					<textarea class="noinput" inputmode="number" id="spe_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
 	      </td>
-		</tr>
-		<tr>
-		  <td class="header1">Abilities: </td>
-		  <td>
-		    <textarea class="noinput" inputmode="number" id="abi1_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
-			<textarea class="noinput" inputmode="number" id="abi2_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
-			<textarea class="noinput" inputmode="number" id="abi3_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
-		  </td>
-		</tr>
-		<tr>
-		  <td class="header1">Moves: </td>
-		  <td><textarea class="noinput" inputmode="number" id="move_cost" placeholder=0 rows=1 cols=4 disabled></textarea></td>
-		</tr>
+			</tr>
+			<tr>
+				<td class="header1">Abilities: </td>
+				<td>
+					<textarea class="noinput" inputmode="number" id="abi1_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+					<textarea class="noinput" inputmode="number" id="abi2_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+					<textarea class="noinput" inputmode="number" id="abi3_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td class="header1">Moves: </td>
+				<td><textarea class="noinput" inputmode="number" id="move_cost" placeholder=0 rows=1 cols=4 disabled></textarea></td>
+			</tr>
 	  </table>
 	  <!--End of Cost Table-->
-    </p>
+		</p>
 	
-	<br><br>
+		<br><br>
 	
-    <p>
-	  Total: <span id="stat_tc">0</span><br>
-      Test: <span id="demo"></span>
-    </p>
+		<p>
+			Total: <span id="stat_tc">0</span><br>
+			Test: <span id="demo"></span>
+		</p>
 
 
 
     <script>
-	  //Start of Type Cost Calculation (WIP)
-	  function getType() {
-		type1_new.value = type1.value;
-		type2_new.value = type2.value;
-	  }
-	  
-	  function getTypeCost() {
-			if (type1_new.value != type1.value) {
-				type1_cost.value = 5;
+			//Start of Type Cost Calculation (WIP)
+			function getType() {
+				type1_new.value = type1.value;
+				type2_new.value = type2.value;
 			}
-			if (type2_new.value != type2.value) {
-				type2_cost.value = 10;
-			}
-	  }
 	  
-	  //End of Type Cost Calculation
+			function getTypeCost() {
+				if (type1_new.value != type1.value) {
+					type1_cost.value = 5;
+				} else {
+					type1_cost.value = 0;
+				}
+				if (type2_new.value != type2.value) {
+					type2_cost.value = 10;
+				} else {
+					type2_cost.value = 0;
+				}
+			}	  
+			//End of Type Cost Calculation
 	  
 	
       //Start of Stat Cost Calculation
@@ -396,7 +399,7 @@
         return stat_cost;
       }
 
-      function showCost() {
+      function showStatCost() {
         hp_cost.innerHTML = getStatCost(hp_old, hp_new);
         atk_cost.innerHTML = getStatCost(atk_old, atk_new);
         def_cost.innerHTML = getStatCost(def_old, def_new);
@@ -411,96 +414,149 @@
       //End of Stat Cost Calculation
 	  
 	  
-	  //Ability Cost Calculation  
-	  function getAbilities() {
-		abi1_new.value = abi1.value;
-		abi2_new.value = abi2.value;
-		abi3_new.value = abi3.value;
-	  }
+			//Ability Section  
+			function getAbilities() {
+				abi1_new.value = abi1.value;
+				abi2_new.value = abi2.value;
+				abi3_new.value = abi3.value;
+			}
 	  
-	  //Normal Abilities, Length = 136
-	  let text1 = "Adaptability, Aroma Veil, Aerilate, As One (Glastrier), As One (Spectrier), Battle Bond, Beads of Ruin, Chilling Neigh, Chlorophyll, Corrosion, Comatose, Contrary, Dark Aura, Dauntless Shield, Defiant, Delta Stream, Desolate Land, Disguise, Download, Dragon's Maw, Drizzle, Drought, Earth Eater, Electric Surge, Electromorphosis, Fairy Aura, Filter, Flash Fire, Fluffy, Fur Coat, Galvanize, Good as Gold, Gorilla Tactics, Grassy Surge, Grim Neigh, Guts, Hadron Engine, Huge Power, Hustle, Ice Face, Ice Scales, Illusion, Imposter, Innards Out, Intimidate, Intrepid Sword, Iron Fist, Levitate, Libero, Lightning Rod, Magic Bounce, Magic Guard, Magnet Pull, Mega Launcher, Misty Surge, Mold Breaker, Moody, Mind's Eye, Motor Drive, Moxie, Multiscale, Neutralizing Gas, No Guard, Opportunist, Orichalcum Pulse, Parental Bond, Pixilate, Poison Heal, Poison Heal, Prankster, Primordial Sea, Prism Armor, Protean, Protosynthesis, Psychic Surge, Punk Rock, Pure Power, Purifying Salt, Quark Drive, Refrigerate, Regenerator, Rock Head, Rocky Payload, Sand Rush, Sand Spit, Seed Sower, Sand Stream, Sap Sipper, Scrappy, Serene Grace, Shadow Shield, Sharpness, Sheer Force, Simple, Skill Link, Slush Rush, Snow Warning, Solid Rock, Soul-Heart, Speed Boost, Stakeout, Stamina, Steelworker, Steely Spirit, Strong Jaw, Storm Drain, Sturdy, Supreme Overlord, Surge Surfer, Swift Swim, Sword of Ruin, Tablets of Ruin, Technician, Tera Shell, Teravolt, Thick Fat, Tinted Lens, Tough Claws, Toxic Boost, Toxic Chain, Toxic Debris, Transistor, Triage, Turboblaze, Unaware, Unburden, Vessel of Ruin, Volt Absorb, Water Absorb, Water Bubble, Weak Armor, Well-Baked Body, Wind Rider, Gale Wings, Flower Veil, Flare Boost, Wonder Skin";
-	  const NormalAbilities = text1.split(", ");
+			//Normal Abilities, Length = 136
+			let text1 = "Adaptability, Aroma Veil, Aerilate, As One (Glastrier), As One (Spectrier), Battle Bond, Beads of Ruin, Chilling Neigh, Chlorophyll, Corrosion, Comatose, Contrary, Dark Aura, Dauntless Shield, Defiant, Delta Stream, Desolate Land, Disguise, Download, Dragon's Maw, Drizzle, Drought, Earth Eater, Electric Surge, Electromorphosis, Fairy Aura, Filter, Flash Fire, Fluffy, Fur Coat, Galvanize, Good as Gold, Gorilla Tactics, Grassy Surge, Grim Neigh, Guts, Hadron Engine, Huge Power, Hustle, Ice Face, Ice Scales, Illusion, Imposter, Innards Out, Intimidate, Intrepid Sword, Iron Fist, Levitate, Libero, Lightning Rod, Magic Bounce, Magic Guard, Magnet Pull, Mega Launcher, Misty Surge, Mold Breaker, Moody, Mind's Eye, Motor Drive, Moxie, Multiscale, Neutralizing Gas, No Guard, Opportunist, Orichalcum Pulse, Parental Bond, Pixilate, Poison Heal, Poison Heal, Prankster, Primordial Sea, Prism Armor, Protean, Protosynthesis, Psychic Surge, Punk Rock, Pure Power, Purifying Salt, Quark Drive, Refrigerate, Regenerator, Rock Head, Rocky Payload, Sand Rush, Sand Spit, Seed Sower, Sand Stream, Sap Sipper, Scrappy, Serene Grace, Shadow Shield, Sharpness, Sheer Force, Simple, Skill Link, Slush Rush, Snow Warning, Solid Rock, Soul-Heart, Speed Boost, Stakeout, Stamina, Steelworker, Steely Spirit, Strong Jaw, Storm Drain, Sturdy, Supreme Overlord, Surge Surfer, Swift Swim, Sword of Ruin, Tablets of Ruin, Technician, Tera Shell, Teravolt, Thick Fat, Tinted Lens, Tough Claws, Toxic Boost, Toxic Chain, Toxic Debris, Transistor, Triage, Turboblaze, Unaware, Unburden, Vessel of Ruin, Volt Absorb, Water Absorb, Water Bubble, Weak Armor, Well-Baked Body, Wind Rider, Gale Wings, Flower Veil, Flare Boost, Wonder Skin";
+			const NormalAbilities = text1.split(", ");
+			
+			//Situational Abilities, Length = 72
+			let text2 = "Aftermath, Analytic, Armor Tail, Berserk, Blaze, Cheek Pouch, Clear Body, Competitive, Cotton Down, Cud Chew, Cursed Body, Dazzling, Frisk, Flame Body, Forecast, Full Metal Body, Gooey, Guard Dog, Harvest, Heatproof, Inmunity, Infiltrator, Limber, Lingering Aroma, Marvel Scale, Mirror Armor, Mummy, Natural Cure, Neuroforce, Overcoat, Overgrow, Pastel Veil, Poison Touch, Pressure, Queenly Magesty, Quick Draw, Quick Feet, Ripen, Rough Skin, Sand Force, Shield Dust, Sniper, Solar Power, Soundproof, Shed Skin, Static, Steam Engine, Swarm, Sweet Veil, Synchronize, Tangling Hair, Thermal Exchange, Torrent, Trace, Unseen Fist, Victory Star, Wandering Spirit, Water Veil, White Smoke, Anger Shell, Bulletproof, Compound Eyes, Dry Skin, Poison Puppeteer, Reckless, Cloud Nine, Air Lock, Grass Pelt, Liquid Voice, Long Reach, Magician, Poison Point, Wind Power";
+			const SituAbilities = text2.split(", ");
+			
+			//Useless Abilities, Length = 93
+			let text3= "Anger Point, Anticipation, Aura Break, Bad Dreams, Ball Fetch, Battery, Battle Armor, Big Pecks, Color Change, Commander, Costar, Curious Medicine, Cute Charm, Damp, Dancer, Defeatist, Early Bird, Emergency Exit, Flower Gift, Forewarn, Friend Guard, Gluttony, Healer, Heavy Metal, Honey Gather, Hospitality, Hunger Switch, Hydration, Hyper Cutter, Ice Body, Illuminate, Inner Focus, Insomnia, Keen Eye, Klutz, Leaf Guard, Light Metal, Magma Armor, Merciless, Mimicry, Minus, Oblivious, Own Tempo, Perish Body, Pickpocket, Pickup, Plus, Power of Alchemy, Power Spot, Propeller Tail, Rain Dish, Rattled, Receiver, Rivalry, Run Away, Sand Veil, Shell Armor, Slow Start, Snow Cloak, Stall, Stalwart, Steadfast, Stench, Sticky Hold, Suction Cups, Supersweet Syrup, Super Luck, Symbiosis, Tangled Feet, Telepathy, Truant, Unnerve, Vital Spirit, Wimp Out, Zen Mode, Justified, Liquid Ooze, Mycelium Might, Screen Cleaner, Power Construct, RKS System, Schooling, Shields Down, Stance Change, Tera Shift, Zero to Hero, Gulp Missile, Effect Spore, Embody Aspect (Teal), Embody Aspect (Hearthflame), Embody Aspect (Wellspring), Embody Aspect (Cornerstone), Teraform Zero";
+			const UselessAbilities = text3.split(", ");
 	  
-	  //Situational Abilities, Length = 72
-	  let text2 = "Aftermath, Analytic, Armor Tail, Berserk, Blaze, Cheek Pouch, Clear Body, Competitive, Cotton Down, Cud Chew, Cursed Body, Dazzling, Frisk, Flame Body, Forecast, Full Metal Body, Gooey, Guard Dog, Harvest, Heatproof, Inmunity, Infiltrator, Limber, Lingering Aroma, Marvel Scale, Mirror Armor, Mummy, Natural Cure, Neuroforce, Overcoat, Overgrow, Pastel Veil, Poison Touch, Pressure, Queenly Magesty, Quick Draw, Quick Feet, Ripen, Rough Skin, Sand Force, Shield Dust, Sniper, Solar Power, Soundproof, Shed Skin, Static, Steam Engine, Swarm, Sweet Veil, Synchronize, Tangling Hair, Thermal Exchange, Torrent, Trace, Unseen Fist, Victory Star, Wandering Spirit, Water Veil, White Smoke, Anger Shell, Bulletproof, Compound Eyes, Dry Skin, Poison Puppeteer, Reckless, Cloud Nine, Air Lock, Grass Pelt, Liquid Voice, Long Reach, Magician, Poison Point, Wind Power";
-	  const SituAbilities = text2.split(", ");
+			//Ability Dropdown Construction
+			const abiNorm_array = [abiNorm1, abiNorm2, abiNorm3, abiNorm1_new, abiNorm2_new, abiNorm3_new];
+			const abiSitu_array = [abiSitu1, abiSitu2, abiSitu3, abiSitu1_new, abiSitu2_new, abiSitu3_new];
+			const abiUsel_array = [abiUsel1, abiUsel2, abiUsel3, abiUsel1_new, abiUsel2_new, abiUsel3_new];
 	  
-	  //Useless Abilities, Length = 93
-	  let text3= "Anger Point, Anticipation, Aura Break, Bad Dreams, Ball Fetch, Battery, Battle Armor, Big Pecks, Color Change, Commander, Costar, Curious Medicine, Cute Charm, Damp, Dancer, Defeatist, Early Bird, Emergency Exit, Flower Gift, Forewarn, Friend Guard, Gluttony, Healer, Heavy Metal, Honey Gather, Hospitality, Hunger Switch, Hydration, Hyper Cutter, Ice Body, Illuminate, Inner Focus, Insomnia, Keen Eye, Klutz, Leaf Guard, Light Metal, Magma Armor, Merciless, Mimicry, Minus, Oblivious, Own Tempo, Perish Body, Pickpocket, Pickup, Plus, Power of Alchemy, Power Spot, Propeller Tail, Rain Dish, Rattled, Receiver, Rivalry, Run Away, Sand Veil, Shell Armor, Slow Start, Snow Cloak, Stall, Stalwart, Steadfast, Stench, Sticky Hold, Suction Cups, Supersweet Syrup, Super Luck, Symbiosis, Tangled Feet, Telepathy, Truant, Unnerve, Vital Spirit, Wimp Out, Zen Mode, Justified, Liquid Ooze, Mycelium Might, Screen Cleaner, Power Construct, RKS System, Schooling, Shields Down, Stance Change, Tera Shift, Zero to Hero, Gulp Missile, Effect Spore, Embody Aspect (Teal), Embody Aspect (Hearthflame), Embody Aspect (Wellspring), Embody Aspect (Cornerstone), Teraform Zero";
-	  const UselessAbilities = text3.split(", ");
+			function makeAbilityDropdown(abilityArray, optgroup) {
+				for (let i = 0; i < abilityArray.length; i++) {
+				let optn = abilityArray[i];
+				let elm = document.createElement("option");
+				elm.textContent = optn;
+				elm.value = optn;
+				optgroup.appendChild(elm);
+				}
+			}
 	  
-	  //Ability Dropdown Construction
-	  const abiNorm_array = [abiNorm1, abiNorm2, abiNorm3, abiNorm1_new, abiNorm2_new, abiNorm3_new];
-	  const abiSitu_array = [abiSitu1, abiSitu2, abiSitu3, abiSitu1_new, abiSitu2_new, abiSitu3_new];
-	  const abiUsel_array = [abiUsel1, abiUsel2, abiUsel3, abiUsel1_new, abiUsel2_new, abiUsel3_new];
+			for (let i = 0; i < abiNorm_array.length; i++) {
+				makeAbilityDropdown(NormalAbilities, abiNorm_array[i]);
+				makeAbilityDropdown(SituAbilities, abiSitu_array[i]);
+				makeAbilityDropdown(UselessAbilities, abiUsel_array[i]);
+			}
+			
+			//Actual Cost Calculation
+			function getFirstAbiCost(old_abi, new_abi, cost) {
+				if (old_abi.value == "") {
+					if (NormalAbilities.includes(new_abi.value)) {
+						cost.value = 2.5;
+					} else if (SituAbilities.includes(new_abi.value)) {
+						cost.value = 1;
+					} else {
+						cost.value = 0;
+					} 
+				} else if (old_abi.value == new_abi.value) {
+					cost.value = 0;
+				} else {
+					cost.value = "error";
+				}		 
+			} 	
+			
+			function getAbiCost(old_abi, new_abi, cost) {
+				if (new_abi.value == "") {
+					cost.value = 0;
+				} else {
+					if (old_abi.value != new_abi.value) {
+						if (NormalAbilities.includes(new_abi.value)) {
+							cost.value = 5;
+						} else if (SituAbilities.includes(new_abi.value)) {
+							cost.value = 2;
+						} else {
+							cost.value = 0;
+						}
+					}
+				}
+			}	
+			
 	  
-	  function makeAbilityDropdown(abilityArray, optgroup) {
-	    for (let i = 0; i < abilityArray.length; i++) {
-		  let optn = abilityArray[i];
-		  let elm = document.createElement("option");
-		  elm.textContent = optn;
-		  elm.value = optn;
-		  optgroup.appendChild(elm);
-	    }
-	  }
-	  
-	  for (let i = 0; i < abiNorm_array.length; i++) {
-	    makeAbilityDropdown(NormalAbilities, abiNorm_array[i]);
-		makeAbilityDropdown(SituAbilities, abiSitu_array[i]);
-		makeAbilityDropdown(UselessAbilities, abiUsel_array[i]);
-	  }
-	  
-	  /*
-	  let txt = ""
-	  for (let i = 0; i < test.length; i++) {
-	    txt += typeof test[i];
-	  }
-	  demo.innerHTML = txt
-	  */
-	  
-	  makeAbilityDropdown(NormalAbilities, abiNorm1);
-	  makeAbilityDropdown(SituAbilities, abiSitu1);
-	  makeAbilityDropdown(UselessAbilities, abiUsel1);
-	  //makeAbilityDropdown(ability2);
-	  //makeAbilityDropdown(ability3);  
+			/*
+			let txt = ""
+			for (let i = 0; i < test.length; i++) {
+				txt += typeof test[i];
+			}
+			demo.innerHTML = txt
+					
+			makeAbilityDropdown(NormalAbilities, abiNorm1);
+			makeAbilityDropdown(SituAbilities, abiSitu1);
+			makeAbilityDropdown(UselessAbilities, abiUsel1);
+			makeAbilityDropdown(ability2);
+			makeAbilityDropdown(ability3);  
+			*/
 	  
 	  
-	  //End of Ability Cost Calculation
+			//End of Ability Cost Calculation
+			//End of Ability Section
 	  
+			
+			//Move Section
+			//Notable Moves, Length = 398
+			let text4 = "Accelerock, Acid Armor, Acrobatics, Aeroblast, Agility, Air Slash, Alluring Voice, Apple Acid, Aqua Cutter, Aqua Step, Aqua Tail, Armor Cannon, Astral Barrage, Attack Order, Aura Sphere, Aurora Veil, Avalanche, Baneful Bunker, Barb Barrage, Baton Pass, Beak Blast, Behemoth Bash, Behemoth Blade, Belly Drum, Bitter Blade, Bitter Malice, Blaze Kick, Bleakwind Storm, Blizzard, Blood Moon, Blue Flare, Body Press, Body Slam, Bolt Strike, Boomburst, Brave Bird, Brick Break, Bug Buzz, Bulk Up, Bullet Punch, Burning Bulwark, Calm Mind, Ceaseless Edge, Chilly Reception, Chloroblast, Circle Throw, Clanging Scales, Clangorous Soul, Clear Smog, Close Combat, Coil, Collision Course, Cotton Guard, Court Change, Crabhammer, Cross Chop, Crunch, Curse, Darkest Lariat, Dark Pulse, Defog, Destiny Bond, Detect, Diamond Storm, Dire Claw, Disable, Discharge, Doom Desire, Double-Edge, Double Shock, Draco Meteor, Dragon Ascent, Dragon Claw, Dragon Dance, Dragon Darts, Dragon Energy, Dragon Hammer, Dragon Pulse, Dragon Tail, Draining Kiss, Drain Punch, Drill Peck, Drill Run, Drum Beating, Dynamax Cannon, Earth Power, Earthquake, Eerie Spell, Electro Drift, Electro Shot, Encore, Endeavor, Energy Ball, Eruption, Esper Wing, Expanding Force, Explosion, Extrasensory, Extreme Speed, Facade, Fake Out, False Surrender, Fickle Beam, Fiery Dance, Fiery Wrath, Fillet Away, Fire Blast, Fire Fang, Fire Lash, Fire Punch, First Impression, Flame Charge, Flamethrower, Flare Blitz, Flash Cannon, Fleur Cannon, Flip Turn, Flower Trick, Focus Blast, Focus Punch, Foul Play, Freeze-Dry, Freezing Glare, Fusion Bolt, Fusion Flare, Future Sight, Giga Drain, Gigaton Hammer, Glacial Lance, Glaive Rush, Glare, Grass Knot, Grav Apple, Gunk Shot, Hammer Arm, Haze, Headlong Rush, Head Smash, Heal Bell, Healing Wish, Heart Swap, Heat Wave, High Horsepower, High Jump Kick, Hone Claws, Horn Leech, Hurricane, Hydro Pump, Hydro Steam, Hyper Drill, Hyper Voice, Ice Beam, Ice Fang, Ice Hammer, Ice Shard, Ice Spinner, Icicle Spear, Infernal Parade, Infestation, Iron Head, Ivy Cudgel, Judgment, Knock Off, Kowtow Cleave, Lash Out, Last Resort, Last Respects, Lava Plume, Leaf Blade, Leaf Storm, Leech Life, Leech Seed, Light Screen, Liquidation, Low Kick, Lumina Crash, Lunar Dance, Lunge, Luster Purge, Mach Punch, Magma Storm, Make It Rain, Malignant Chain, Matcha Gotcha, Megahorn, Memento, Meteor Beam, Meteor Mash, Mighty Cleave, Milk Drink, Mist Ball, Moonblast, Moongeist Beam, Moonlight, Morning Sun, Mortal Spin, Mountain Gale, Mystical Power, Nasty Plot, Night Shade, No Retreat, Nuzzle, Order Up, Origin Pulse, Overdrive, Overheat, Pain Split, Parting Shot, Perish Song, Petal Blizzard, Petal Dance, Photon Geyser, Play Rough, Poison Jab, Poltergeist, Population Bomb, Power Gem, Power Whip, Precipice Blades, Protect, Psyblade, Psychic, Psychic Fangs, Psychic Noise, Psycho Boost, Psycho Cut, Psyshield Bash, Psyshock, Psystrike, Pyro Ball, Quick Attack, Quiver Dance, Rage Fist, Raging Bull, Raging Fury, Rapid Spin, Razor Shell, Recover, Reflect, Reflect Type, Rest, Revelation Dance, Revival Blessing, Roar, Rock Blast, Rock Polish, Rock Slide, Roost, Ruination, Sacred Fire, Sacred Sword, Salt Cure, Sandsear Storm, Scald, Scorching Sands, Secret Sword, Seed Bomb, Seed Flare, Seismic Toss, Shadow Ball, Shadow Claw, Shadow Sneak, Shed Tail, Shell Side Arm, Shell Smash, Shift Gear, Shore Up, Silk Trap, Slack Off, Sleep Talk, Sludge Bomb, Sludge Wave, Snipe Shot, Soft-Boiled, Spacial Rend, Sparkling Aria, Spikes, Spiky Shield, Spin Out, Spirit Break, Spirit Shackle, Springtide Storm, Stealth Rock, Steam Eruption, Steel Beam, Steel Roller, Sticky Web, Stone Axe, Stone Edge, Stored Power, Strange Steam, Strength Sap, Substitute, Sucker Punch, Sunsteel Strike, Supercell Slam, Super Fang, Superpower, Surf, Surging Strikes, Switcheroo, Swords Dance, Synthesis, Tachyon Cutter, Tail Glow, Tail Slap, Tailwind, Taunt, Teleport, Tera Blast, Tera Starstorm, Throat Chop, Thunder, Thunderbolt, Thunder Cage, Thunderclap, Thunderous Kick, Thunder Punch, Thunder Wave, Tidy Up, Torch Song, Toxic, Toxic Spikes, Trailblaze, Transform, Tri Attack, Trick, Trick Room, Triple Arrows, Triple Axel, Triple Dive, Twin Beam, U-Turn, Victory Dance, Volt Switch, Volt Tackle, Waterfall, Water Shuriken, Water Spout, Wave Crash, Weather Ball, Whirlwind, Wicked Blow, Wildbolt Storm, Will-O-Wisp, Wish, Wood Hammer, X-Scissor, Zen Headbutt, Zing Zap, Solar Beam, Solar Blade, Dynamic Punch, Inferno, Zap Cannon, Heat Crash, Heavy Slam, Aerial Ace, Ancient Power, Aqua Jet, Axe Kick, Bullet Seed, Chilling Water, Counter, Dazzling Gleam, Dual Wingbeat, Feint, Grassy Glide, Gyro Ball, Headbutt, Hex, Ice Punch, Icicle Crash, Icy Wind, Iron Defense, Iron Tail, Mystical Fire, Night Slash, Outrage, Rising Voltage, Rock Tomb, Shelter, Smack Down, Smart Strike, Stun Spore, Temper Flare, Water Pulse, Wild Charge, Final Gambit, Jet Punch, Jungle Healing, Lunar Blessing, Mirror Coat, Pollen Puff, Power Trip, Take Heart, Revival Blessing, Tera Starstorm";
+			const NotableMoves = text4.split(", ");
+			
+			//Useless Moves, Length = 294
+			let text5 = "Absorb, Acid, Acid Spray, Acupressure, After You, Air Cutter, Ally Switch, Amnesia, Aqua Ring, Arm Thrust, Aromatic Mist, Assurance, Astonish, Attract, Aura Wheel, Aurora Beam, Baby-Doll Eyes, Beat Up, Belch, Bind, Bite, Blast Burn, Block, Bone Rush, Bounce, Branch Poke, Breaking Swipe, Brine, Brutal Swing, Bubble Beam, Bug Bite, Bulldoze, Burning Jealousy, Burn Up, Celebrate, Charge, Charge Beam, Charm, Coaching, Comeuppance, Confide, Confuse Ray, Confusion, Conversion, Conversion 2, Copycat, Corrosive Gas, Cosmic Power, Cotton Spore, Covet, Cross Poison, Crush Claw, Crush Grip, Cut, Dark Void, Decorate, Defend Order, Defense Curl, Dig, Disarming Voice, Dive, Doodle, Double Hit, Double Kick, Double Team, Dragon Breath, Dragon Cheer, Dragon Rush, Dream Eater, Echoed Voice, Eerie Impulse, Electric Terrain, Electro Ball, Electroweb, Ember, Endure, Entrainment, Fairy Lock, Fairy Wind, Fake Tears, False Swipe, Feather Dance, Fell Stinger, Fire Pledge, Fire Spin, Fissure, Flail, Flame Wheel, Flatter, Fling, Floral Healing, Fly, Flying Press, Focus Energy, Follow Me, Force Palm, Forest's Curse, Freeze Shock, Frenzy Plant, Frost Breath, Fury Attack, Fury Cutter, Fury Swipes, Gastro Acid, Giga Impact, Glaciate, Grass Pledge, Grassy Terrain, Gravity, Growl, Growth, Guard Split, Guard Swap, Guillotine, Gust, Happy Hour, Harden, Hard Press, Heal Pulse, Helping Hand, Hold Back, Hold Hands, Horn Attack, Horn Drill, Howl, Hydro Cannon, Hyper Beam, Hyperspace Fury, Hyperspace Hole, Hypnosis, Ice Burn, Imprison, Incinerate, Ingrain, Instruct, Jaw Lock, Leafage, Leer, Lick, Life Dew, Lock-On, Low Sweep, Magical Leaf, Magic Powder, Magic Room, Magnetic Flux, Magnet Rise, Mean Look, Mega Drain, Mega Kick, Mega Punch, Metal Burst, Metal Claw, Metal Sound, Metronome, Mimic, Minimize, Mist, Misty Explosion, Misty Terrain, Muddy Water, Mud Shot, Mud-Slap, Night Daze, Noble Roar, Parabolic Charge, Payback, Pay Day, Peck, Phantom Force, Pin Missile, Play Nice, Pluck, Poison Fang, Poison Gas, Poison Powder, Poison Sting, Poison Tail, Pounce, Pound, Powder Snow, Power Shift, Power Split, Power Swap, Power Trick, Present, Prismatic Laser, Psybeam, Psychic Terrain, Psych Up, Quash, Quick Guard, Rage Powder, Rain Dance, Razor Leaf, Recycle, Relic Song, Retaliate, Reversal, Roar of Time, Rock Smash, Rock Throw, Rock Wrecker, Role Play, Rollout, Round, Safeguard, Sand Attack, Sandstorm, Sand Tomb, Scale Shot, Scary Face, Scratch, Screech, Self-Destruct, Shadow Force, Shadow Punch, Sheer Cold, Shock Wave, Simple Beam, Sing, Sketch, Skill Swap, Skitter Smack, Sky Attack, Slam, Slash, Sleep Powder, Sludge, Smog, Smokescreen, Snarl, Snore, Snowscape, Soak, Spark, Speed Swap, Spicy Extract, Spite, Spit Up, Splash, Spore, Steel Wing, Stockpile, Stomp, Stomping Tantrum, Strength, String Shot, Struggle Bug, Stuff Cheeks, Sunny Day, Supersonic, Swagger, Swallow, Sweet Kiss, Sweet Scent, Swift, Syrup Bomb, Tackle, Tail Whip, Take Down, Tar Shot, Tearful Look, Teatime, Teeter Dance, Terrain Pulse, Thief, Thrash, Thunder Fang, Thunder Shock, Tickle, Topsy-Turvy, Torment, Toxic Thread, Triple Kick, Trop Kick, Twister, Upper Hand, Uproar, Vacuum Wave, Venoshock, Vine Whip, Vise Grip, Water Gun, Water Pledge, Whirlpool, Wide Guard, Wing Attack, Withdraw, Wonder Room, Work Up, Worry Seed, Wrap, Yawn";
+			const UselessMoves = text5.split(", ");
+			
+			//Unusable Moves
+			const UnusableMoves = ["Blazing Torque","Combat Torque","Magical Torque","Noxious Torque","Wicked Torque","V-Create"];
+			
+			//Universal Moves
+			const UniversalMoves = ["Take Down","Rest","Sleep Talk","Snore","Protect","Facade","Substitute","Tera Blast"];
+			
+			
+			
+			//Move Cost Calculation
+			
+			//End of Move Cost Calculation
+			//End of Move Section
 	  
-	  //Move Cost Calculation
-	  //Notable Moves, Length = 398
-	  let text4 = "Accelerock, Acid Armor, Acrobatics, Aeroblast, Agility, Air Slash, Alluring Voice, Apple Acid, Aqua Cutter, Aqua Step, Aqua Tail, Armor Cannon, Astral Barrage, Attack Order, Aura Sphere, Aurora Veil, Avalanche, Baneful Bunker, Barb Barrage, Baton Pass, Beak Blast, Behemoth Bash, Behemoth Blade, Belly Drum, Bitter Blade, Bitter Malice, Blaze Kick, Bleakwind Storm, Blizzard, Blood Moon, Blue Flare, Body Press, Body Slam, Bolt Strike, Boomburst, Brave Bird, Brick Break, Bug Buzz, Bulk Up, Bullet Punch, Burning Bulwark, Calm Mind, Ceaseless Edge, Chilly Reception, Chloroblast, Circle Throw, Clanging Scales, Clangorous Soul, Clear Smog, Close Combat, Coil, Collision Course, Cotton Guard, Court Change, Crabhammer, Cross Chop, Crunch, Curse, Darkest Lariat, Dark Pulse, Defog, Destiny Bond, Detect, Diamond Storm, Dire Claw, Disable, Discharge, Doom Desire, Double-Edge, Double Shock, Draco Meteor, Dragon Ascent, Dragon Claw, Dragon Dance, Dragon Darts, Dragon Energy, Dragon Hammer, Dragon Pulse, Dragon Tail, Draining Kiss, Drain Punch, Drill Peck, Drill Run, Drum Beating, Dynamax Cannon, Earth Power, Earthquake, Eerie Spell, Electro Drift, Electro Shot, Encore, Endeavor, Energy Ball, Eruption, Esper Wing, Expanding Force, Explosion, Extrasensory, Extreme Speed, Facade, Fake Out, False Surrender, Fickle Beam, Fiery Dance, Fiery Wrath, Fillet Away, Fire Blast, Fire Fang, Fire Lash, Fire Punch, First Impression, Flame Charge, Flamethrower, Flare Blitz, Flash Cannon, Fleur Cannon, Flip Turn, Flower Trick, Focus Blast, Focus Punch, Foul Play, Freeze-Dry, Freezing Glare, Fusion Bolt, Fusion Flare, Future Sight, Giga Drain, Gigaton Hammer, Glacial Lance, Glaive Rush, Glare, Grass Knot, Grav Apple, Gunk Shot, Hammer Arm, Haze, Headlong Rush, Head Smash, Heal Bell, Healing Wish, Heart Swap, Heat Wave, High Horsepower, High Jump Kick, Hone Claws, Horn Leech, Hurricane, Hydro Pump, Hydro Steam, Hyper Drill, Hyper Voice, Ice Beam, Ice Fang, Ice Hammer, Ice Shard, Ice Spinner, Icicle Spear, Infernal Parade, Infestation, Iron Head, Ivy Cudgel, Judgment, Knock Off, Kowtow Cleave, Lash Out, Last Resort, Last Respects, Lava Plume, Leaf Blade, Leaf Storm, Leech Life, Leech Seed, Light Screen, Liquidation, Low Kick, Lumina Crash, Lunar Dance, Lunge, Luster Purge, Mach Punch, Magma Storm, Make It Rain, Malignant Chain, Matcha Gotcha, Megahorn, Memento, Meteor Beam, Meteor Mash, Mighty Cleave, Milk Drink, Mist Ball, Moonblast, Moongeist Beam, Moonlight, Morning Sun, Mortal Spin, Mountain Gale, Mystical Power, Nasty Plot, Night Shade, No Retreat, Nuzzle, Order Up, Origin Pulse, Overdrive, Overheat, Pain Split, Parting Shot, Perish Song, Petal Blizzard, Petal Dance, Photon Geyser, Play Rough, Poison Jab, Poltergeist, Population Bomb, Power Gem, Power Whip, Precipice Blades, Protect, Psyblade, Psychic, Psychic Fangs, Psychic Noise, Psycho Boost, Psycho Cut, Psyshield Bash, Psyshock, Psystrike, Pyro Ball, Quick Attack, Quiver Dance, Rage Fist, Raging Bull, Raging Fury, Rapid Spin, Razor Shell, Recover, Reflect, Reflect Type, Rest, Revelation Dance, Revival Blessing, Roar, Rock Blast, Rock Polish, Rock Slide, Roost, Ruination, Sacred Fire, Sacred Sword, Salt Cure, Sandsear Storm, Scald, Scorching Sands, Secret Sword, Seed Bomb, Seed Flare, Seismic Toss, Shadow Ball, Shadow Claw, Shadow Sneak, Shed Tail, Shell Side Arm, Shell Smash, Shift Gear, Shore Up, Silk Trap, Slack Off, Sleep Talk, Sludge Bomb, Sludge Wave, Snipe Shot, Soft-Boiled, Spacial Rend, Sparkling Aria, Spikes, Spiky Shield, Spin Out, Spirit Break, Spirit Shackle, Springtide Storm, Stealth Rock, Steam Eruption, Steel Beam, Steel Roller, Sticky Web, Stone Axe, Stone Edge, Stored Power, Strange Steam, Strength Sap, Substitute, Sucker Punch, Sunsteel Strike, Supercell Slam, Super Fang, Superpower, Surf, Surging Strikes, Switcheroo, Swords Dance, Synthesis, Tachyon Cutter, Tail Glow, Tail Slap, Tailwind, Taunt, Teleport, Tera Blast, Tera Starstorm, Throat Chop, Thunder, Thunderbolt, Thunder Cage, Thunderclap, Thunderous Kick, Thunder Punch, Thunder Wave, Tidy Up, Torch Song, Toxic, Toxic Spikes, Trailblaze, Transform, Tri Attack, Trick, Trick Room, Triple Arrows, Triple Axel, Triple Dive, Twin Beam, U-Turn, Victory Dance, Volt Switch, Volt Tackle, Waterfall, Water Shuriken, Water Spout, Wave Crash, Weather Ball, Whirlwind, Wicked Blow, Wildbolt Storm, Will-O-Wisp, Wish, Wood Hammer, X-Scissor, Zen Headbutt, Zing Zap, Solar Beam, Solar Blade, Dynamic Punch, Inferno, Zap Cannon, Heat Crash, Heavy Slam, Aerial Ace, Ancient Power, Aqua Jet, Axe Kick, Bullet Seed, Chilling Water, Counter, Dazzling Gleam, Dual Wingbeat, Feint, Grassy Glide, Gyro Ball, Headbutt, Hex, Ice Punch, Icicle Crash, Icy Wind, Iron Defense, Iron Tail, Mystical Fire, Night Slash, Outrage, Rising Voltage, Rock Tomb, Shelter, Smack Down, Smart Strike, Stun Spore, Temper Flare, Water Pulse, Wild Charge, Final Gambit, Jet Punch, Jungle Healing, Lunar Blessing, Mirror Coat, Pollen Puff, Power Trip, Take Heart, Revival Blessing, Tera Starstorm";
-	  const NotableMoves = text4.split(", ");
-	  
-	  //Useless Moves, Length = 294
-	  let text5 = "Absorb, Acid, Acid Spray, Acupressure, After You, Air Cutter, Ally Switch, Amnesia, Aqua Ring, Arm Thrust, Aromatic Mist, Assurance, Astonish, Attract, Aura Wheel, Aurora Beam, Baby-Doll Eyes, Beat Up, Belch, Bind, Bite, Blast Burn, Block, Bone Rush, Bounce, Branch Poke, Breaking Swipe, Brine, Brutal Swing, Bubble Beam, Bug Bite, Bulldoze, Burning Jealousy, Burn Up, Celebrate, Charge, Charge Beam, Charm, Coaching, Comeuppance, Confide, Confuse Ray, Confusion, Conversion, Conversion 2, Copycat, Corrosive Gas, Cosmic Power, Cotton Spore, Covet, Cross Poison, Crush Claw, Crush Grip, Cut, Dark Void, Decorate, Defend Order, Defense Curl, Dig, Disarming Voice, Dive, Doodle, Double Hit, Double Kick, Double Team, Dragon Breath, Dragon Cheer, Dragon Rush, Dream Eater, Echoed Voice, Eerie Impulse, Electric Terrain, Electro Ball, Electroweb, Ember, Endure, Entrainment, Fairy Lock, Fairy Wind, Fake Tears, False Swipe, Feather Dance, Fell Stinger, Fire Pledge, Fire Spin, Fissure, Flail, Flame Wheel, Flatter, Fling, Floral Healing, Fly, Flying Press, Focus Energy, Follow Me, Force Palm, Forest's Curse, Freeze Shock, Frenzy Plant, Frost Breath, Fury Attack, Fury Cutter, Fury Swipes, Gastro Acid, Giga Impact, Glaciate, Grass Pledge, Grassy Terrain, Gravity, Growl, Growth, Guard Split, Guard Swap, Guillotine, Gust, Happy Hour, Harden, Hard Press, Heal Pulse, Helping Hand, Hold Back, Hold Hands, Horn Attack, Horn Drill, Howl, Hydro Cannon, Hyper Beam, Hyperspace Fury, Hyperspace Hole, Hypnosis, Ice Burn, Imprison, Incinerate, Ingrain, Instruct, Jaw Lock, Leafage, Leer, Lick, Life Dew, Lock-On, Low Sweep, Magical Leaf, Magic Powder, Magic Room, Magnetic Flux, Magnet Rise, Mean Look, Mega Drain, Mega Kick, Mega Punch, Metal Burst, Metal Claw, Metal Sound, Metronome, Mimic, Minimize, Mist, Misty Explosion, Misty Terrain, Muddy Water, Mud Shot, Mud-Slap, Night Daze, Noble Roar, Parabolic Charge, Payback, Pay Day, Peck, Phantom Force, Pin Missile, Play Nice, Pluck, Poison Fang, Poison Gas, Poison Powder, Poison Sting, Poison Tail, Pounce, Pound, Powder Snow, Power Shift, Power Split, Power Swap, Power Trick, Present, Prismatic Laser, Psybeam, Psychic Terrain, Psych Up, Quash, Quick Guard, Rage Powder, Rain Dance, Razor Leaf, Recycle, Relic Song, Retaliate, Reversal, Roar of Time, Rock Smash, Rock Throw, Rock Wrecker, Role Play, Rollout, Round, Safeguard, Sand Attack, Sandstorm, Sand Tomb, Scale Shot, Scary Face, Scratch, Screech, Self-Destruct, Shadow Force, Shadow Punch, Sheer Cold, Shock Wave, Simple Beam, Sing, Sketch, Skill Swap, Skitter Smack, Sky Attack, Slam, Slash, Sleep Powder, Sludge, Smog, Smokescreen, Snarl, Snore, Snowscape, Soak, Spark, Speed Swap, Spicy Extract, Spite, Spit Up, Splash, Spore, Steel Wing, Stockpile, Stomp, Stomping Tantrum, Strength, String Shot, Struggle Bug, Stuff Cheeks, Sunny Day, Supersonic, Swagger, Swallow, Sweet Kiss, Sweet Scent, Swift, Syrup Bomb, Tackle, Tail Whip, Take Down, Tar Shot, Tearful Look, Teatime, Teeter Dance, Terrain Pulse, Thief, Thrash, Thunder Fang, Thunder Shock, Tickle, Topsy-Turvy, Torment, Toxic Thread, Triple Kick, Trop Kick, Twister, Upper Hand, Uproar, Vacuum Wave, Venoshock, Vine Whip, Vise Grip, Water Gun, Water Pledge, Whirlpool, Wide Guard, Wing Attack, Withdraw, Wonder Room, Work Up, Worry Seed, Wrap, Yawn";
-	  const UselessMoves = text5.split(", ");
-	  
-	  //Unusable Moves
-	  const UnusableMoves = ["Blazing Torque","Combat Torque","Magical Torque","Noxious Torque","Wicked Torque","V-Create"];
-	  
-	  //Universal Moves
-	  const UniversalMoves = ["Take Down","Rest","Sleep Talk","Snore","Protect","Facade","Substitute","Tera Blast"];
-	  
-	  //End of Move Cost Calculation
-	  
-	  //Reset
-	  function reset() {
-		type1_new.value = "";
-		type2_new.value = "";
-		abi1_new.value = "";
-		abi2_new.value = "";
-		abi3_new.value = "";
-		hp_new.value = 50;
-		atk_new.value = 50;
-		def_new.value = 50;
-		spa_new.value = 50;
-		spd_new.value = 50;
-		spe_new.value = 50;
-		moves_new.value = "";
-	  }
+			//Reset
+			function reset() {
+				type1_new.value = type1.value;
+				type2_new.value = type2.value;
+				abi1_new.value = abi1.value;
+				abi2_new.value = abi2.value;
+				abi3_new.value = abi3.value;
+				hp_new.value = 50;
+				atk_new.value = 50;
+				def_new.value = 50;
+				spa_new.value = 50;
+				spd_new.value = 50;
+				spe_new.value = 50;
+				moves_new.value = "";
+				
+				type1_cost.value = 0;
+				type2_cost.value = 0;
+				abi1_cost.value = 0;
+				abi2_cost.value = 0;
+				abi3_cost.value = 0;
+				hp_cost.value = 0;
+				atk_cost.value = 0;
+				def_cost.value = 0;
+				spa_cost.value = 0;
+				spd_cost.value = 0;
+				spe_cost.value = 0;
+				moves_cost.value = 0;
+			}
 	  
     </script>
   </body>
