@@ -19,8 +19,8 @@
         margin-right: 20px;
       }
 
-      .clear {
-        background-color: rgb(255,255,255);
+      .noinput {
+        background-color: rgb(150,150,150);
         color: black;
       }
 	  
@@ -56,214 +56,214 @@
 
     <p>
 	  <!--Start of Canvas Table -->
-      <table>
-		<tr>
-		  <td colspan=3 class="header0">Starting Canvas</td>
-		</tr>
-        <tr>
-		  <td class="header1">Type: </td>
-		  <td>
-			<select id="type1">
-			  <option selected value=""></option>
-			  <option value="normal">Normal</option>
-			  <option value="fire">Fire</option>
-			  <option value="water">Water</option>
-			  <option value="grass">Grass</option>
-			  <option value="electric">Electric</option>
-			  <option value="ice">Ice</option>
-			  <option value="fighting">Fighting</option>
-			  <option value="poison">Poison</option>
-			  <option value="ground">Ground</option>
-			  <option value="flying">Flying</option>
-			  <option value="psychic">Psychic</option>
-			  <option value="bug">Bug</option>
-			  <option value="rock">Rock</option>
-			  <option value="ghost">Ghost</option>
-			  <option value="dragon">Dragon</option>
-			  <option value="dark">Dark</option>
-			  <option value="steel">Steel</option>
-			  <option value="fairy">Fairy</option>
-			</select>
-			<select id="type2">
-			  <option selected value=""></option>
-			  <option value="normal">Normal</option>
-			  <option value="fire">Fire</option>
-			  <option value="water">Water</option>
-			  <option value="grass">Grass</option>
-			  <option value="electric">Electric</option>
-			  <option value="ice">Ice</option>
-			  <option value="fighting">Fighting</option>
-			  <option value="poison">Poison</option>
-			  <option value="ground">Ground</option>
-			  <option value="flying">Flying</option>
-			  <option value="psychic">Psychic</option>
-			  <option value="bug">Bug</option>
-			  <option value="rock">Rock</option>
-			  <option value="ghost">Ghost</option>
-			  <option value="dragon">Dragon</option>
-			  <option value="dark">Dark</option>
-			  <option value="steel">Steel</option>
-			  <option value="fairy">Fairy</option>
-			</select>
-		  </td>
-        </tr>
-        <tr>
-		  <td class="header1">Stats: </td>
-          <td>
-			<input type="number" id="hp_old" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
-			<input type="number" id="atk_old" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
-			<input type="number" id="def_old" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
-			<input type="number" id="spa_old" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
-			<input type="number" id="spd_old" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
-			<input type="number" id="spe_old" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
-		  </td>
-        </tr>
-		<tr>
-		  <td class="header1">Abilities: </td>
-		  <td>
-			<select id="abi1">
-			  <option value=""></option>
-			  <optgroup id="abiNorm1" label="- Normal Abilities -">
-			  </optgroup>
-			  <optgroup id="abiSitu1" label="- Situational Abilities -">
-			  </optgroup>
-			  <optgroup id="abiUsel1" label="- Useless Abilities -">
-			  </optgroup>
-			</select>
-			<select id="abi2">
-			<option value=""></option>
-			  <optgroup id="abiNorm2" label="- Normal Abilities -">
-			  </optgroup>
-			  <optgroup id="abiSitu2" label="- Situational Abilities -">
-			  </optgroup>
-			  <optgroup id="abiUsel2" label="- Useless Abilities -">
-			  </optgroup>
-			  </select>
-			<select id="abi3">
-			  <option value=""></option>
-			  <optgroup id="abiNorm3" label="- Normal Abilities -">
-			  </optgroup>
-			  <optgroup id="abiSitu3" label="- Situational Abilities -">
-			  </optgroup>
-			  <optgroup id="abiUsel3" label="- Useless Abilities -">
-			  </optgroup>
-			</select>
-		  </td>
-		</tr>
-		<tr>
-		  <td class="header1">Given Moves: </td>
-		  <td><textarea id="moves" cols=85; rows="2"></textarea></td>
-		</tr>
-      </table>
+    <table>
+			<tr>
+				<td colspan=3 class="header0">Starting Canvas</td>
+			</tr>
+			<tr>
+				<td class="header1">Type: </td>
+				<td>
+					<select id="type1">
+						<option selected value=""></option>
+						<option value="normal">Normal</option>
+						<option value="fire">Fire</option>
+						<option value="water">Water</option>
+						<option value="grass">Grass</option>
+						<option value="electric">Electric</option>
+						<option value="ice">Ice</option>
+						<option value="fighting">Fighting</option>
+						<option value="poison">Poison</option>
+						<option value="ground">Ground</option>
+						<option value="flying">Flying</option>
+						<option value="psychic">Psychic</option>
+						<option value="bug">Bug</option>
+						<option value="rock">Rock</option>
+						<option value="ghost">Ghost</option>
+						<option value="dragon">Dragon</option>
+						<option value="dark">Dark</option>
+						<option value="steel">Steel</option>
+						<option value="fairy">Fairy</option>
+					</select>
+					<select id="type2">
+						<option selected value=""></option>
+						<option value="normal">Normal</option>
+						<option value="fire">Fire</option>
+						<option value="water">Water</option>
+						<option value="grass">Grass</option>
+						<option value="electric">Electric</option>
+						<option value="ice">Ice</option>
+						<option value="fighting">Fighting</option>
+						<option value="poison">Poison</option>
+						<option value="ground">Ground</option>
+						<option value="flying">Flying</option>
+						<option value="psychic">Psychic</option>
+						<option value="bug">Bug</option>
+						<option value="rock">Rock</option>
+						<option value="ghost">Ghost</option>
+						<option value="dragon">Dragon</option>
+						<option value="dark">Dark</option>
+						<option value="steel">Steel</option>
+						<option value="fairy">Fairy</option>
+					</select>
+				</td>
+      </tr>
+      <tr>
+				<td class="header1">Stats: </td>
+				<td>
+					<input type="number" id="hp_old" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
+					<input type="number" id="atk_old" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
+					<input type="number" id="def_old" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
+					<input type="number" id="spa_old" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
+					<input type="number" id="spd_old" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
+					<input type="number" id="spe_old" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
+				</td>
+      </tr>
+			<tr>
+				<td class="header1">Abilities: </td>
+				<td>
+					<select id="abi1">
+						<option value=""></option>
+						<optgroup id="abiNorm1" label="- Normal Abilities -">
+						</optgroup>
+						<optgroup id="abiSitu1" label="- Situational Abilities -">
+						</optgroup>
+						<optgroup id="abiUsel1" label="- Useless Abilities -">
+						</optgroup>
+					</select>
+					<select id="abi2">
+						<option value=""></option>
+						<optgroup id="abiNorm2" label="- Normal Abilities -">
+						</optgroup>
+						<optgroup id="abiSitu2" label="- Situational Abilities -">
+						</optgroup>
+						<optgroup id="abiUsel2" label="- Useless Abilities -">
+						</optgroup>
+					</select>
+					<select id="abi3">
+						<option value=""></option>
+						<optgroup id="abiNorm3" label="- Normal Abilities -">
+						</optgroup>
+						<optgroup id="abiSitu3" label="- Situational Abilities -">
+						</optgroup>
+						<optgroup id="abiUsel3" label="- Useless Abilities -">
+						</optgroup>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="header1">Given Moves: </td>
+				<td><textarea id="moves" cols=85; rows="2"></textarea></td>
+			</tr>
+    </table>
 	  <!--End of Canvas Table-->	 
 	  
-      <br><br>
+    <br><br>
 	  
 	  <!--Start of Fakemon Table-->
 	  <table>
-		<tr>
-		  <td colspan=2 class="header0">Fakemon</td>
-		  <td><button type="button" onclick="reset()">Reset</button></td>
-		</tr>
-		<tr>
-		  <td class="header1">Name: </td>
-          <td><textarea id="name" rows=1 cols=30 maxlength=30></textarea></td>
-		  <td><button type="button" onclick="getType(); getNewStats(); getAbilities();">Get Canvas</button></td>
-		</tr>
-		<tr>
-		  <td class="header1">Weight: </td>
-		  <td><textarea id="weight" inputmode="number" placeholder=0 rows=1 cols=6 max=999.9 maxlength=5></textarea>
-		</tr>
-		<tr>
-		  <td class="header1">Type: </td>
-		  <td>
-			<select id="type1_new">
-			  <option selected value=""></option>
-			  <option value="normal">Normal</option>
-			  <option value="fire">Fire</option>
-			  <option value="water">Water</option>
-			  <option value="grass">Grass</option>
-			  <option value="electric">Electric</option>
-			  <option value="ice">Ice</option>
-			  <option value="fighting">Fighting</option>
-			  <option value="poison">Poison</option>
-			  <option value="ground">Ground</option>
-			  <option value="flying">Flying</option>
-			  <option value="psychic">Psychic</option>
-			  <option value="bug">Bug</option>
-			  <option value="rock">Rock</option>
-			  <option value="ghost">Ghost</option>
-			  <option value="dragon">Dragon</option>
-			  <option value="dark">Dark</option>
-			  <option value="steel">Steel</option>
-			  <option value="fairy">Fairy</option>
-			</select>
-			<select id="type2_new">
-			  <option selected value=""></option>
-			  <option value="normal">Normal</option>
-			  <option value="fire">Fire</option>
-			  <option value="water">Water</option>
-			  <option value="grass">Grass</option>
-			  <option value="electric">Electric</option>
-			  <option value="ice">Ice</option>
-			  <option value="fighting">Fighting</option>
-			  <option value="poison">Poison</option>
-			  <option value="ground">Ground</option>
-			  <option value="flying">Flying</option>
-			  <option value="psychic">Psychic</option>
-			  <option value="bug">Bug</option>
-			  <option value="rock">Rock</option>
-			  <option value="ghost">Ghost</option>
-			  <option value="dragon">Dragon</option>
-			  <option value="dark">Dark</option>
-			  <option value="steel">Steel</option>
-			  <option value="fairy">Fairy</option>
-			</select>
-		  </td>
-		  <td><button type="button" onclick="getType()">Get Type</button></td>
-		</tr>
+			<tr>
+				<td colspan=2 class="header0">Fakemon</td>
+				<td><button type="button" onclick="reset()">Reset</button></td>
+			</tr>
+			<tr>
+				<td class="header1">Name: </td>
+				<td><textarea id="name" rows=1 cols=30 maxlength=30></textarea></td>
+				<td><button type="button" onclick="getType(); getNewStats(); getAbilities();">Get Canvas</button></td>
+			</tr>
+			<tr>
+				<td class="header1">Weight: </td>
+				<td><textarea id="weight" inputmode="number" placeholder=0 rows=1 cols=6 max=999.9 maxlength=5></textarea>
+			</tr>
+			<tr>
+				<td class="header1">Type: </td>
+				<td>
+					<select id="type1_new">
+						<option selected value=""></option>
+						<option value="normal">Normal</option>
+						<option value="fire">Fire</option>
+						<option value="water">Water</option>
+						<option value="grass">Grass</option>
+						<option value="electric">Electric</option>
+						<option value="ice">Ice</option>
+						<option value="fighting">Fighting</option>
+						<option value="poison">Poison</option>
+						<option value="ground">Ground</option>
+						<option value="flying">Flying</option>
+						<option value="psychic">Psychic</option>
+						<option value="bug">Bug</option>
+						<option value="rock">Rock</option>
+						<option value="ghost">Ghost</option>
+						<option value="dragon">Dragon</option>
+						<option value="dark">Dark</option>
+						<option value="steel">Steel</option>
+						<option value="fairy">Fairy</option>
+					</select>
+					<select id="type2_new">
+						<option selected value=""></option>
+						<option value="normal">Normal</option>
+						<option value="fire">Fire</option>
+						<option value="water">Water</option>
+						<option value="grass">Grass</option>
+						<option value="electric">Electric</option>
+						<option value="ice">Ice</option>
+						<option value="fighting">Fighting</option>
+						<option value="poison">Poison</option>
+						<option value="ground">Ground</option>
+						<option value="flying">Flying</option>
+						<option value="psychic">Psychic</option>
+						<option value="bug">Bug</option>
+						<option value="rock">Rock</option>
+						<option value="ghost">Ghost</option>
+						<option value="dragon">Dragon</option>
+						<option value="dark">Dark</option>
+						<option value="steel">Steel</option>
+						<option value="fairy">Fairy</option>
+					</select>
+				</td>
+				<td><button type="button" onclick="getType()">Get Type</button></td>
+			</tr>
 		<tr>
 		  <td class="header1">Stats: </td>
 		  <td>
 		    <input type="number" id="hp_new" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
-            <input type="number" id="atk_new" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
-			<input type="number" id="def_new" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
-			<input type="number" id="spa_new" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
-			<input type="number" id="spd_new" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
-			<input type="number" id="spe_new" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
+        <input type="number" id="atk_new" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
+				<input type="number" id="def_new" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
+				<input type="number" id="spa_new" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
+				<input type="number" id="spd_new" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
+				<input type="number" id="spe_new" value=50 min=0 max=255 step=5 onchange="showCost();getTotalCost()">
 		  </td>
 		  <td><button type="button" onclick="getNewStats()">Get Stats</button></td>
 		</tr>
 		<tr>
 		  <td class="header1">Abilities: </td>
 		  <td>
-			<select id="abi1_new">
-			  <option value=""></option>
-			  <optgroup id="abiNorm1_new" label="- Normal Abilities -">
-			  </optgroup>
-			  <optgroup id="abiSitu1_new" label="- Situational Abilities -">
-			  </optgroup>
-			  <optgroup id="abiUsel1_new" label="- Useless Abilities -">
-			  </optgroup>
-			</select>
-			<select id="abi2_new">
-			  <option value=""></option>
-			  <optgroup id="abiNorm2_new" label="- Normal Abilities -">
-			  </optgroup>
-			  <optgroup id="abiSitu2_new" label="- Situational Abilities -">
-			  </optgroup>
-			  <optgroup id="abiUsel2_new" label="- Useless Abilities -">
-			  </optgroup>
-			</select>
-			<select id="abi3_new">
-			  <option value=""></option>
-			  <optgroup id="abiNorm3_new" label="- Normal Abilities -">
-			  </optgroup>
-			  <optgroup id="abiSitu3_new" label="- Situational Abilities -">
-			  </optgroup>
-			  <optgroup id="abiUsel3_new" label="- Useless Abilities -">
-			  </optgroup>
-			</select>
+				<select id="abi1_new">
+					<option value=""></option>
+					<optgroup id="abiNorm1_new" label="- Normal Abilities -">
+					</optgroup>
+					<optgroup id="abiSitu1_new" label="- Situational Abilities -">
+					</optgroup>
+					<optgroup id="abiUsel1_new" label="- Useless Abilities -">
+					</optgroup>
+				</select>
+				<select id="abi2_new">
+					<option value=""></option>
+					<optgroup id="abiNorm2_new" label="- Normal Abilities -">
+					</optgroup>
+					<optgroup id="abiSitu2_new" label="- Situational Abilities -">
+					</optgroup>
+					<optgroup id="abiUsel2_new" label="- Useless Abilities -">
+					</optgroup>
+				</select>
+				<select id="abi3_new">
+					<option value=""></option>
+					<optgroup id="abiNorm3_new" label="- Normal Abilities -">
+					</optgroup>
+					<optgroup id="abiSitu3_new" label="- Situational Abilities -">
+					</optgroup>
+					<optgroup id="abiUsel3_new" label="- Useless Abilities -">
+					</optgroup>
+				</select>
 		  </td>
 		  <td><button type="button" onclick="getAbilities()">Get Abilities</button></td>
 		</tr>
@@ -275,12 +275,12 @@
 		<tr class="header1"></tr>
 		<tr>
 		  <td class="header1">Suggested moves: </td>
-		  <td><textarea id="moves_suggest" class="clear" cols=85 rows=3 disabled></textarea></td>
+		  <td><textarea id="moves_suggest" class="noinput" cols=85 rows=3 disabled></textarea></td>
 		</tr>
-      </table>
-	  <!--End of Fakemon Table-->
+		</table>
+		<!--End of Fakemon Table-->
 	  
-	  <br><br>
+	<br><br>
 	  
 	  <!--Start of Cost Table-->
 	  <table>
@@ -302,32 +302,32 @@
 		<tr>
 		  <td class="header1">Type: </td>
 		  <td>
-		    <textarea class="clear" inputmode="number" id="type1_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
-			<textarea class="clear" inputmode="number" id="type2_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+		    <textarea class="noinput" inputmode="number" id="type1_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+			<textarea class="noinput" inputmode="number" id="type2_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
 		  </td>
 		</tr>
 		<tr>
 		  <td class="header1">Stats: </td>
 		  <td>
-		    <textarea class="clear" inputmode="number" id="hp_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
-			<textarea class="clear" inputmode="number" id="atk_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
-			<textarea class="clear" inputmode="number" id="def_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
-			<textarea class="clear" inputmode="number" id="spa_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
-			<textarea class="clear" inputmode="number" id="spd_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
-			<textarea class="clear" inputmode="number" id="spe_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+		    <textarea class="noinput" inputmode="number" id="hp_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+			<textarea class="noinput" inputmode="number" id="atk_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+			<textarea class="noinput" inputmode="number" id="def_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+			<textarea class="noinput" inputmode="number" id="spa_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+			<textarea class="noinput" inputmode="number" id="spd_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+			<textarea class="noinput" inputmode="number" id="spe_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
 	      </td>
 		</tr>
 		<tr>
 		  <td class="header1">Abilities: </td>
 		  <td>
-		    <textarea class="clear" inputmode="number" id="abi1_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
-			<textarea class="clear" inputmode="number" id="abi2_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
-			<textarea class="clear" inputmode="number" id="abi3_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+		    <textarea class="noinput" inputmode="number" id="abi1_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+			<textarea class="noinput" inputmode="number" id="abi2_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+			<textarea class="noinput" inputmode="number" id="abi3_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
 		  </td>
 		</tr>
 		<tr>
 		  <td class="header1">Moves: </td>
-		  <td><textarea class="clear" inputmode="number" id="move_cost" placeholder=0 rows=1 cols=4 disabled></textarea></td>
+		  <td><textarea class="noinput" inputmode="number" id="move_cost" placeholder=0 rows=1 cols=4 disabled></textarea></td>
 		</tr>
 	  </table>
 	  <!--End of Cost Table-->
@@ -347,6 +347,15 @@
 	  function getType() {
 		type1_new.value = type1.value;
 		type2_new.value = type2.value;
+	  }
+	  
+	  function getTypeCost() {
+			if (type1_new.value != type1.value) {
+				type1_cost.value = 5;
+			}
+			if (type2_new.value != type2.value) {
+				type2_cost.value = 10;
+			}
 	  }
 	  
 	  //End of Type Cost Calculation
