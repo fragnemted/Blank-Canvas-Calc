@@ -54,8 +54,8 @@
   <body>
     <h1>= Blank Canvas Calc Test =</h1>
 
-    <p>
-	  <!--Start of Canvas Table -->
+    <div>
+	  <!--Start of Starting Canvas Table -->
     <table>
 			<tr>
 				<td colspan=3 class="header0">Starting Canvas</td>
@@ -63,7 +63,7 @@
 			<tr>
 				<td class="header1">Type: </td>
 				<td>
-					<select id="type1" onchange="getTypeCost();">
+					<select id="type1" onchange="getTypeCost(); tot_rem();">
 						<option selected value=""></option>
 						<option value="normal">Normal</option>
 						<option value="fire">Fire</option>
@@ -84,7 +84,7 @@
 						<option value="steel">Steel</option>
 						<option value="fairy">Fairy</option>
 					</select>
-					<select id="type2" onchange="getTypeCost();">
+					<select id="type2" onchange="getTypeCost(); tot_rem();">
 						<option selected value=""></option>
 						<option value="normal">Normal</option>
 						<option value="fire">Fire</option>
@@ -110,18 +110,18 @@
       <tr>
 				<td class="header1">Stats: </td>
 				<td>
-					<input type="number" id="hp_old" value=50 min=0 max=255 step=5 onchange="showStatCost();getTotalCost()">
-					<input type="number" id="atk_old" value=50 min=0 max=255 step=5 onchange="showStatCost();getTotalCost()">
-					<input type="number" id="def_old" value=50 min=0 max=255 step=5 onchange="showStatCost();getTotalCost()">
-					<input type="number" id="spa_old" value=50 min=0 max=255 step=5 onchange="showStatCost();getTotalCost()">
-					<input type="number" id="spd_old" value=50 min=0 max=255 step=5 onchange="showStatCost();getTotalCost()">
-					<input type="number" id="spe_old" value=50 min=0 max=255 step=5 onchange="showStatCost();getTotalCost()">
+					<input type="number" id="hp_old" value=50 min=0 max=255 step=5 onchange="showStatCost(); tot_rem();">
+					<input type="number" id="atk_old" value=50 min=0 max=255 step=5 onchange="showStatCost(); tot_rem();">
+					<input type="number" id="def_old" value=50 min=0 max=255 step=5 onchange="showStatCost(); tot_rem();">
+					<input type="number" id="spa_old" value=50 min=0 max=255 step=5 onchange="showStatCost(); tot_rem();">
+					<input type="number" id="spd_old" value=50 min=0 max=255 step=5 onchange="showStatCost(); tot_rem();">
+					<input type="number" id="spe_old" value=50 min=0 max=255 step=5 onchange="showStatCost(); tot_rem();">
 				</td>
       </tr>
 			<tr>
 				<td class="header1">Abilities: </td>
 				<td>
-					<select id="abi1" onchange="getFirstAbiCost(abi1, abi1_new, abi1_cost);">
+					<select id="abi1" onchange="getAllAbiCost(); tot_rem();">
 						<option value=""></option>
 						<optgroup id="abiNorm1" label="- Normal Abilities -">
 						</optgroup>
@@ -130,7 +130,7 @@
 						<optgroup id="abiUsel1" label="- Useless Abilities -">
 						</optgroup>
 					</select>
-					<select id="abi2" onchange="getAbiCost(abi2, abi2_new, abi2_cost);">
+					<select id="abi2" onchange="getAllAbiCost(); tot_rem();">
 						<option value=""></option>
 						<optgroup id="abiNorm2" label="- Normal Abilities -">
 						</optgroup>
@@ -139,7 +139,7 @@
 						<optgroup id="abiUsel2" label="- Useless Abilities -">
 						</optgroup>
 					</select>
-					<select id="abi3" onchange="getAbiCost(abi3, abi3_new, abi3_cost);">
+					<select id="abi3" onchange="getAllAbiCost(); tot_rem();">
 						<option value=""></option>
 						<optgroup id="abiNorm3" label="- Normal Abilities -">
 						</optgroup>
@@ -162,13 +162,13 @@
 	  <!--Start of Fakemon Table-->
 	  <table>
 			<tr>
-				<td colspan=2 class="header0">Fakemon</td>
-				<td><button type="button" onclick="reset()">Reset</button></td>
+				<td colspan=2 class="header0">Fakemon Canvas</td>
+				<td><button type="button" onclick="reset();">Reset</button></td>
 			</tr>
 			<tr>
 				<td class="header1">Name: </td>
 				<td><textarea id="name" rows=1 cols=30 maxlength=30></textarea></td>
-				<td><button type="button" onclick="getType(); getNewStats(); getAbilities(); getTypeCost(); showStatCost();">Get Canvas</button></td>
+				<td><button type="button" onclick="getCanvas();">Get Canvas</button></td>
 			</tr>
 			<tr>
 				<td class="header1">Weight: </td>
@@ -177,7 +177,7 @@
 			<tr>
 				<td class="header1">Type: </td>
 				<td>
-					<select id="type1_new" onchange="getTypeCost();">
+					<select id="type1_new" onchange="getTypeCost(); tot_rem();">
 						<option selected value=""></option>
 						<option value="normal">Normal</option>
 						<option value="fire">Fire</option>
@@ -198,7 +198,7 @@
 						<option value="steel">Steel</option>
 						<option value="fairy">Fairy</option>
 					</select>
-					<select id="type2_new" onchange="getTypeCost();">
+					<select id="type2_new" onchange="getTypeCost(); tot_rem();">
 						<option selected value=""></option>
 						<option value="normal">Normal</option>
 						<option value="fire">Fire</option>
@@ -220,24 +220,24 @@
 						<option value="fairy">Fairy</option>
 					</select>
 				</td>
-				<td><button type="button" onclick="getType(); getTypeCost();">Get Type</button></td>
+				<td><button type="button" onclick="getType(); getTypeCost(); tot_rem();">Get Type</button></td>
 			</tr>
 			<tr>
 				<td class="header1">Stats: </td>
 				<td>
-					<input type="number" id="hp_new" value=50 min=0 max=255 step=5 onchange="showStatCost();getTotalCost()">
-					<input type="number" id="atk_new" value=50 min=0 max=255 step=5 onchange="showStatCost();getTotalCost()">
-					<input type="number" id="def_new" value=50 min=0 max=255 step=5 onchange="showStatCost();getTotalCost()">
-					<input type="number" id="spa_new" value=50 min=0 max=255 step=5 onchange="showStatCost();getTotalCost()">
-					<input type="number" id="spd_new" value=50 min=0 max=255 step=5 onchange="showStatCost();getTotalCost()">
-					<input type="number" id="spe_new" value=50 min=0 max=255 step=5 onchange="showStatCost();getTotalCost()">
+					<input type="number" id="hp_new" value=50 min=0 max=255 step=5 onchange="showStatCost(); tot_rem();">
+					<input type="number" id="atk_new" value=50 min=0 max=255 step=5 onchange="showStatCost(); tot_rem();">
+					<input type="number" id="def_new" value=50 min=0 max=255 step=5 onchange="showStatCost(); tot_rem();)">
+					<input type="number" id="spa_new" value=50 min=0 max=255 step=5 onchange="showStatCost(); tot_rem();">
+					<input type="number" id="spd_new" value=50 min=0 max=255 step=5 onchange="showStatCost(); tot_rem();">
+					<input type="number" id="spe_new" value=50 min=0 max=255 step=5 onchange="showStatCost(); tot_rem();">
 				</td>
-				<td><button type="button" onclick="getNewStats();showStatCost();">Get Stats</button></td>
+				<td><button type="button" onclick="getNewStats(); showStatCost(); tot_rem();">Get Stats</button></td>
 			</tr>
 			<tr>
 				<td class="header1">Abilities: </td>
 				<td>
-					<select id="abi1_new" onchange="getFirstAbiCost(abi1, abi1_new, abi1_cost);">
+					<select id="abi1_new" onchange="getAllAbiCost(); tot_rem();">
 						<option value=""></option>
 						<optgroup id="abiNorm1_new" label="- Normal Abilities -">
 						</optgroup>
@@ -246,7 +246,7 @@
 						<optgroup id="abiUsel1_new" label="- Useless Abilities -">
 						</optgroup>
 					</select>
-					<select id="abi2_new" onchange="getAbiCost(abi2, abi2_new, abi2_cost);">
+					<select id="abi2_new" onchange="getAllAbiCost(); tot_rem();">
 						<option value=""></option>
 						<optgroup id="abiNorm2_new" label="- Normal Abilities -">
 						</optgroup>
@@ -255,7 +255,7 @@
 						<optgroup id="abiUsel2_new" label="- Useless Abilities -">
 						</optgroup>
 					</select>
-					<select id="abi3_new" onchange="getAbiCost(abi3, abi3_new, abi3_cost);">
+					<select id="abi3_new" onchange="getAllAbiCost(); tot_rem();">
 						<option value=""></option>
 						<optgroup id="abiNorm3_new" label="- Normal Abilities -">
 						</optgroup>
@@ -265,11 +265,11 @@
 						</optgroup>
 					</select>
 				</td>
-				<td><button type="button" onclick="getAbilities(); getFirstAbiCost(abi1, abi1_new, abi1_cost); getAbiCost(abi2, abi2_new, abi2_cost); getAbiCost(abi3, abi3_new, abi3_cost);">Get Abilities</button></td>
+				<td><button type="button" onclick="getAbilities(); getAllAbiCost(); tot_rem();">Get Abilities</button></td>
 			</tr>
 			<tr>
 				<td class="header1">New Moves: </td>
-				<td><textarea id="moves_new" cols=85 rows=3></textarea></td>
+				<td><textarea id="moves_new" cols=85 rows=3 onchange=" tot_rem();"></textarea></td>
 			</tr>
 			<!--Inserting a blank row-->
 			<tr class="header1"></tr>
@@ -302,36 +302,71 @@
 			<tr>
 				<td class="header1">Type: </td>
 				<td>
-					<textarea class="noinput" inputmode="number" id="type1_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
-					<textarea class="noinput" inputmode="number" id="type2_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+					<textarea class="noinput" inputmode="number" id="type1_cost" placeholder=0 rows=1 cols=4 disabled onchange="tot_rem();"></textarea>
+					<textarea class="noinput" inputmode="number" id="type2_cost" placeholder=0 rows=1 cols=4 disabled onchange="tot_rem();"></textarea>
 				</td>
 			</tr>
 			<tr>
 				<td class="header1">Stats: </td>
 				<td>
-					<textarea class="noinput" inputmode="number" id="hp_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
-					<textarea class="noinput" inputmode="number" id="atk_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
-					<textarea class="noinput" inputmode="number" id="def_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
-					<textarea class="noinput" inputmode="number" id="spa_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
-					<textarea class="noinput" inputmode="number" id="spd_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
-					<textarea class="noinput" inputmode="number" id="spe_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+					<textarea class="noinput" inputmode="number" id="hp_cost" placeholder=0 rows=1 cols=4 disabled onchange="tot_rem();"></textarea>
+					<textarea class="noinput" inputmode="number" id="atk_cost" placeholder=0 rows=1 cols=4 disabled onchange="tot_rem();"></textarea>
+					<textarea class="noinput" inputmode="number" id="def_cost" placeholder=0 rows=1 cols=4 disabled onchange="tot_rem();"></textarea>
+					<textarea class="noinput" inputmode="number" id="spa_cost" placeholder=0 rows=1 cols=4 disabled onchange="tot_rem();"></textarea>
+					<textarea class="noinput" inputmode="number" id="spd_cost" placeholder=0 rows=1 cols=4 disabled onchange="tot_rem();"></textarea>
+					<textarea class="noinput" inputmode="number" id="spe_cost" placeholder=0 rows=1 cols=4 disabled onchange="tot_rem();"></textarea>
 	      </td>
 			</tr>
 			<tr>
 				<td class="header1">Abilities: </td>
 				<td>
-					<textarea class="noinput" inputmode="number" id="abi1_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
-					<textarea class="noinput" inputmode="number" id="abi2_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
-					<textarea class="noinput" inputmode="number" id="abi3_cost" placeholder=0 rows=1 cols=4 disabled></textarea>
+					<textarea class="noinput" inputmode="number" id="abi1_cost" placeholder=0 rows=1 cols=4 disabled onchange="tot_rem();"></textarea>
+					<textarea class="noinput" inputmode="number" id="abi2_cost" placeholder=0 rows=1 cols=4 disabled onchange="tot_rem();"></textarea>
+					<textarea class="noinput" inputmode="number" id="abi3_cost" placeholder=0 rows=1 cols=4 disabled onchange="tot_rem();"></textarea>
 				</td>
 			</tr>
 			<tr>
 				<td class="header1">Moves: </td>
-				<td><textarea class="noinput" inputmode="number" id="move_cost" placeholder=0 rows=1 cols=4 disabled></textarea></td>
+				<td><textarea class="noinput" inputmode="number" id="move_cost" placeholder=0 rows=1 cols=4 disabled onchange="tot_rem();"></textarea></td>
 			</tr>
 	  </table>
 	  <!--End of Cost Table-->
-		</p>
+		
+		<br><br>
+		
+		<!--Copy/Pasteable-->
+		<table>
+			<tr>
+				<td class="header0" colspan=3>Copy/Paste</td>
+			</tr>
+			<tr>
+				<td class="header1">Name: </td>
+				<td><span id="nameCP">filler</span></td>
+			</tr>
+			<tr>
+				<td class="header1">Type: </td>
+				<td><span id="type1CP">filler</span> / <span id="type2CP">filler</span></td>
+			</tr>
+			<tr>
+				<td class="header1">Stats: </td>
+				<td><span id="hpCP">filler</span> / <span id="atkCP">filler</span> / <span id="defCP">filler</span> / <span id="spaCP">filler</span> / <span id="spdCP">filler</span> / <span id="speCP">filler</span> | BST: <span id="bst">filler</span>
+			</tr>
+			<tr>
+				<td class="header1">Abilities: </td>
+				<td><span id="abi1CP">filler</span> / <span id="abil2CP">filler</span> / <span id="abi3CP">filler</span></td>
+			</tr>
+			<!-- come back here if movepool causes table to become weird -->
+			<tr>
+				<td class="header1">Movepool: </td>
+				<td><span id="movesCP">filler</span></td>
+			</tr>
+			<tr>
+				<td class="header1">Weight: </td>
+				<td><span id="weightCP">filler</span> kg</td>
+			</tr>
+		</table>
+		<!--End of Copy/Pasteable-->
+		</div>
 	
 		<br><br>
 	
@@ -351,12 +386,20 @@
 	  
 			function getTypeCost() {
 				if (type1_new.value != type1.value) {
-					type1_cost.value = 5;
+					if (type1_new.value == "") {
+						type1_cost.value = 0;
+					} else {
+						type1_cost.value = 5;
+					}
 				} else {
 					type1_cost.value = 0;
 				}
 				if (type2_new.value != type2.value) {
-					type2_cost.value = 10;
+					if (type2_new.value == "") {
+						type2_cost.value = 0;
+					} else {
+						type2_cost.value = 10;
+					}
 				} else {
 					type2_cost.value = 0;
 				}
@@ -407,30 +450,26 @@
         spd_cost.innerHTML = getStatCost(spd_old, spd_new);
         spe_cost.innerHTML = getStatCost(spe_old, spe_new);
       }
-
-      function getTotalCost() {
-        stat_tc.innerHTML = Number(hp_cost.value) + Number(atk_cost.value) + Number(def_cost.value) + Number(spa_cost.value) + Number(spd_cost.value) + Number(spe_cost.value);
-      }
       //End of Stat Cost Calculation
 	  
 	  
-			//Ability Section  
+			//Ability Section  	
 			function getAbilities() {
 				abi1_new.value = abi1.value;
 				abi2_new.value = abi2.value;
 				abi3_new.value = abi3.value;
 			}
 	  
-			//Normal Abilities, Length = 136
-			let text1 = "Adaptability, Aroma Veil, Aerilate, As One (Glastrier), As One (Spectrier), Battle Bond, Beads of Ruin, Chilling Neigh, Chlorophyll, Corrosion, Comatose, Contrary, Dark Aura, Dauntless Shield, Defiant, Delta Stream, Desolate Land, Disguise, Download, Dragon's Maw, Drizzle, Drought, Earth Eater, Electric Surge, Electromorphosis, Fairy Aura, Filter, Flash Fire, Fluffy, Fur Coat, Galvanize, Good as Gold, Gorilla Tactics, Grassy Surge, Grim Neigh, Guts, Hadron Engine, Huge Power, Hustle, Ice Face, Ice Scales, Illusion, Imposter, Innards Out, Intimidate, Intrepid Sword, Iron Fist, Levitate, Libero, Lightning Rod, Magic Bounce, Magic Guard, Magnet Pull, Mega Launcher, Misty Surge, Mold Breaker, Moody, Mind's Eye, Motor Drive, Moxie, Multiscale, Neutralizing Gas, No Guard, Opportunist, Orichalcum Pulse, Parental Bond, Pixilate, Poison Heal, Poison Heal, Prankster, Primordial Sea, Prism Armor, Protean, Protosynthesis, Psychic Surge, Punk Rock, Pure Power, Purifying Salt, Quark Drive, Refrigerate, Regenerator, Rock Head, Rocky Payload, Sand Rush, Sand Spit, Seed Sower, Sand Stream, Sap Sipper, Scrappy, Serene Grace, Shadow Shield, Sharpness, Sheer Force, Simple, Skill Link, Slush Rush, Snow Warning, Solid Rock, Soul-Heart, Speed Boost, Stakeout, Stamina, Steelworker, Steely Spirit, Strong Jaw, Storm Drain, Sturdy, Supreme Overlord, Surge Surfer, Swift Swim, Sword of Ruin, Tablets of Ruin, Technician, Tera Shell, Teravolt, Thick Fat, Tinted Lens, Tough Claws, Toxic Boost, Toxic Chain, Toxic Debris, Transistor, Triage, Turboblaze, Unaware, Unburden, Vessel of Ruin, Volt Absorb, Water Absorb, Water Bubble, Weak Armor, Well-Baked Body, Wind Rider, Gale Wings, Flower Veil, Flare Boost, Wonder Skin";
+			//Normal Abilities, Length = 135
+			let text1 = "Adaptability, Aroma Veil, Aerilate, As One (Glastrier), As One (Spectrier), Battle Bond, Beads of Ruin, Chilling Neigh, Chlorophyll, Corrosion, Comatose, Contrary, Dark Aura, Dauntless Shield, Defiant, Delta Stream, Desolate Land, Download, Dragon's Maw, Drizzle, Drought, Earth Eater, Electric Surge, Electromorphosis, Fairy Aura, Filter, Flash Fire, Fluffy, Fur Coat, Galvanize, Good as Gold, Gorilla Tactics, Grassy Surge, Grim Neigh, Guts, Hadron Engine, Huge Power, Hustle, Ice Scales, Illusion, Imposter, Innards Out, Intimidate, Intrepid Sword, Iron Fist, Levitate, Libero, Lightning Rod, Magic Bounce, Magic Guard, Magnet Pull, Mega Launcher, Misty Surge, Mold Breaker, Moody, Mind's Eye, Motor Drive, Moxie, Multiscale, Neutralizing Gas, No Guard, Opportunist, Orichalcum Pulse, Parental Bond, Pixilate, Poison Heal, Poison Heal, Prankster, Primordial Sea, Prism Armor, Protean, Protosynthesis, Psychic Surge, Punk Rock, Pure Power, Purifying Salt, Quark Drive, Refrigerate, Regenerator, Rock Head, Rocky Payload, Sand Rush, Sand Spit, Seed Sower, Sand Stream, Sap Sipper, Scrappy, Serene Grace, Shadow Shield, Sharpness, Sheer Force, Simple, Skill Link, Slush Rush, Snow Warning, Solid Rock, Soul-Heart, Speed Boost, Stakeout, Stamina, Steelworker, Steely Spirit, Strong Jaw, Storm Drain, Sturdy, Supreme Overlord, Surge Surfer, Swift Swim, Sword of Ruin, Tablets of Ruin, Technician, Tera Shell, Teravolt, Thick Fat, Tinted Lens, Tough Claws, Toxic Boost, Toxic Chain, Toxic Debris, Transistor, Triage, Turboblaze, Unaware, Unburden, Vessel of Ruin, Volt Absorb, Water Absorb, Water Bubble, Weak Armor, Well-Baked Body, Wind Rider, Gale Wings, Flower Veil, Flare Boost, Wonder Skin";
 			const NormalAbilities = text1.split(", ");
 			
-			//Situational Abilities, Length = 72
+			//Situational Abilities, Length = 73
 			let text2 = "Aftermath, Analytic, Armor Tail, Berserk, Blaze, Cheek Pouch, Clear Body, Competitive, Cotton Down, Cud Chew, Cursed Body, Dazzling, Frisk, Flame Body, Forecast, Full Metal Body, Gooey, Guard Dog, Harvest, Heatproof, Inmunity, Infiltrator, Limber, Lingering Aroma, Marvel Scale, Mirror Armor, Mummy, Natural Cure, Neuroforce, Overcoat, Overgrow, Pastel Veil, Poison Touch, Pressure, Queenly Magesty, Quick Draw, Quick Feet, Ripen, Rough Skin, Sand Force, Shield Dust, Sniper, Solar Power, Soundproof, Shed Skin, Static, Steam Engine, Swarm, Sweet Veil, Synchronize, Tangling Hair, Thermal Exchange, Torrent, Trace, Unseen Fist, Victory Star, Wandering Spirit, Water Veil, White Smoke, Anger Shell, Bulletproof, Compound Eyes, Dry Skin, Poison Puppeteer, Reckless, Cloud Nine, Air Lock, Grass Pelt, Liquid Voice, Long Reach, Magician, Poison Point, Wind Power";
 			const SituAbilities = text2.split(", ");
 			
-			//Useless Abilities, Length = 93
-			let text3= "Anger Point, Anticipation, Aura Break, Bad Dreams, Ball Fetch, Battery, Battle Armor, Big Pecks, Color Change, Commander, Costar, Curious Medicine, Cute Charm, Damp, Dancer, Defeatist, Early Bird, Emergency Exit, Flower Gift, Forewarn, Friend Guard, Gluttony, Healer, Heavy Metal, Honey Gather, Hospitality, Hunger Switch, Hydration, Hyper Cutter, Ice Body, Illuminate, Inner Focus, Insomnia, Keen Eye, Klutz, Leaf Guard, Light Metal, Magma Armor, Merciless, Mimicry, Minus, Oblivious, Own Tempo, Perish Body, Pickpocket, Pickup, Plus, Power of Alchemy, Power Spot, Propeller Tail, Rain Dish, Rattled, Receiver, Rivalry, Run Away, Sand Veil, Shell Armor, Slow Start, Snow Cloak, Stall, Stalwart, Steadfast, Stench, Sticky Hold, Suction Cups, Supersweet Syrup, Super Luck, Symbiosis, Tangled Feet, Telepathy, Truant, Unnerve, Vital Spirit, Wimp Out, Zen Mode, Justified, Liquid Ooze, Mycelium Might, Screen Cleaner, Power Construct, RKS System, Schooling, Shields Down, Stance Change, Tera Shift, Zero to Hero, Gulp Missile, Effect Spore, Embody Aspect (Teal), Embody Aspect (Hearthflame), Embody Aspect (Wellspring), Embody Aspect (Cornerstone), Teraform Zero";
+			//Useless Abilities, Length = 95
+			let text3= "Anger Point, Anticipation, Aura Break, Bad Dreams, Ball Fetch, Battery, Battle Armor, Big Pecks, Color Change, Commander, Costar, Curious Medicine, Cute Charm, Damp, Dancer, Defeatist, Early Bird, Emergency Exit, Flower Gift, Forewarn, Friend Guard, Gluttony, Healer, Heavy Metal, Honey Gather, Hospitality, Hunger Switch, Hydration, Hyper Cutter, Ice Body, Illuminate, Inner Focus, Insomnia, Keen Eye, Klutz, Leaf Guard, Light Metal, Magma Armor, Merciless, Mimicry, Minus, Oblivious, Own Tempo, Perish Body, Pickpocket, Pickup, Plus, Power of Alchemy, Power Spot, Propeller Tail, Rain Dish, Rattled, Receiver, Rivalry, Run Away, Sand Veil, Shell Armor, Slow Start, Snow Cloak, Stall, Stalwart, Steadfast, Stench, Sticky Hold, Suction Cups, Supersweet Syrup, Super Luck, Symbiosis, Tangled Feet, Telepathy, Truant, Unnerve, Vital Spirit, Wimp Out, Zen Mode, Justified, Liquid Ooze, Mycelium Might, Screen Cleaner, Power Construct, RKS System, Schooling, Shields Down, Stance Change, Tera Shift, Zero to Hero, Gulp Missile, Effect Spore, Embody Aspect (Teal), Embody Aspect (Hearthflame), Embody Aspect (Wellspring), Embody Aspect (Cornerstone), Teraform Zero, Disguise, Ice Face";
 			const UselessAbilities = text3.split(", ");
 	  
 			//Ability Dropdown Construction
@@ -487,6 +526,12 @@
 				}
 			}	
 			
+			function getAllAbiCost() {
+				getFirstAbiCost(abi1, abi1_new, abi1_cost);
+				getAbiCost(abi2, abi2_new, abi2_cost);
+				getAbiCost(abi3, abi3_new, abi3_cost);
+			}
+			
 	  
 			/*
 			let txt = ""
@@ -528,7 +573,34 @@
 			
 			//End of Move Cost Calculation
 			//End of Move Section
-	  
+			
+			
+
+			
+			//Total and Remaining cost
+			function tot_rem() {
+				let totalTypeCost = Number(type1_cost.value) + Number(type2_cost.value);
+				let totalStatCost = Number(hp_cost.value) + Number(atk_cost.value) + Number(def_cost.value) + Number(spa_cost.value) + Number(spd_cost.value) + Number(spe_cost.value);
+				let totalAbilityCost = Number(abi1_cost.value) + Number(abi2_cost.value) + Number(abi3_cost.value);
+				//let totalMoveCost = Number(moves_cost.value);
+				
+				total_cost.value = totalTypeCost + totalStatCost + totalAbilityCost;
+				rem_cost.value = 50 - total_cost.value;
+			}
+			
+			//Get Canvas summarised
+			function getCanvas() {
+				getType(); 
+				getNewStats(); 
+				getAbilities();
+				
+				getTypeCost(); 
+				showStatCost();
+				getAllAbiCost();
+				
+				tot_rem();
+			}	
+			
 			//Reset
 			function reset() {
 				type1_new.value = type1.value;
@@ -556,6 +628,13 @@
 				spd_cost.value = 0;
 				spe_cost.value = 0;
 				moves_cost.value = 0;
+				tot_rem();
+			}
+			
+			
+			//Test function
+			function testFunc() {
+				document.getElementById("demo").innerHTML = "hello";
 			}
 	  
     </script>
