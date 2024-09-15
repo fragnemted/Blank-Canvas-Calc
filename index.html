@@ -14,7 +14,7 @@
 
     <style>
       body {
-        background-color: rgb(50,10,35);
+        background-color: rgb(45,0,45);
         font-family: verdana;
         color: white;
         margin-left: 20px;
@@ -55,6 +55,22 @@
 		height: 30px;
 	  }
 		
+		td.hasbutton {
+			text-align: right;
+			width: 80px;
+		}
+		
+		button.sidebutton {
+			width: 60px;
+			background-color: orange;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+		
+		button.sidebutton:hover {
+			background-color: lightgreen;
+		}
+		
 		a:link, a:visited {
 			color: white;
 			text-decoration: none;
@@ -69,9 +85,16 @@
     
   </head>
   <body>
-		<img src="https://www.smogon.com/forums/attachments/1227-sin-t%C3%ADtulo_20240810172215-png.656951/" alt="Blank Canvas Banner" style="margin-left:auto; margin-right:auto; display:block; height:35%; width:35%;">
-		<p style="text-align:center; font-style:oblique">Banner by GaboSwampert</p>
-    <h1>= Blank Canvas Calc Test =</h1>
+		<img src="1227 sin título_20240810172215.png" alt="Blank Canvas Banner" style="border-radius:10px; margin-top:20px; margin-left:auto; margin-right:auto; display:block; height:35%; width:35%;">
+		<p style="text-align:center; font-style:oblique">Art by Gaboswampert<br>
+			<span style="font-size:10px;">Calculator coded by Fragmented</span>
+		</p>
+    <h1>= Blank Canvas Calculator =</h1>
+		<p style="text-align:center;">
+			<a href="https://www.smogon.com/forums/threads/blank-canvas.3748841/" target="_blank">Main Thread</a> | 
+			<a href="https://docs.google.com/spreadsheets/d/1a-NXZB0KOsFGPzOkwGPYrg0iSMxejfKiPTosT3pfd20/edit?gid=0#gid=0" target="_blank">Spreadsheet</a> | 
+			<a href="http://191.101.232.116/#" target="_blank">Showdown Server</a>
+		</p>
 		
 		<hr style="height:5px; border-width:0 ;color:white; background-color:white; text-align: center;">
 		<br>
@@ -143,7 +166,7 @@
 			<tr>
 				<td class="header1">Abilities: </td>
 				<td>
-					<select id="abi1" onchange="getAllAbiCost(); tot_rem();">
+					<select id="abi1" style="width:150px;" onchange="getAllAbiCost(); tot_rem();">
 						<option value=""></option>
 						<optgroup id="abiNorm1" label="- Normal Abilities -">
 						</optgroup>
@@ -152,7 +175,7 @@
 						<optgroup id="abiUsel1" label="- Useless Abilities -">
 						</optgroup>
 					</select>
-					<select id="abi2" onchange="getAllAbiCost(); tot_rem();">
+					<select id="abi2" style="width:150px;" onchange="getAllAbiCost(); tot_rem();">
 						<option value=""></option>
 						<optgroup id="abiNorm2" label="- Normal Abilities -">
 						</optgroup>
@@ -161,7 +184,7 @@
 						<optgroup id="abiUsel2" label="- Useless Abilities -">
 						</optgroup>
 					</select>
-					<select id="abi3" onchange="getAllAbiCost(); tot_rem();">
+					<select id="abi3" style="width:150px;" onchange="getAllAbiCost(); tot_rem();">
 						<option value=""></option>
 						<optgroup id="abiNorm3" label="- Normal Abilities -">
 						</optgroup>
@@ -174,7 +197,7 @@
 			</tr>
 			<tr>
 				<td class="header1">Given Moves: </td>
-				<td><textarea id="moves" cols=85; rows="2"></textarea></td>
+				<td><textarea id="moves" cols=61; rows="3"></textarea></td>
 			</tr>
     </table>
 	  <!--End of Canvas Table-->	 
@@ -187,12 +210,12 @@
 	  <table>
 			<tr>
 				<td colspan=2 class="header0">Fakemon Canvas</td>
-				<td><button type="button" onclick="reset();">Reset</button></td>
+				<td class="hasbutton"><button type="button" class="sidebutton" onclick="reset();">Reset</button></td>
 			</tr>
 			<tr>
 				<td class="header1">Name: </td>
 				<td><textarea id="name_mon" rows=1 cols=30 maxlength=30></textarea></td>
-				<td><button type="button" onclick="getCanvas();">Get Canvas</button></td>
+				<td class="hasbutton"><button type="button" class="sidebutton" onclick="getCanvas();">Get Canvas</button></td>
 			</tr>
 			<tr>
 				<td class="header1">Weight: </td>
@@ -244,7 +267,7 @@
 						<option value="fairy">Fairy</option>
 					</select>
 				</td>
-				<td><button type="button" onclick="getType(); getTypeCost(); tot_rem();">Get Type</button></td>
+				<td class="hasbutton"><button type="button" class="sidebutton" onclick="getType(); getTypeCost(); tot_rem();">Get Type</button></td>
 			</tr>
 			<tr>
 				<td class="header1">Stats: </td>
@@ -256,12 +279,12 @@
 					<input type="number" id="spd_new" value=50 min=0 max=255 step=5 onchange="showStatCost(); tot_rem();">
 					<input type="number" id="spe_new" value=50 min=0 max=255 step=5 onchange="showStatCost(); tot_rem();">
 				</td>
-				<td><button type="button" onclick="getNewStats(); showStatCost(); tot_rem();">Get Stats</button></td>
+				<td class="hasbutton"><button type="button" class="sidebutton" onclick="getNewStats(); showStatCost(); tot_rem();">Get Stats</button></td>
 			</tr>
 			<tr>
 				<td class="header1">Abilities: </td>
 				<td>
-					<select id="abi1_new" onchange="getAllAbiCost(); tot_rem();">
+					<select id="abi1_new" style="width:150px;" onchange="getAllAbiCost(); tot_rem();">
 						<option value=""></option>
 						<optgroup id="abiNorm1_new" label="- Normal Abilities -">
 						</optgroup>
@@ -270,7 +293,7 @@
 						<optgroup id="abiUsel1_new" label="- Useless Abilities -">
 						</optgroup>
 					</select>
-					<select id="abi2_new" onchange="getAllAbiCost(); tot_rem();">
+					<select id="abi2_new" style="width:150px;" onchange="getAllAbiCost(); tot_rem();">
 						<option value=""></option>
 						<optgroup id="abiNorm2_new" label="- Normal Abilities -">
 						</optgroup>
@@ -279,7 +302,7 @@
 						<optgroup id="abiUsel2_new" label="- Useless Abilities -">
 						</optgroup>
 					</select>
-					<select id="abi3_new" onchange="getAllAbiCost(); tot_rem();">
+					<select id="abi3_new" style="width:150px;" onchange="getAllAbiCost(); tot_rem();">
 						<option value=""></option>
 						<optgroup id="abiNorm3_new" label="- Normal Abilities -">
 						</optgroup>
@@ -289,17 +312,17 @@
 						</optgroup>
 					</select>
 				</td>
-				<td><button type="button" onclick="getAbilities(); getAllAbiCost(); tot_rem();">Get Abilities</button></td>
+				<td class="hasbutton"><button type="button" class="sidebutton" onclick="getAbilities(); getAllAbiCost(); tot_rem();">Get Abilities</button></td>
 			</tr>
 			<tr>
 				<td class="header1">New Moves: </td>
-				<td><textarea id="moves_new" cols=85 rows=3 onchange=" tot_rem();"></textarea></td>
+				<td><textarea id="moves_new" cols=61 rows=4 onchange=" tot_rem();"></textarea></td>
 			</tr>
 			<!--Inserting a blank row-->
 			<tr class="header1"></tr>
 			<tr>
 				<td class="header1">Suggested moves: </td>
-				<td><textarea id="moves_suggest" class="noinput" cols=85 rows=3 disabled></textarea></td>
+				<td><textarea id="moves_suggest" class="noinput" cols=61 rows=4 disabled></textarea></td>
 			</tr>
 		</table>
 		<!--End of Fakemon Table-->
@@ -409,21 +432,18 @@
 			</tr>
 		</table>
 		<!--End of Copy/Pasteable-->
+		
+		<br><br><br>
+		
 		</div>
-
 	
 		<div style="float: right; width: 30%;">
 			Test: <span id="demo"></span><br>
 			Test2: <span id="demo2"></span><br>
-			Test3: <span id="demo3"></span>
-			<br><br>
-			<p style="font-size:20px; text-decoration:underline;">Links:</p>
-				<a href="https://www.smogon.com/forums/threads/blank-canvas.3748841/" target="_blank">Blank Canvas Main Thread</a><br>
-				<a href="https://docs.google.com/spreadsheets/d/1a-NXZB0KOsFGPzOkwGPYrg0iSMxejfKiPTosT3pfd20/edit?gid=0#gid=0" target="_blank">Spreadsheet of Existing Fakemons</a><br>
-				<a href="http://191.101.232.116/#" target="_blank">Petmod Showdown Server</a>
+			Test3: <span id="demo3"></span>			
 		</div>
 
-		
+		<br><br>
 		
 		<!-- Scripts -->
 
