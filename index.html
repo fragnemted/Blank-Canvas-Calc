@@ -23,6 +23,11 @@
         text-align: center;
         margin-right: 20px;
       }
+			
+			textarea {
+				resize: none;
+				border-radius: 5px;
+			}
 
       .noinput {
         background-color: rgb(150,150,150);
@@ -199,6 +204,7 @@
 				<td><textarea id="moves_given" cols=61; rows="3"></textarea></td>
 			</tr>
     </table>
+		<p style="font-size:12px;">Also gets the following moves: Take Down, Rest, Sleep Talk, Snore, Protect, Facade, Substitute, Tera Blast</p>
 	  <!--End of Canvas Table-->	 
 	  
 		
@@ -223,7 +229,7 @@
 			<tr>
 				<td class="header1">Type: </td>
 				<td>
-					<select id="type1_new" onchange="getTypeCost(); tot_rem();">
+					<select id="type1_new" onchange="getTypeCost(); tot_rem(); giveSTAB();">
 						<option value="" selected></option>
 						<option value="Normal">Normal</option>
 						<option value="Fire">Fire</option>
@@ -244,7 +250,7 @@
 						<option value="Steel">Steel</option>
 						<option value="Fairy">Fairy</option>
 					</select>
-					<select id="type2_new" onchange="getTypeCost(); tot_rem();">
+					<select id="type2_new" onchange="getTypeCost(); tot_rem(); giveSTAB();">
 						<option value="" selected></option>
 						<option value="Normal">Normal</option>
 						<option value="Fire">Fire</option>
@@ -315,7 +321,7 @@
 			</tr>
 			<tr>
 				<td class="header1">New Moves: </td>
-				<td><textarea id="moves_new" cols=61 rows=4 onchange=" tot_rem();"></textarea></td>
+				<td><textarea id="moves_new" cols=61 rows=4 onchange="getMoveCost(); tot_rem();"></textarea></td>
 			</tr>
 			<!--Inserting a blank row-->
 			<tr class="header1"></tr>
@@ -375,10 +381,14 @@
 			</tr>
 			<tr>
 				<td class="header1">Moves: </td>
-				<td><textarea class="noinput" inputmode="number" id="move_cost" placeholder=0 rows=1 cols=4 disabled onchange="tot_rem();"></textarea></td>
+				<td>
+					<textarea class="noinput" inputmode="number" id="move_cost" placeholder=0 rows=1 cols=4 disabled onchange="tot_rem();"></textarea>
+				</td>
 			</tr>
 	  </table>
 	  <!--End of Cost Table-->
+		
+		<button type="button" onclick="getMoveCost();">testing</button>
 		
 		
 		<br><br>
@@ -635,19 +645,15 @@
 			//Notable Moves, Length = 390
 			let text4 = "Accelerock, Acid Armor, Acrobatics, Aeroblast, Agility, Air Slash, Alluring Voice, Apple Acid, Aqua Cutter, Aqua Step, Aqua Tail, Armor Cannon, Astral Barrage, Attack Order, Aura Sphere, Aurora Veil, Avalanche, Baneful Bunker, Barb Barrage, Baton Pass, Beak Blast, Behemoth Bash, Behemoth Blade, Belly Drum, Bitter Blade, Bitter Malice, Blaze Kick, Bleakwind Storm, Blizzard, Blood Moon, Blue Flare, Body Press, Body Slam, Bolt Strike, Boomburst, Brave Bird, Brick Break, Bug Buzz, Bulk Up, Bullet Punch, Burning Bulwark, Calm Mind, Ceaseless Edge, Chilly Reception, Chloroblast, Circle Throw, Clanging Scales, Clangorous Soul, Clear Smog, Close Combat, Coil, Collision Course, Cotton Guard, Court Change, Crabhammer, Cross Chop, Crunch, Curse, Darkest Lariat, Dark Pulse, Defog, Destiny Bond, Detect, Diamond Storm, Dire Claw, Disable, Discharge, Doom Desire, Double-Edge, Double Shock, Draco Meteor, Dragon Ascent, Dragon Claw, Dragon Dance, Dragon Darts, Dragon Energy, Dragon Hammer, Dragon Pulse, Dragon Tail, Draining Kiss, Drain Punch, Drill Peck, Drill Run, Drum Beating, Dynamax Cannon, Earth Power, Earthquake, Eerie Spell, Electro Drift, Electro Shot, Encore, Endeavor, Energy Ball, Eruption, Esper Wing, Expanding Force, Explosion, Extrasensory, Extreme Speed, Fake Out, False Surrender, Fickle Beam, Fiery Dance, Fiery Wrath, Fillet Away, Fire Blast, Fire Fang, Fire Lash, Fire Punch, First Impression, Flame Charge, Flamethrower, Flare Blitz, Flash Cannon, Fleur Cannon, Flip Turn, Flower Trick, Focus Blast, Focus Punch, Foul Play, Freeze-Dry, Freezing Glare, Fusion Bolt, Fusion Flare, Future Sight, Giga Drain, Gigaton Hammer, Glacial Lance, Glaive Rush, Glare, Grass Knot, Grav Apple, Gunk Shot, Hammer Arm, Haze, Headlong Rush, Head Smash, Heal Bell, Healing Wish, Heart Swap, Heat Wave, High Horsepower, High Jump Kick, Hone Claws, Horn Leech, Hurricane, Hydro Pump, Hydro Steam, Hyper Drill, Hyper Voice, Ice Beam, Ice Fang, Ice Hammer, Ice Shard, Ice Spinner, Icicle Spear, Infernal Parade, Infestation, Iron Head, Ivy Cudgel, Judgment, Knock Off, Kowtow Cleave, Lash Out, Last Resort, Last Respects, Lava Plume, Leaf Blade, Leaf Storm, Leech Life, Leech Seed, Light Screen, Liquidation, Low Kick, Lumina Crash, Lunar Dance, Lunge, Luster Purge, Mach Punch, Magma Storm, Make It Rain, Malignant Chain, Matcha Gotcha, Megahorn, Memento, Meteor Beam, Meteor Mash, Mighty Cleave, Milk Drink, Mist Ball, Moonblast, Moongeist Beam, Moonlight, Morning Sun, Mortal Spin, Mountain Gale, Mystical Power, Nasty Plot, Night Shade, No Retreat, Nuzzle, Order Up, Origin Pulse, Overdrive, Overheat, Pain Split, Parting Shot, Perish Song, Petal Blizzard, Petal Dance, Photon Geyser, Play Rough, Poison Jab, Poltergeist, Population Bomb, Power Gem, Power Whip, Precipice Blades, Psyblade, Psychic, Psychic Fangs, Psychic Noise, Psycho Boost, Psycho Cut, Psyshield Bash, Psyshock, Psystrike, Pyro Ball, Quick Attack, Quiver Dance, Rage Fist, Raging Bull, Raging Fury, Rapid Spin, Razor Shell, Recover, Reflect, Reflect Type, Revelation Dance, Revival Blessing, Roar, Rock Blast, Rock Polish, Rock Slide, Roost, Ruination, Sacred Fire, Sacred Sword, Salt Cure, Sandsear Storm, Scald, Scorching Sands, Secret Sword, Seed Bomb, Seed Flare, Seismic Toss, Shadow Ball, Shadow Claw, Shadow Sneak, Shed Tail, Shell Side Arm, Shell Smash, Shift Gear, Shore Up, Silk Trap, Slack Off, Sludge Bomb, Sludge Wave, Snipe Shot, Soft-Boiled, Spacial Rend, Sparkling Aria, Spikes, Spiky Shield, Spin Out, Spirit Break, Spirit Shackle, Springtide Storm, Stealth Rock, Steam Eruption, Steel Beam, Steel Roller, Sticky Web, Stone Axe, Stone Edge, Stored Power, Strange Steam, Strength Sap, Sucker Punch, Sunsteel Strike, Supercell Slam, Super Fang, Superpower, Surf, Surging Strikes, Switcheroo, Swords Dance, Synthesis, Tachyon Cutter, Tail Glow, Tail Slap, Tailwind, Taunt, Teleport, Tera Starstorm, Throat Chop, Thunder, Thunderbolt, Thunder Cage, Thunderclap, Thunderous Kick, Thunder Punch, Thunder Wave, Tidy Up, Torch Song, Toxic, Toxic Spikes, Trailblaze, Transform, Tri Attack, Trick, Trick Room, Triple Arrows, Triple Axel, Triple Dive, Twin Beam, U-Turn, Victory Dance, Volt Switch, Volt Tackle, Waterfall, Water Shuriken, Water Spout, Wave Crash, Weather Ball, Whirlwind, Wicked Blow, Wildbolt Storm, Will-O-Wisp, Wish, Wood Hammer, X-Scissor, Zen Headbutt, Zing Zap, Solar Beam, Solar Blade, Dynamic Punch, Inferno, Zap Cannon, Heat Crash, Heavy Slam, Aerial Ace, Ancient Power, Aqua Jet, Axe Kick, Bullet Seed, Chilling Water, Counter, Dazzling Gleam, Dual Wingbeat, Feint, Grassy Glide, Gyro Ball, Headbutt, Hex, Ice Punch, Icicle Crash, Icy Wind, Iron Defense, Iron Tail, Mystical Fire, Night Slash, Outrage, Rising Voltage, Rock Tomb, Shelter, Smack Down, Smart Strike, Stun Spore, Temper Flare, Water Pulse, Wild Charge, Final Gambit, Jet Punch, Jungle Healing, Lunar Blessing, Mirror Coat, Pollen Puff, Power Trip, Take Heart";
 			const NotableMoves = text4.split(", ");
-			
 			//Useless Moves, Length = 292
 			let text5 = "Absorb, Acid, Acid Spray, Acupressure, After You, Air Cutter, Ally Switch, Amnesia, Aqua Ring, Arm Thrust, Aromatic Mist, Assurance, Astonish, Attract, Aura Wheel, Aurora Beam, Baby-Doll Eyes, Beat Up, Belch, Bind, Bite, Blast Burn, Block, Bone Rush, Bounce, Branch Poke, Breaking Swipe, Brine, Brutal Swing, Bubble Beam, Bug Bite, Bulldoze, Burning Jealousy, Burn Up, Celebrate, Charge, Charge Beam, Charm, Coaching, Comeuppance, Confide, Confuse Ray, Confusion, Conversion, Conversion 2, Copycat, Corrosive Gas, Cosmic Power, Cotton Spore, Covet, Cross Poison, Crush Claw, Crush Grip, Cut, Dark Void, Decorate, Defend Order, Defense Curl, Dig, Disarming Voice, Dive, Doodle, Double Hit, Double Kick, Double Team, Dragon Breath, Dragon Cheer, Dragon Rush, Dream Eater, Echoed Voice, Eerie Impulse, Electric Terrain, Electro Ball, Electroweb, Ember, Endure, Entrainment, Fairy Lock, Fairy Wind, Fake Tears, False Swipe, Feather Dance, Fell Stinger, Fire Pledge, Fire Spin, Fissure, Flail, Flame Wheel, Flatter, Fling, Floral Healing, Fly, Flying Press, Focus Energy, Follow Me, Force Palm, Forest's Curse, Freeze Shock, Frenzy Plant, Frost Breath, Fury Attack, Fury Cutter, Fury Swipes, Gastro Acid, Giga Impact, Glaciate, Grass Pledge, Grassy Terrain, Gravity, Growl, Growth, Guard Split, Guard Swap, Guillotine, Gust, Happy Hour, Harden, Hard Press, Heal Pulse, Helping Hand, Hold Back, Hold Hands, Horn Attack, Horn Drill, Howl, Hydro Cannon, Hyper Beam, Hyperspace Fury, Hyperspace Hole, Hypnosis, Ice Burn, Imprison, Incinerate, Ingrain, Instruct, Jaw Lock, Leafage, Leer, Lick, Life Dew, Lock-On, Low Sweep, Magical Leaf, Magic Powder, Magic Room, Magnetic Flux, Magnet Rise, Mean Look, Mega Drain, Mega Kick, Mega Punch, Metal Burst, Metal Claw, Metal Sound, Metronome, Mimic, Minimize, Mist, Misty Explosion, Misty Terrain, Muddy Water, Mud Shot, Mud-Slap, Night Daze, Noble Roar, Parabolic Charge, Payback, Pay Day, Peck, Phantom Force, Pin Missile, Play Nice, Pluck, Poison Fang, Poison Gas, Poison Powder, Poison Sting, Poison Tail, Pounce, Pound, Powder Snow, Power Shift, Power Split, Power Swap, Power Trick, Present, Prismatic Laser, Psybeam, Psychic Terrain, Psych Up, Quash, Quick Guard, Rage Powder, Rain Dance, Razor Leaf, Recycle, Relic Song, Retaliate, Reversal, Roar of Time, Rock Smash, Rock Throw, Rock Wrecker, Role Play, Rollout, Round, Safeguard, Sand Attack, Sandstorm, Sand Tomb, Scale Shot, Scary Face, Scratch, Screech, Self-Destruct, Shadow Force, Shadow Punch, Sheer Cold, Shock Wave, Simple Beam, Sing, Sketch, Skill Swap, Skitter Smack, Sky Attack, Slam, Slash, Sleep Powder, Sludge, Smog, Smokescreen, Snarl, Snowscape, Soak, Spark, Speed Swap, Spicy Extract, Spite, Spit Up, Splash, Spore, Steel Wing, Stockpile, Stomp, Stomping Tantrum, Strength, String Shot, Struggle Bug, Stuff Cheeks, Sunny Day, Supersonic, Swagger, Swallow, Sweet Kiss, Sweet Scent, Swift, Syrup Bomb, Tackle, Tail Whip, Tar Shot, Tearful Look, Teatime, Teeter Dance, Terrain Pulse, Thief, Thrash, Thunder Fang, Thunder Shock, Tickle, Topsy-Turvy, Torment, Toxic Thread, Triple Kick, Trop Kick, Twister, Upper Hand, Uproar, Vacuum Wave, Venoshock, Vine Whip, Vise Grip, Water Gun, Water Pledge, Whirlpool, Wide Guard, Wing Attack, Withdraw, Wonder Room, Work Up, Worry Seed, Wrap, Yawn";
 			const UselessMoves = text5.split(", ");
-			
 			//Unusable Moves
 			const UnusableMoves = ["Blazing Torque","Combat Torque","Magical Torque","Noxious Torque","Wicked Torque","V-Create"];
-			
 			//Universal Moves
 			const UniversalMoves = ["Take Down","Rest","Sleep Talk","Snore","Protect","Facade","Substitute","Tera Blast"];
-			
 			//Given STAB Moves
-			const GivenSTAB= [["Body Slam","Hyper Voice"],["Temper Flare","Flamethrower"],["Leaf Blade","Energy Ball"],["Liquidation","Surf"],["Thunder Punch","Thunderbolt"],["Ice Spinner","Ice Beam"],["Brick Break","Aura Sphere"],["Poison Jab","Sludge Bomb"],["High Horsepower","Earth Power"],["Drill Peck","Air Slash"],["Psychic Fangs","Psychic"],["Lunge","Bug Buzz"],["Rock Slide","Power Gem"],["Shadow Claw","Shadow Ball"],["Dragon Claw","Dragon Pulse"],["Crunch","Dark Pulse"],["Iron Head","Flash Cannon"],["Play Rough","Alluring Voice"]];
+			const GivenSTAB= [["Body Slam","Hyper Voice"],["Temper Flare","Flamethrower"],["Liquidation","Surf"],["Leaf Blade","Energy Ball"],["Thunder Punch","Thunderbolt"],["Ice Spinner","Ice Beam"],["Brick Break","Aura Sphere"],["Poison Jab","Sludge Bomb"],["High Horsepower","Earth Power"],["Drill Peck","Air Slash"],["Psychic Fangs","Psychic"],["Lunge","Bug Buzz"],["Rock Slide","Power Gem"],["Shadow Claw","Shadow Ball"],["Dragon Claw","Dragon Pulse"],["Crunch","Dark Pulse"],["Iron Head","Flash Cannon"],["Play Rough","Alluring Voice"]];
 			
 			
 			//Moves sorted by Type
@@ -675,10 +681,86 @@
 			const moveTypeArray = [normalMoves,fireMoves,waterMoves,grassMoves,electricMoves,iceMoves,fightingMoves,poisonMoves,groundMoves,flyingMoves,psychicMoves,bugMoves,rockMoves,ghostMoves,dragonMoves,darkMoves,steelMoves,fairyMoves];
 			
 			
-			//Move Cost Calculation
-			function getMoveCost() {
+			demo3.innerHTML = ind2;
+			
+			//Add Given STAB Moves
+			
+			function giveSTAB() {
+				let t1 = type1_new.value;
+				let t2 = type2_new.value;
+				
+				let ind1 = typeArray.indexOf(t1);
+				let ind2 = typeArray.indexOf(t2);
+				
+				let stabs1 = [];
+				let stabs2 = [];
+				
+				if (ind1 < 0) {
+					;
+				} else {
+					stabs1 = GivenSTAB[ind1];
+					givenMoves.push(stabs1[0],stabs1[1]);
+				}	
+
+				if (ind2 < 0) {
+					;
+				} else {
+					stabs2 = GivenSTAB[ind2];
+					givenMoves.push(stabs2[0],stabs2[1]);
+				}
+			}
+		
+			
+			//Give Suggested Useless Moves
+			function suggestMoves() {
 				
 			}
+			
+			//Move Cost Calculation
+			function getMoveCost() {
+				let t1 = type1_new.value;
+				let t2 = type2_new.value;
+				
+				let ind1 = typeArray.indexOf(t1);
+				let ind2 = typeArray.indexOf(t2);
+			
+				let t1moves = [];
+				let t2moves = [];
+				let totMoveCost = 0;
+			
+				if (ind1 < 0) {
+					;
+				} else {
+					t1moves = moveTypeArray[ind1];
+					//demo2.innerHTML = t1moves[1];
+				}
+				if (ind2 < 0) {
+					;
+				} else {
+					t2moves = moveTypeArray[ind2];
+					//demo3.innerHTML = t2moves;
+				}
+				
+				let newMovesText = moves_new.value;
+				let newMoves = newMovesText.split(", ");
+				
+				for (let j = 0; j < newMoves.length; j++) {
+					if ((t1moves[0].includes(newMoves[j])) || (t2moves[0].includes(newMoves[j]))) {
+						totMoveCost += 2;
+					} else if ((t1moves[1].includes(newMoves[j])) || (t2moves[1].includes(newMoves[j]))) {
+						totMoveCost += 0;
+					} else if (NotableMoves.includes(newMoves[j])) {
+						totMoveCost += 5;
+					} else if (UselessMoves.includes(newMoves[j])) {
+						totMoveCost += 0.5;
+					} else {
+						;
+					}
+				}
+				move_cost.value = totMoveCost;
+			}
+			
+			
 			//End of Move Cost Calculation
 			//End of Move Section
 			
@@ -695,7 +777,7 @@
 				let totalAbilityCost = Number(abi1_cost.value) + Number(abi2_cost.value) + Number(abi3_cost.value);
 				//let totalMoveCost = Number(moves_cost.value);
 				
-				total_cost.value = totalTypeCost + totalStatCost + totalAbilityCost;
+				total_cost.value = totalTypeCost + totalStatCost + totalAbilityCost + Number(move_cost.value);
 				rem_cost.value = 50 - total_cost.value;
 			}
 			
@@ -787,7 +869,7 @@
 				}	
 
 				
-				
+				movesCP.innerHTML = givenMoves;
 			}	
 			
 			
