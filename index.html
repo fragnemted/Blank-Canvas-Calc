@@ -3,7 +3,6 @@
 	<!--
 	To-Do list
 	- making move object/array
-	- fix Copy/Pasteable
 	- fix mobile formatting
 	-->
 
@@ -18,7 +17,6 @@
         font-family: verdana;
         color: white;
         margin-left: 20px;
-				font-variant: small-caps;
       }
 
       h1, h2, h3 {
@@ -31,55 +29,56 @@
         color: black;
       }
 	  
-	  .total {
-		background-color: rgb(20,255,20);
-        color: black;
-      }
+			.total {
+				background-color: rgb(20,255,20);
+				color: black;
+			}
 	  
-	  .remaining {
-	    background-color: rgb(255,60,60);
-		color: black;
-	  }
+			.remaining {
+				background-color: rgb(255,60,60);
+				color: black;
+			}
 	  
-	  .header0 {
-	    text-align: left; 
-		font-size: 20px; 
-		height: 40px;
-		text-decoration: underline;
-		text-decoration-thickness: 2px;
-	  }
+			.header0 {
+				text-align: left; 
+				font-size: 20px; 
+				height: 40px;
+				text-decoration: underline;
+				text-decoration-thickness: 2px;
+				font-variant: small-caps;
+			}
 	  
-	  .header1 {
-		text-align: right;
-		width: 100px;
-		height: 30px;
-	  }
+			.header1 {
+				text-align: right;
+				width: 100px;
+				height: 30px;
+			}
 		
-		td.hasbutton {
-			text-align: right;
-			width: 80px;
-		}
-		
-		button.sidebutton {
-			width: 60px;
-			background-color: orange;
-			border-radius: 4px;
-			cursor: pointer;
-		}
-		
-		button.sidebutton:hover {
-			background-color: lightgreen;
-		}
-		
-		a:link, a:visited {
-			color: white;
-			text-decoration: none;
-		}
-		
-		a:hover, a:active {
-			color: lightblue;
-			text-decoration: underline;
-		}
+			td.hasbutton {
+				text-align: right;
+				width: 80px;
+			}
+			
+			button.sidebutton {
+				width: 60px;
+				background-color: orange;
+				border-radius: 4px;
+				cursor: pointer;
+			}
+			
+			button.sidebutton:hover {
+				background-color: lightgreen;
+			}
+			
+			a:link, a:visited {
+				color: white;
+				text-decoration: none;
+			}
+			
+			a:hover, a:active {
+				color: lightblue;
+				text-decoration: underline;
+			}
       
     </style>
     
@@ -110,45 +109,45 @@
 				<td>
 					<select id="type1" onchange="getTypeCost(); tot_rem();">
 						<option value="" selected></option>
-						<option value="normal">Normal</option>
-						<option value="fire">Fire</option>
-						<option value="water">Water</option>
-						<option value="grass">Grass</option>
-						<option value="electric">Electric</option>
-						<option value="ice">Ice</option>
-						<option value="fighting">Fighting</option>
-						<option value="poison">Poison</option>
-						<option value="ground">Ground</option>
-						<option value="flying">Flying</option>
-						<option value="psychic">Psychic</option>
-						<option value="bug">Bug</option>
-						<option value="rock">Rock</option>
-						<option value="ghost">Ghost</option>
-						<option value="dragon">Dragon</option>
-						<option value="dark">Dark</option>
-						<option value="steel">Steel</option>
-						<option value="fairy">Fairy</option>
+						<option value="Normal">Normal</option>
+						<option value="Fire">Fire</option>
+						<option value="Water">Water</option>
+						<option value="Grass">Grass</option>
+						<option value="Electric">Electric</option>
+						<option value="Ice">Ice</option>
+						<option value="Fighting">Fighting</option>
+						<option value="Poison">Poison</option>
+						<option value="Ground">Ground</option>
+						<option value="Flying">Flying</option>
+						<option value="Psychic">Psychic</option>
+						<option value="Bug">Bug</option>
+						<option value="Rock">Rock</option>
+						<option value="Ghost">Ghost</option>
+						<option value="Dragon">Dragon</option>
+						<option value="Dark">Dark</option>
+						<option value="Steel">Steel</option>
+						<option value="Fairy">Fairy</option>
 					</select>
 					<select id="type2" onchange="getTypeCost(); tot_rem();">
 						<option value="" selected></option>
-						<option value="normal">Normal</option>
-						<option value="fire">Fire</option>
-						<option value="water">Water</option>
-						<option value="grass">Grass</option>
-						<option value="electric">Electric</option>
-						<option value="ice">Ice</option>
-						<option value="fighting">Fighting</option>
-						<option value="poison">Poison</option>
-						<option value="ground">Ground</option>
-						<option value="flying">Flying</option>
-						<option value="psychic">Psychic</option>
-						<option value="bug">Bug</option>
-						<option value="rock">Rock</option>
-						<option value="ghost">Ghost</option>
-						<option value="dragon">Dragon</option>
-						<option value="dark">Dark</option>
-						<option value="steel">Steel</option>
-						<option value="fairy">Fairy</option>
+						<option value="Normal">Normal</option>
+						<option value="Fire">Fire</option>
+						<option value="Water">Water</option>
+						<option value="Grass">Grass</option>
+						<option value="Electric">Electric</option>
+						<option value="Ice">Ice</option>
+						<option value="Fighting">Fighting</option>
+						<option value="Poison">Poison</option>
+						<option value="Ground">Ground</option>
+						<option value="Flying">Flying</option>
+						<option value="Psychic">Psychic</option>
+						<option value="Bug">Bug</option>
+						<option value="Rock">Rock</option>
+						<option value="Ghost">Ghost</option>
+						<option value="Dragon">Dragon</option>
+						<option value="Dark">Dark</option>
+						<option value="Steel">Steel</option>
+						<option value="Fairy">Fairy</option>
 					</select>
 				</td>
       </tr>
@@ -197,7 +196,7 @@
 			</tr>
 			<tr>
 				<td class="header1">Given Moves: </td>
-				<td><textarea id="moves" cols=61; rows="3"></textarea></td>
+				<td><textarea id="moves_given" cols=61; rows="3"></textarea></td>
 			</tr>
     </table>
 	  <!--End of Canvas Table-->	 
@@ -226,45 +225,45 @@
 				<td>
 					<select id="type1_new" onchange="getTypeCost(); tot_rem();">
 						<option value="" selected></option>
-						<option value="normal">Normal</option>
-						<option value="fire">Fire</option>
-						<option value="water">Water</option>
-						<option value="grass">Grass</option>
-						<option value="electric">Electric</option>
-						<option value="ice">Ice</option>
-						<option value="fighting">Fighting</option>
-						<option value="poison">Poison</option>
-						<option value="ground">Ground</option>
-						<option value="flying">Flying</option>
-						<option value="psychic">Psychic</option>
-						<option value="bug">Bug</option>
-						<option value="rock">Rock</option>
-						<option value="ghost">Ghost</option>
-						<option value="dragon">Dragon</option>
-						<option value="dark">Dark</option>
-						<option value="steel">Steel</option>
-						<option value="fairy">Fairy</option>
+						<option value="Normal">Normal</option>
+						<option value="Fire">Fire</option>
+						<option value="Water">Water</option>
+						<option value="Grass">Grass</option>
+						<option value="Electric">Electric</option>
+						<option value="Ice">Ice</option>
+						<option value="Fighting">Fighting</option>
+						<option value="Poison">Poison</option>
+						<option value="Ground">Ground</option>
+						<option value="Flying">Flying</option>
+						<option value="Psychic">Psychic</option>
+						<option value="Bug">Bug</option>
+						<option value="Rock">Rock</option>
+						<option value="Ghost">Ghost</option>
+						<option value="Dragon">Dragon</option>
+						<option value="Dark">Dark</option>
+						<option value="Steel">Steel</option>
+						<option value="Fairy">Fairy</option>
 					</select>
 					<select id="type2_new" onchange="getTypeCost(); tot_rem();">
 						<option value="" selected></option>
-						<option value="normal">Normal</option>
-						<option value="fire">Fire</option>
-						<option value="water">Water</option>
-						<option value="grass">Grass</option>
-						<option value="electric">Electric</option>
-						<option value="ice">Ice</option>
-						<option value="fighting">Fighting</option>
-						<option value="poison">Poison</option>
-						<option value="ground">Ground</option>
-						<option value="flying">Flying</option>
-						<option value="psychic">Psychic</option>
-						<option value="bug">Bug</option>
-						<option value="rock">Rock</option>
-						<option value="ghost">Ghost</option>
-						<option value="dragon">Dragon</option>
-						<option value="dark">Dark</option>
-						<option value="steel">Steel</option>
-						<option value="fairy">Fairy</option>
+						<option value="Normal">Normal</option>
+						<option value="Fire">Fire</option>
+						<option value="Water">Water</option>
+						<option value="Grass">Grass</option>
+						<option value="Electric">Electric</option>
+						<option value="Ice">Ice</option>
+						<option value="Fighting">Fighting</option>
+						<option value="Poison">Poison</option>
+						<option value="Ground">Ground</option>
+						<option value="Flying">Flying</option>
+						<option value="Psychic">Psychic</option>
+						<option value="Bug">Bug</option>
+						<option value="Rock">Rock</option>
+						<option value="Ghost">Ghost</option>
+						<option value="Dragon">Dragon</option>
+						<option value="Dark">Dark</option>
+						<option value="Steel">Steel</option>
+						<option value="Fairy">Fairy</option>
 					</select>
 				</td>
 				<td class="hasbutton"><button type="button" class="sidebutton" onclick="getType(); getTypeCost(); tot_rem();">Get Type</button></td>
@@ -388,47 +387,45 @@
 		<!--Copy/Pasteable-->
 		<table>
 			<tr>
-				<td class="header0" colspan=3>Copy/Paste</td>
+				<td class="header0" colspan=2>Copy/Paste</td>
+				<td class="hasbutton"><button type="button" class="sidebutton" onclick="makeCopy();">Get Copy</button></td>
 			</tr>
 			<tr>
 				<td class="header1">Name: </td>
-				<td><span id="nameCP"></span></td>
+				<td><span id="nameCP">---</span></td>
 			</tr>
 			<tr>
 				<td class="header1">Type: </td>
 				<td>
-					<span id="type1CP">filler</span> / 
-					<span id="type2CP">filler</span>
+					<span id="typeCP">---</span>
 				</td>
 			</tr>
 			<tr>
 				<td class="header1">Stats: </td>
 				<td>
-					<span id="hpCP">filler</span> / 
-					<span id="atkCP">filler</span> / 
-					<span id="defCP">filler</span> / 
-					<span id="spaCP">filler</span> / 
-					<span id="spdCP">filler</span> / 
-					<span id="speCP">filler</span> | BST: 
-					<span id="bst">filler</span>
+					<span id="hpCP">---</span> / 
+					<span id="atkCP">---</span> / 
+					<span id="defCP">---</span> / 
+					<span id="spaCP">---</span> / 
+					<span id="spdCP">---</span> / 
+					<span id="speCP">---</span> | BST: 
+					<span id="bst">---</span>
 				</td>
 			</tr>
 			<tr>
 				<td class="header1">Abilities: </td>
 				<td>
-					<span id="abi1CP">filler</span> / 
-					<span id="abil2CP">filler</span> / 
-					<span id="abi3CP">filler</span>
+					<span id="abiCP">---</span>
 				</td>
 			</tr>
 			<!-- come back here if movepool causes table to become weird -->
 			<tr>
 				<td class="header1">Movepool: </td>
-				<td><span id="movesCP">filler</span></td>
+				<td><span id="movesCP">---</span></td>
 			</tr>
 			<tr>
 				<td class="header1">Weight: </td>
-				<td><span id="weightCP">filler</span> kg</td>
+				<td><span id="weightCP">---</span> kg</td>
 			</tr>
 		</table>
 		<!--End of Copy/Pasteable-->
@@ -517,18 +514,15 @@
       }
 
       function showStatCost() {
-        hp_cost.innerHTML = getStatCost(hp_old, hp_new);
-        atk_cost.innerHTML = getStatCost(atk_old, atk_new);
-        def_cost.innerHTML = getStatCost(def_old, def_new);
-        spa_cost.innerHTML = getStatCost(spa_old, spa_new);
-        spd_cost.innerHTML = getStatCost(spd_old, spd_new);
-        spe_cost.innerHTML = getStatCost(spe_old, spe_new);
+        hp_cost.value = getStatCost(hp_old, hp_new);
+        atk_cost.value = getStatCost(atk_old, atk_new);
+        def_cost.value = getStatCost(def_old, def_new);
+        spa_cost.value = getStatCost(spa_old, spa_new);
+        spd_cost.value = getStatCost(spd_old, spd_new);
+        spe_cost.value = getStatCost(spe_old, spe_new);
       }
       //End of Stat Cost Calculation
-	  
-		
-		
-		
+
 		
 	  
 			//Ability Section  	
@@ -634,12 +628,16 @@
 			
 			
 			//Move Section
-			//Notable Moves, Length = 398
-			let text4 = "Accelerock, Acid Armor, Acrobatics, Aeroblast, Agility, Air Slash, Alluring Voice, Apple Acid, Aqua Cutter, Aqua Step, Aqua Tail, Armor Cannon, Astral Barrage, Attack Order, Aura Sphere, Aurora Veil, Avalanche, Baneful Bunker, Barb Barrage, Baton Pass, Beak Blast, Behemoth Bash, Behemoth Blade, Belly Drum, Bitter Blade, Bitter Malice, Blaze Kick, Bleakwind Storm, Blizzard, Blood Moon, Blue Flare, Body Press, Body Slam, Bolt Strike, Boomburst, Brave Bird, Brick Break, Bug Buzz, Bulk Up, Bullet Punch, Burning Bulwark, Calm Mind, Ceaseless Edge, Chilly Reception, Chloroblast, Circle Throw, Clanging Scales, Clangorous Soul, Clear Smog, Close Combat, Coil, Collision Course, Cotton Guard, Court Change, Crabhammer, Cross Chop, Crunch, Curse, Darkest Lariat, Dark Pulse, Defog, Destiny Bond, Detect, Diamond Storm, Dire Claw, Disable, Discharge, Doom Desire, Double-Edge, Double Shock, Draco Meteor, Dragon Ascent, Dragon Claw, Dragon Dance, Dragon Darts, Dragon Energy, Dragon Hammer, Dragon Pulse, Dragon Tail, Draining Kiss, Drain Punch, Drill Peck, Drill Run, Drum Beating, Dynamax Cannon, Earth Power, Earthquake, Eerie Spell, Electro Drift, Electro Shot, Encore, Endeavor, Energy Ball, Eruption, Esper Wing, Expanding Force, Explosion, Extrasensory, Extreme Speed, Facade, Fake Out, False Surrender, Fickle Beam, Fiery Dance, Fiery Wrath, Fillet Away, Fire Blast, Fire Fang, Fire Lash, Fire Punch, First Impression, Flame Charge, Flamethrower, Flare Blitz, Flash Cannon, Fleur Cannon, Flip Turn, Flower Trick, Focus Blast, Focus Punch, Foul Play, Freeze-Dry, Freezing Glare, Fusion Bolt, Fusion Flare, Future Sight, Giga Drain, Gigaton Hammer, Glacial Lance, Glaive Rush, Glare, Grass Knot, Grav Apple, Gunk Shot, Hammer Arm, Haze, Headlong Rush, Head Smash, Heal Bell, Healing Wish, Heart Swap, Heat Wave, High Horsepower, High Jump Kick, Hone Claws, Horn Leech, Hurricane, Hydro Pump, Hydro Steam, Hyper Drill, Hyper Voice, Ice Beam, Ice Fang, Ice Hammer, Ice Shard, Ice Spinner, Icicle Spear, Infernal Parade, Infestation, Iron Head, Ivy Cudgel, Judgment, Knock Off, Kowtow Cleave, Lash Out, Last Resort, Last Respects, Lava Plume, Leaf Blade, Leaf Storm, Leech Life, Leech Seed, Light Screen, Liquidation, Low Kick, Lumina Crash, Lunar Dance, Lunge, Luster Purge, Mach Punch, Magma Storm, Make It Rain, Malignant Chain, Matcha Gotcha, Megahorn, Memento, Meteor Beam, Meteor Mash, Mighty Cleave, Milk Drink, Mist Ball, Moonblast, Moongeist Beam, Moonlight, Morning Sun, Mortal Spin, Mountain Gale, Mystical Power, Nasty Plot, Night Shade, No Retreat, Nuzzle, Order Up, Origin Pulse, Overdrive, Overheat, Pain Split, Parting Shot, Perish Song, Petal Blizzard, Petal Dance, Photon Geyser, Play Rough, Poison Jab, Poltergeist, Population Bomb, Power Gem, Power Whip, Precipice Blades, Protect, Psyblade, Psychic, Psychic Fangs, Psychic Noise, Psycho Boost, Psycho Cut, Psyshield Bash, Psyshock, Psystrike, Pyro Ball, Quick Attack, Quiver Dance, Rage Fist, Raging Bull, Raging Fury, Rapid Spin, Razor Shell, Recover, Reflect, Reflect Type, Rest, Revelation Dance, Revival Blessing, Roar, Rock Blast, Rock Polish, Rock Slide, Roost, Ruination, Sacred Fire, Sacred Sword, Salt Cure, Sandsear Storm, Scald, Scorching Sands, Secret Sword, Seed Bomb, Seed Flare, Seismic Toss, Shadow Ball, Shadow Claw, Shadow Sneak, Shed Tail, Shell Side Arm, Shell Smash, Shift Gear, Shore Up, Silk Trap, Slack Off, Sleep Talk, Sludge Bomb, Sludge Wave, Snipe Shot, Soft-Boiled, Spacial Rend, Sparkling Aria, Spikes, Spiky Shield, Spin Out, Spirit Break, Spirit Shackle, Springtide Storm, Stealth Rock, Steam Eruption, Steel Beam, Steel Roller, Sticky Web, Stone Axe, Stone Edge, Stored Power, Strange Steam, Strength Sap, Substitute, Sucker Punch, Sunsteel Strike, Supercell Slam, Super Fang, Superpower, Surf, Surging Strikes, Switcheroo, Swords Dance, Synthesis, Tachyon Cutter, Tail Glow, Tail Slap, Tailwind, Taunt, Teleport, Tera Blast, Tera Starstorm, Throat Chop, Thunder, Thunderbolt, Thunder Cage, Thunderclap, Thunderous Kick, Thunder Punch, Thunder Wave, Tidy Up, Torch Song, Toxic, Toxic Spikes, Trailblaze, Transform, Tri Attack, Trick, Trick Room, Triple Arrows, Triple Axel, Triple Dive, Twin Beam, U-Turn, Victory Dance, Volt Switch, Volt Tackle, Waterfall, Water Shuriken, Water Spout, Wave Crash, Weather Ball, Whirlwind, Wicked Blow, Wildbolt Storm, Will-O-Wisp, Wish, Wood Hammer, X-Scissor, Zen Headbutt, Zing Zap, Solar Beam, Solar Blade, Dynamic Punch, Inferno, Zap Cannon, Heat Crash, Heavy Slam, Aerial Ace, Ancient Power, Aqua Jet, Axe Kick, Bullet Seed, Chilling Water, Counter, Dazzling Gleam, Dual Wingbeat, Feint, Grassy Glide, Gyro Ball, Headbutt, Hex, Ice Punch, Icicle Crash, Icy Wind, Iron Defense, Iron Tail, Mystical Fire, Night Slash, Outrage, Rising Voltage, Rock Tomb, Shelter, Smack Down, Smart Strike, Stun Spore, Temper Flare, Water Pulse, Wild Charge, Final Gambit, Jet Punch, Jungle Healing, Lunar Blessing, Mirror Coat, Pollen Puff, Power Trip, Take Heart, Revival Blessing, Tera Starstorm";
+			let movepool = "";
+			let givenMovesText = moves_given.value;
+			const givenMoves = givenMovesText.split(", ");
+			
+			//Notable Moves, Length = 390
+			let text4 = "Accelerock, Acid Armor, Acrobatics, Aeroblast, Agility, Air Slash, Alluring Voice, Apple Acid, Aqua Cutter, Aqua Step, Aqua Tail, Armor Cannon, Astral Barrage, Attack Order, Aura Sphere, Aurora Veil, Avalanche, Baneful Bunker, Barb Barrage, Baton Pass, Beak Blast, Behemoth Bash, Behemoth Blade, Belly Drum, Bitter Blade, Bitter Malice, Blaze Kick, Bleakwind Storm, Blizzard, Blood Moon, Blue Flare, Body Press, Body Slam, Bolt Strike, Boomburst, Brave Bird, Brick Break, Bug Buzz, Bulk Up, Bullet Punch, Burning Bulwark, Calm Mind, Ceaseless Edge, Chilly Reception, Chloroblast, Circle Throw, Clanging Scales, Clangorous Soul, Clear Smog, Close Combat, Coil, Collision Course, Cotton Guard, Court Change, Crabhammer, Cross Chop, Crunch, Curse, Darkest Lariat, Dark Pulse, Defog, Destiny Bond, Detect, Diamond Storm, Dire Claw, Disable, Discharge, Doom Desire, Double-Edge, Double Shock, Draco Meteor, Dragon Ascent, Dragon Claw, Dragon Dance, Dragon Darts, Dragon Energy, Dragon Hammer, Dragon Pulse, Dragon Tail, Draining Kiss, Drain Punch, Drill Peck, Drill Run, Drum Beating, Dynamax Cannon, Earth Power, Earthquake, Eerie Spell, Electro Drift, Electro Shot, Encore, Endeavor, Energy Ball, Eruption, Esper Wing, Expanding Force, Explosion, Extrasensory, Extreme Speed, Fake Out, False Surrender, Fickle Beam, Fiery Dance, Fiery Wrath, Fillet Away, Fire Blast, Fire Fang, Fire Lash, Fire Punch, First Impression, Flame Charge, Flamethrower, Flare Blitz, Flash Cannon, Fleur Cannon, Flip Turn, Flower Trick, Focus Blast, Focus Punch, Foul Play, Freeze-Dry, Freezing Glare, Fusion Bolt, Fusion Flare, Future Sight, Giga Drain, Gigaton Hammer, Glacial Lance, Glaive Rush, Glare, Grass Knot, Grav Apple, Gunk Shot, Hammer Arm, Haze, Headlong Rush, Head Smash, Heal Bell, Healing Wish, Heart Swap, Heat Wave, High Horsepower, High Jump Kick, Hone Claws, Horn Leech, Hurricane, Hydro Pump, Hydro Steam, Hyper Drill, Hyper Voice, Ice Beam, Ice Fang, Ice Hammer, Ice Shard, Ice Spinner, Icicle Spear, Infernal Parade, Infestation, Iron Head, Ivy Cudgel, Judgment, Knock Off, Kowtow Cleave, Lash Out, Last Resort, Last Respects, Lava Plume, Leaf Blade, Leaf Storm, Leech Life, Leech Seed, Light Screen, Liquidation, Low Kick, Lumina Crash, Lunar Dance, Lunge, Luster Purge, Mach Punch, Magma Storm, Make It Rain, Malignant Chain, Matcha Gotcha, Megahorn, Memento, Meteor Beam, Meteor Mash, Mighty Cleave, Milk Drink, Mist Ball, Moonblast, Moongeist Beam, Moonlight, Morning Sun, Mortal Spin, Mountain Gale, Mystical Power, Nasty Plot, Night Shade, No Retreat, Nuzzle, Order Up, Origin Pulse, Overdrive, Overheat, Pain Split, Parting Shot, Perish Song, Petal Blizzard, Petal Dance, Photon Geyser, Play Rough, Poison Jab, Poltergeist, Population Bomb, Power Gem, Power Whip, Precipice Blades, Psyblade, Psychic, Psychic Fangs, Psychic Noise, Psycho Boost, Psycho Cut, Psyshield Bash, Psyshock, Psystrike, Pyro Ball, Quick Attack, Quiver Dance, Rage Fist, Raging Bull, Raging Fury, Rapid Spin, Razor Shell, Recover, Reflect, Reflect Type, Revelation Dance, Revival Blessing, Roar, Rock Blast, Rock Polish, Rock Slide, Roost, Ruination, Sacred Fire, Sacred Sword, Salt Cure, Sandsear Storm, Scald, Scorching Sands, Secret Sword, Seed Bomb, Seed Flare, Seismic Toss, Shadow Ball, Shadow Claw, Shadow Sneak, Shed Tail, Shell Side Arm, Shell Smash, Shift Gear, Shore Up, Silk Trap, Slack Off, Sludge Bomb, Sludge Wave, Snipe Shot, Soft-Boiled, Spacial Rend, Sparkling Aria, Spikes, Spiky Shield, Spin Out, Spirit Break, Spirit Shackle, Springtide Storm, Stealth Rock, Steam Eruption, Steel Beam, Steel Roller, Sticky Web, Stone Axe, Stone Edge, Stored Power, Strange Steam, Strength Sap, Sucker Punch, Sunsteel Strike, Supercell Slam, Super Fang, Superpower, Surf, Surging Strikes, Switcheroo, Swords Dance, Synthesis, Tachyon Cutter, Tail Glow, Tail Slap, Tailwind, Taunt, Teleport, Tera Starstorm, Throat Chop, Thunder, Thunderbolt, Thunder Cage, Thunderclap, Thunderous Kick, Thunder Punch, Thunder Wave, Tidy Up, Torch Song, Toxic, Toxic Spikes, Trailblaze, Transform, Tri Attack, Trick, Trick Room, Triple Arrows, Triple Axel, Triple Dive, Twin Beam, U-Turn, Victory Dance, Volt Switch, Volt Tackle, Waterfall, Water Shuriken, Water Spout, Wave Crash, Weather Ball, Whirlwind, Wicked Blow, Wildbolt Storm, Will-O-Wisp, Wish, Wood Hammer, X-Scissor, Zen Headbutt, Zing Zap, Solar Beam, Solar Blade, Dynamic Punch, Inferno, Zap Cannon, Heat Crash, Heavy Slam, Aerial Ace, Ancient Power, Aqua Jet, Axe Kick, Bullet Seed, Chilling Water, Counter, Dazzling Gleam, Dual Wingbeat, Feint, Grassy Glide, Gyro Ball, Headbutt, Hex, Ice Punch, Icicle Crash, Icy Wind, Iron Defense, Iron Tail, Mystical Fire, Night Slash, Outrage, Rising Voltage, Rock Tomb, Shelter, Smack Down, Smart Strike, Stun Spore, Temper Flare, Water Pulse, Wild Charge, Final Gambit, Jet Punch, Jungle Healing, Lunar Blessing, Mirror Coat, Pollen Puff, Power Trip, Take Heart";
 			const NotableMoves = text4.split(", ");
 			
-			//Useless Moves, Length = 294
-			let text5 = "Absorb, Acid, Acid Spray, Acupressure, After You, Air Cutter, Ally Switch, Amnesia, Aqua Ring, Arm Thrust, Aromatic Mist, Assurance, Astonish, Attract, Aura Wheel, Aurora Beam, Baby-Doll Eyes, Beat Up, Belch, Bind, Bite, Blast Burn, Block, Bone Rush, Bounce, Branch Poke, Breaking Swipe, Brine, Brutal Swing, Bubble Beam, Bug Bite, Bulldoze, Burning Jealousy, Burn Up, Celebrate, Charge, Charge Beam, Charm, Coaching, Comeuppance, Confide, Confuse Ray, Confusion, Conversion, Conversion 2, Copycat, Corrosive Gas, Cosmic Power, Cotton Spore, Covet, Cross Poison, Crush Claw, Crush Grip, Cut, Dark Void, Decorate, Defend Order, Defense Curl, Dig, Disarming Voice, Dive, Doodle, Double Hit, Double Kick, Double Team, Dragon Breath, Dragon Cheer, Dragon Rush, Dream Eater, Echoed Voice, Eerie Impulse, Electric Terrain, Electro Ball, Electroweb, Ember, Endure, Entrainment, Fairy Lock, Fairy Wind, Fake Tears, False Swipe, Feather Dance, Fell Stinger, Fire Pledge, Fire Spin, Fissure, Flail, Flame Wheel, Flatter, Fling, Floral Healing, Fly, Flying Press, Focus Energy, Follow Me, Force Palm, Forest's Curse, Freeze Shock, Frenzy Plant, Frost Breath, Fury Attack, Fury Cutter, Fury Swipes, Gastro Acid, Giga Impact, Glaciate, Grass Pledge, Grassy Terrain, Gravity, Growl, Growth, Guard Split, Guard Swap, Guillotine, Gust, Happy Hour, Harden, Hard Press, Heal Pulse, Helping Hand, Hold Back, Hold Hands, Horn Attack, Horn Drill, Howl, Hydro Cannon, Hyper Beam, Hyperspace Fury, Hyperspace Hole, Hypnosis, Ice Burn, Imprison, Incinerate, Ingrain, Instruct, Jaw Lock, Leafage, Leer, Lick, Life Dew, Lock-On, Low Sweep, Magical Leaf, Magic Powder, Magic Room, Magnetic Flux, Magnet Rise, Mean Look, Mega Drain, Mega Kick, Mega Punch, Metal Burst, Metal Claw, Metal Sound, Metronome, Mimic, Minimize, Mist, Misty Explosion, Misty Terrain, Muddy Water, Mud Shot, Mud-Slap, Night Daze, Noble Roar, Parabolic Charge, Payback, Pay Day, Peck, Phantom Force, Pin Missile, Play Nice, Pluck, Poison Fang, Poison Gas, Poison Powder, Poison Sting, Poison Tail, Pounce, Pound, Powder Snow, Power Shift, Power Split, Power Swap, Power Trick, Present, Prismatic Laser, Psybeam, Psychic Terrain, Psych Up, Quash, Quick Guard, Rage Powder, Rain Dance, Razor Leaf, Recycle, Relic Song, Retaliate, Reversal, Roar of Time, Rock Smash, Rock Throw, Rock Wrecker, Role Play, Rollout, Round, Safeguard, Sand Attack, Sandstorm, Sand Tomb, Scale Shot, Scary Face, Scratch, Screech, Self-Destruct, Shadow Force, Shadow Punch, Sheer Cold, Shock Wave, Simple Beam, Sing, Sketch, Skill Swap, Skitter Smack, Sky Attack, Slam, Slash, Sleep Powder, Sludge, Smog, Smokescreen, Snarl, Snore, Snowscape, Soak, Spark, Speed Swap, Spicy Extract, Spite, Spit Up, Splash, Spore, Steel Wing, Stockpile, Stomp, Stomping Tantrum, Strength, String Shot, Struggle Bug, Stuff Cheeks, Sunny Day, Supersonic, Swagger, Swallow, Sweet Kiss, Sweet Scent, Swift, Syrup Bomb, Tackle, Tail Whip, Take Down, Tar Shot, Tearful Look, Teatime, Teeter Dance, Terrain Pulse, Thief, Thrash, Thunder Fang, Thunder Shock, Tickle, Topsy-Turvy, Torment, Toxic Thread, Triple Kick, Trop Kick, Twister, Upper Hand, Uproar, Vacuum Wave, Venoshock, Vine Whip, Vise Grip, Water Gun, Water Pledge, Whirlpool, Wide Guard, Wing Attack, Withdraw, Wonder Room, Work Up, Worry Seed, Wrap, Yawn";
+			//Useless Moves, Length = 292
+			let text5 = "Absorb, Acid, Acid Spray, Acupressure, After You, Air Cutter, Ally Switch, Amnesia, Aqua Ring, Arm Thrust, Aromatic Mist, Assurance, Astonish, Attract, Aura Wheel, Aurora Beam, Baby-Doll Eyes, Beat Up, Belch, Bind, Bite, Blast Burn, Block, Bone Rush, Bounce, Branch Poke, Breaking Swipe, Brine, Brutal Swing, Bubble Beam, Bug Bite, Bulldoze, Burning Jealousy, Burn Up, Celebrate, Charge, Charge Beam, Charm, Coaching, Comeuppance, Confide, Confuse Ray, Confusion, Conversion, Conversion 2, Copycat, Corrosive Gas, Cosmic Power, Cotton Spore, Covet, Cross Poison, Crush Claw, Crush Grip, Cut, Dark Void, Decorate, Defend Order, Defense Curl, Dig, Disarming Voice, Dive, Doodle, Double Hit, Double Kick, Double Team, Dragon Breath, Dragon Cheer, Dragon Rush, Dream Eater, Echoed Voice, Eerie Impulse, Electric Terrain, Electro Ball, Electroweb, Ember, Endure, Entrainment, Fairy Lock, Fairy Wind, Fake Tears, False Swipe, Feather Dance, Fell Stinger, Fire Pledge, Fire Spin, Fissure, Flail, Flame Wheel, Flatter, Fling, Floral Healing, Fly, Flying Press, Focus Energy, Follow Me, Force Palm, Forest's Curse, Freeze Shock, Frenzy Plant, Frost Breath, Fury Attack, Fury Cutter, Fury Swipes, Gastro Acid, Giga Impact, Glaciate, Grass Pledge, Grassy Terrain, Gravity, Growl, Growth, Guard Split, Guard Swap, Guillotine, Gust, Happy Hour, Harden, Hard Press, Heal Pulse, Helping Hand, Hold Back, Hold Hands, Horn Attack, Horn Drill, Howl, Hydro Cannon, Hyper Beam, Hyperspace Fury, Hyperspace Hole, Hypnosis, Ice Burn, Imprison, Incinerate, Ingrain, Instruct, Jaw Lock, Leafage, Leer, Lick, Life Dew, Lock-On, Low Sweep, Magical Leaf, Magic Powder, Magic Room, Magnetic Flux, Magnet Rise, Mean Look, Mega Drain, Mega Kick, Mega Punch, Metal Burst, Metal Claw, Metal Sound, Metronome, Mimic, Minimize, Mist, Misty Explosion, Misty Terrain, Muddy Water, Mud Shot, Mud-Slap, Night Daze, Noble Roar, Parabolic Charge, Payback, Pay Day, Peck, Phantom Force, Pin Missile, Play Nice, Pluck, Poison Fang, Poison Gas, Poison Powder, Poison Sting, Poison Tail, Pounce, Pound, Powder Snow, Power Shift, Power Split, Power Swap, Power Trick, Present, Prismatic Laser, Psybeam, Psychic Terrain, Psych Up, Quash, Quick Guard, Rage Powder, Rain Dance, Razor Leaf, Recycle, Relic Song, Retaliate, Reversal, Roar of Time, Rock Smash, Rock Throw, Rock Wrecker, Role Play, Rollout, Round, Safeguard, Sand Attack, Sandstorm, Sand Tomb, Scale Shot, Scary Face, Scratch, Screech, Self-Destruct, Shadow Force, Shadow Punch, Sheer Cold, Shock Wave, Simple Beam, Sing, Sketch, Skill Swap, Skitter Smack, Sky Attack, Slam, Slash, Sleep Powder, Sludge, Smog, Smokescreen, Snarl, Snowscape, Soak, Spark, Speed Swap, Spicy Extract, Spite, Spit Up, Splash, Spore, Steel Wing, Stockpile, Stomp, Stomping Tantrum, Strength, String Shot, Struggle Bug, Stuff Cheeks, Sunny Day, Supersonic, Swagger, Swallow, Sweet Kiss, Sweet Scent, Swift, Syrup Bomb, Tackle, Tail Whip, Tar Shot, Tearful Look, Teatime, Teeter Dance, Terrain Pulse, Thief, Thrash, Thunder Fang, Thunder Shock, Tickle, Topsy-Turvy, Torment, Toxic Thread, Triple Kick, Trop Kick, Twister, Upper Hand, Uproar, Vacuum Wave, Venoshock, Vine Whip, Vise Grip, Water Gun, Water Pledge, Whirlpool, Wide Guard, Wing Attack, Withdraw, Wonder Room, Work Up, Worry Seed, Wrap, Yawn";
 			const UselessMoves = text5.split(", ");
 			
 			//Unusable Moves
@@ -648,9 +646,39 @@
 			//Universal Moves
 			const UniversalMoves = ["Take Down","Rest","Sleep Talk","Snore","Protect","Facade","Substitute","Tera Blast"];
 			
+			//Given STAB Moves
+			const GivenSTAB= [["Body Slam","Hyper Voice"],["Temper Flare","Flamethrower"],["Leaf Blade","Energy Ball"],["Liquidation","Surf"],["Thunder Punch","Thunderbolt"],["Ice Spinner","Ice Beam"],["Brick Break","Aura Sphere"],["Poison Jab","Sludge Bomb"],["High Horsepower","Earth Power"],["Drill Peck","Air Slash"],["Psychic Fangs","Psychic"],["Lunge","Bug Buzz"],["Rock Slide","Power Gem"],["Shadow Claw","Shadow Ball"],["Dragon Claw","Dragon Pulse"],["Crunch","Dark Pulse"],["Iron Head","Flash Cannon"],["Play Rough","Alluring Voice"]];
+			
+			
+			//Moves sorted by Type
+			const normalMoves = [["Baton Pass","Belly Drum","Blood Moon","Body Slam","Boomburst","Court Change","Disable","Double-Edge","Encore","Endeavor","Explosion","Extreme Speed","Fake Out","Feint","Fillet Away","Glare","Headbutt","Heal Bell","Hyper Drill","Hyper Voice","Judgment","Last Resort","Milk Drink","Morning Sun","Pain Split","Perish Song","Population Bomb","Quick Attack","Raging Bull","Rapid Spin","Recover","Reflect Type","Revelation Dance","Revival Blessing","Roar","Shed Tail","Shell Smash","Slack Off","Soft-Boiled","Super Fang","Swords Dance","Tail Slap","Tera Starstorm","Tidy Up","Transform","Tri Attack","Weather Ball","Whirlwind","Wish"],["Acupressure","After You","Attract","Bind","Block","Celebrate","Confide","Conversion","Conversion 2","Copycat","Covet","Crush Claw","Crush Grip","Cut","Defense Curl","Doodle","Double Hit","Double Team","Echoed Voice","Endure","Entrainment","False Swipe","Flail","Focus Energy","Follow Me","Fury Attack","Fury Swipes","Giga Impact","Growl","Growth","Guillotine","Happy Hour","Harden","Helping Hand","Hold Back","Hold Hands","Horn Attack","Horn Drill","Howl","Hyper Beam","Leer","Lock-On","Mean Look","Mega Kick","Mega Punch","Metronome","Mimic","Minimize","Noble Roar","Pay Day","Play Nice","Pound","Power Shift","Present","Psych Up","Recycle","Relic Song","Retaliate","Round","Safeguard","Scary Face","Scratch","Screech","Self-Destruct","Simple Beam","Sing","Sketch","Slam","Slash","Smokescreen","Spit Up","Splash","Stockpile","Stomp","Strength","Stuff Cheeks","Supersonic","Swagger","Swallow","Sweet Scent","Swift","Tackle","Tail Whip","Tearful Look","Teatime","Teeter Dance","Terrain Pulse","Thrash","Tickle","Uproar","Vise Grip","Work Up","Wrap","Yawn"]];
+			const fireMoves = [["Armor Cannon","Bitter Blade","Blaze Kick","Blue Flare","Burning Bulwark","Eruption","Fiery Dance","Fire Blast","Fire Fang","Fire Lash","Fire Punch","Flame Charge","Flamethrower","Flare Blitz","Fusion Flare","Heat Crash","Heat Wave","Inferno","Lava Plume","Magma Storm","Mystical Fire","Overheat","Pyro Ball","Raging Fury","Sacred Fire","Temper Flare","Torch Song","Will-O-Wisp"],["Blast Burn","Burning Jealousy","Burn Up","Ember","Fire Pledge","Fire Spin","Flame Wheel","Incinerate","Sunny Day"]];
+			const waterMoves = [["Aqua Cutter","Aqua Jet","Aqua Step","Aqua Tail","Chilling Water","Crabhammer","Flip Turn","Hydro Pump","Hydro Steam","Jet Punch","Liquidation","Origin Pulse","Razor Shell","Scald","Snipe Shot","Sparkling Aria","Steam Eruption","Surf","Surging Strikes","Triple Dive","Waterfall","Water Pulse","Water Shuriken","Water Spout","Wave Crash"],["Aqua Ring","Brine","Bubble Beam","Dive","Hydro Cannon","Life Dew","Muddy Water","Rain Dance","Soak","Water Gun","Water Pledge","Whirlpool","Withdraw"]];
+			const grassMoves = [["Apple Acid","Bullet Seed","Chloroblast","Cotton Guard","Drum Beating","Energy Ball","Flower Trick","Giga Drain","Grass Knot","Grassy Glide","Grav Apple","Horn Leech","Ivy Cudgel","Jungle Healing","Leaf Blade","Leaf Storm","Leech Seed","Matcha Gotcha","Petal Blizzard","Petal Dance","Power Whip","Seed Bomb","Seed Flare","Solar Beam","Solar Blade","Spiky Shield","Strength Sap","Stun Spore","Synthesis","Trailblaze","Wood Hammer"],["Absorb","Branch Poke","Cotton Spore","Forest's Curse","Frenzy Plant","Grass Pledge","Grassy Terrain","Ingrain","Leafage","Magical Leaf","Mega Drain","Razor Leaf","Sleep Powder","Spicy Extract","Spore","Syrup Bomb","Trop Kick","Vine Whip","Worry Seed"]];
+			const electricMoves = [["Bolt Strike","Discharge","Double Shock","Electro Drift","Electro Shot","Fusion Bolt","Nuzzle","Overdrive","Rising Voltage","Supercell Slam","Thunder","Thunderbolt","Thunder Cage","Thunderclap","Thunder Punch","Thunder Wave","Volt Switch","Volt Tackle","Wild Charge","Wildbolt Storm","Zap Cannon","Zing Zap"],["Aura Wheel","Charge","Charge Beam","Eerie Impulse","Electric Terrain","Electro Ball","Electroweb","Magnetic Flux","Magnet Rise","Parabolic Charge","Shock Wave","Spark","Thunder Fang","Thunder Shock"]];
+			const iceMoves = [["Aurora Veil","Avalanche","Blizzard","Chilly Reception","Freeze-Dry","Glacial Lance","Haze","Ice Beam","Ice Fang","Ice Hammer","Ice Punch","Ice Shard","Ice Spinner","Icicle Crash","Icicle Spear","Icy Wind","Mountain Gale","Triple Axel"],["Aurora Beam","Freeze Shock","Frost Breath","Glaciate","Ice Burn","Mist","Powder Snow","Sheer Cold","Snowscape"]];
+			const fightingMoves = [["Aura Sphere","Axe Kick","Body Press","Brick Break","Bulk Up","Circle Throw","Close Combat","Collision Course","Counter","Cross Chop","Detect","Drain Punch","Dynamic Punch","Focus Blast","Focus Punch","Hammer Arm","High Jump Kick","Low Kick","Mach Punch","No Retreat","Sacred Sword","Secret Sword","Seismic Toss","Superpower","Thunderous Kick","Triple Arrows","Victory Dance"],["Arm Thrust","Coaching","Double Kick","Flying Press","Force Palm","Low Sweep","Quick Guard","Reversal","Rock Smash","Triple Kick","Upper Hand","Vacuum Wave"]];
+			const poisonMoves = [["Acid Armor","Baneful Bunker","Barb Barrage","Clear Smog","Coil","Dire Claw","Final Gambit","Gunk Shot","Malignant Chain","Mortal Spin","Poison Jab","Shell Side Arm","Sludge Bomb","Sludge Wave","Toxic","Toxic Spikes"],["Acid","Acid Spray","Belch","Corrosive Gas","Cross Poison","Gastro Acid","Poison Fang","Poison Gas","Poison Powder","Poison Sting","Poison Tail","Sludge","Smog","Toxic Thread","Venoshock"]];
+			const groundMoves = [["Drill Run","Earth Power","Earthquake","Headlong Rush","High Horsepower","Precipice Blades","Sandsear Storm","Scorching Sands","Shore Up","Spikes"],["Bone Rush","Bulldoze","Dig","Fissure","Mud Shot","Mud-Slap","Sand Attack","Sand Tomb","Stomping Tantrum"]];
+			const flyingMoves = [["Acrobatics","Aerial Ace","Aeroblast","Air Slash","Beak Blast","Bleakwind Storm","Brave Bird","Defog","Dragon Ascent","Drill Peck","Dual Wingbeat","Hurricane","Roost","Tailwind"],["Air Cutter","Bounce","Feather Dance","Fly","Gust","Peck","Pluck","Sky Attack","Wing Attack"]];
+			const psychicMoves = [["Agility","Calm Mind","Eerie Spell","Esper Wing","Expanding Force","Extrasensory","Freezing Glare","Future Sight","Healing Wish","Heart Swap","Light Screen","Lumina Crash","Lunar Blessing","Lunar Dance","Luster Purge","Mirror Coat","Mist Ball","Mystical Power","Photon Geyser","Psyblade","Psychic","Psychic Fangs","Psychic Noise","Psycho Boost","Psycho Cut","Psyshield Bash","Psyshock","Psystrike","Reflect","Stored Power","Take Heart","Teleport","Trick","Trick Room","Twin Beam","Zen Headbutt"],["Ally Switch","Amnesia","Confusion","Cosmic Power","Dream Eater","Gravity","Guard Split","Guard Swap","Heal Pulse","Hyperspace Hole","Hypnosis","Imprison","Instruct","Magic Powder","Magic Room","Power Split","Power Swap","Power Trick","Prismatic Laser","Psybeam","Psychic Terrain","Role Play","Skill Swap","Speed Swap","Wonder Room"]];
+			const bugMoves = [["Attack Order","Bug Buzz","First Impression","Infestation","Leech Life","Lunge","Megahorn","Pollen Puff","Quiver Dance","Silk Trap","Sticky Web","Tail Glow","U-Turn","X-Scissor"],["Bug Bite","Defend Order","Fell Stinger","Fury Cutter","Pin Missile","Pounce","Rage Powder","Skitter Smack","String Shot","Struggle Bug"]];
+			const rockMoves = [["Accelerock","Ancient Power","Diamond Storm","Head Smash","Meteor Beam","Mighty Cleave","Power Gem","Rock Blast","Rock Polish","Rock Slide","Rock Tomb","Salt Cure","Smack Down","Stealth Rock","Stone Axe","Stone Edge"],["Rock Throw","Rock Wrecker","Rollout","Sandstorm","Tar Shot","Wide Guard"]];
+			const ghostMoves = [["Astral Barrage","Bitter Malice","Curse","Destiny Bond","Hex","Infernal Parade","Last Respects","Moongeist Beam","Night Shade","Poltergeist","Rage Fist","Shadow Ball","Shadow Claw","Shadow Sneak","Spirit Shackle"],["Astonish","Confuse Ray","Lick","Phantom Force","Shadow Force","Shadow Punch","Spite"]];
+			const dragonMoves = [["Clanging Scales", "Clangorous Soul","Draco Meteor","Dragon Claw","Dragon Dance","Dragon Darts","Dragon Energy","Dragon Hammer","Dragon Pulse","Dragon Tail","Dynamax Cannon","Fickle Beam","Glaive Rush","Order Up","Outrage","Spacial Rend"],["Breaking Swipe","Dragon Breath","Dragon Cheer","Dragon Rush","Roar of Time","Scale Shot","Twister"]];
+			const darkMoves = [["Ceaseless Edge","Crunch","Darkest Lariat","Dark Pulse","False Surrender","Fiery Wrath","Foul Play","Hone Claws","Knock Off","Kowtow Cleave","Lash Out","Memento","Nasty Plot","Night Slash","Parting Shot","Power Trip","Ruination","Sucker Punch","Switcheroo","Taunt","Throat Chop","Wicked Blow"],["Assurance","Beat Up","Bite","Brutal Swing","Comeuppance","Dark Void","Fake Tears","Flatter","Fling","Hyperspace Fury","Jaw Lock","Night Daze","Payback","Quash","Snarl","Thief","Topsy-Turvy","Torment"]];
+			const steelMoves = [["Behemoth Bash","Behemoth Blade","Bullet Punch","Doom Desire","Flash Cannon","Gigaton Hammer","Gyro Ball","Heavy Slam","Iron Defense","Iron Head","Iron Tail","Make It Rain","Meteor Mash","Shelter","Shift Gear","Smart Strike","Spin Out","Steel Beam","Steel Roller","Sunsteel Strike","Tachyon Cutter"],["Hard Press","Metal Burst","Metal Claw","Metal Sound","Steel Wing"]];
+			const fairyMoves = [["Alluring Voice","Dazzling Gleam","Draining Kiss","Fleur Cannon","Moonblast","Moonlight","Play Rough","Spirit Break","Springtide Storm","Strange Steam"],["Aromatic Mist","Baby-Doll Eyes","Charm","Decorate","Disarming Voice","Fairy Lock","Fairy Wind","Floral Healing","Misty Explosion","Misty Terrain","Sweet Kiss"]];
+			
+			
+			const typeArray = ["Normal","Fire","Water","Grass","Electric","Ice","Fighting","Poison","Ground","Flying","Psychic","Bug","Rock","Ghost","Dragon","Dark","Steel","Fairy"];
+			const moveTypeArray = [normalMoves,fireMoves,waterMoves,grassMoves,electricMoves,iceMoves,fightingMoves,poisonMoves,groundMoves,flyingMoves,psychicMoves,bugMoves,rockMoves,ghostMoves,dragonMoves,darkMoves,steelMoves,fairyMoves];
+			
 			
 			//Move Cost Calculation
-			
+			function getMoveCost() {
+				
+			}
 			//End of Move Cost Calculation
 			//End of Move Section
 			
@@ -721,7 +749,47 @@
 			}
 			
 			//Populating Copy/Pasteable
-			demo.innerHTML = document.GetElementById("type1").value;
+			function makeCopy() {
+				nameCP.innerHTML = name_mon.value;
+				weightCP.innerHTML = weight.value;
+				
+				if (type2_new.value != "") {
+					typeCP.innerHTML = type1_new.value + " / " + type2_new.value;
+				} else {
+					typeCP.innerHTML = type1_new.value;
+				}
+				
+				hpCP.innerHTML = hp_new.value;
+				atkCP.innerHTML = atk_new.value;
+				defCP.innerHTML = def_new.value;
+				spaCP.innerHTML = spa_new.value;
+				spdCP.innerHTML = spd_new.value;
+				speCP.innerHTML = spe_new.value;
+				bst.innerHTML = Number(hp_new.value) + Number(atk_new.value) + Number(def_new.value) + Number(spa_new.value) + Number(spd_new.value) + Number(spe_new.value);
+				
+				
+				if (abi1_new.value == "") {
+					abiCP.innerHTML = "---";
+				} else {
+					if (abi2_new.value != "") {
+						if (abi3_new.value != "") {
+							abiCP.innerHTML = abi1_new.value + " / " + abi2_new.value + " / " + abi3_new.value;
+						} else {
+							abiCP.innerHTML = abi1_new.value + " / " + abi2_new.value;
+						}
+					} else {
+						if (abi3_new.value != "") {
+							abiCP.innerHTML = abi1_new.value + " / --- / " + abi3_new.value;
+						} else {
+							abiCP.innerHTML = abi1_new.value;
+						}
+					}
+				}	
+
+				
+				
+			}	
+			
 			
     </script>
   </body>
