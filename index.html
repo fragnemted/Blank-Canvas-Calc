@@ -47,14 +47,29 @@
 		width: 100px;
 		height: 30px;
 	  }
+		
+		a:link, a:visited {
+			color: white;
+			text-decoration: none;
+		}
+		
+		a:hover, a:active {
+			color: lightblue;
+			text-decoration: underline;
+		}
       
     </style>
     
   </head>
   <body>
+		<img src="https://www.smogon.com/forums/attachments/1227-sin-t%C3%ADtulo_20240810172215-png.656951/" alt="Blank Canvas Banner" style="margin-left:auto; margin-right:auto; display:block; height:35%; width:35%;">
+		<p style="text-align:center; font-style:oblique">Banner by GaboSwampert</p>
     <h1>= Blank Canvas Calc Test =</h1>
+		
+		<hr style="height:5px; border-width:0 ;color:white; background-color:white; text-align: center;">
+		<br>
 
-    <div>
+    <div style="float: left; width: 70%;">
 	  <!--Start of Starting Canvas Table -->
     <table>
 			<tr>
@@ -64,7 +79,7 @@
 				<td class="header1">Type: </td>
 				<td>
 					<select id="type1" onchange="getTypeCost(); tot_rem();">
-						<option selected value=""></option>
+						<option value="" selected></option>
 						<option value="normal">Normal</option>
 						<option value="fire">Fire</option>
 						<option value="water">Water</option>
@@ -85,7 +100,7 @@
 						<option value="fairy">Fairy</option>
 					</select>
 					<select id="type2" onchange="getTypeCost(); tot_rem();">
-						<option selected value=""></option>
+						<option value="" selected></option>
 						<option value="normal">Normal</option>
 						<option value="fire">Fire</option>
 						<option value="water">Water</option>
@@ -157,7 +172,9 @@
     </table>
 	  <!--End of Canvas Table-->	 
 	  
+		
     <br><br>
+		
 	  
 	  <!--Start of Fakemon Table-->
 	  <table>
@@ -167,7 +184,7 @@
 			</tr>
 			<tr>
 				<td class="header1">Name: </td>
-				<td><textarea id="name" rows=1 cols=30 maxlength=30></textarea></td>
+				<td><textarea id="name_mon" rows=1 cols=30 maxlength=30></textarea></td>
 				<td><button type="button" onclick="getCanvas();">Get Canvas</button></td>
 			</tr>
 			<tr>
@@ -178,7 +195,7 @@
 				<td class="header1">Type: </td>
 				<td>
 					<select id="type1_new" onchange="getTypeCost(); tot_rem();">
-						<option selected value=""></option>
+						<option value="" selected></option>
 						<option value="normal">Normal</option>
 						<option value="fire">Fire</option>
 						<option value="water">Water</option>
@@ -199,7 +216,7 @@
 						<option value="fairy">Fairy</option>
 					</select>
 					<select id="type2_new" onchange="getTypeCost(); tot_rem();">
-						<option selected value=""></option>
+						<option value="" selected></option>
 						<option value="normal">Normal</option>
 						<option value="fire">Fire</option>
 						<option value="water">Water</option>
@@ -280,8 +297,10 @@
 		</table>
 		<!--End of Fakemon Table-->
 	  
+		
 	<br><br>
 	  
+		
 	  <!--Start of Cost Table-->
 	  <table>
 			<tr>
@@ -332,7 +351,9 @@
 	  </table>
 	  <!--End of Cost Table-->
 		
+		
 		<br><br>
+		
 		
 		<!--Copy/Pasteable-->
 		<table>
@@ -341,19 +362,34 @@
 			</tr>
 			<tr>
 				<td class="header1">Name: </td>
-				<td><span id="nameCP">filler</span></td>
+				<td><span id="nameCP"></span></td>
 			</tr>
 			<tr>
 				<td class="header1">Type: </td>
-				<td><span id="type1CP">filler</span> / <span id="type2CP">filler</span></td>
+				<td>
+					<span id="type1CP">filler</span> / 
+					<span id="type2CP">filler</span>
+				</td>
 			</tr>
 			<tr>
 				<td class="header1">Stats: </td>
-				<td><span id="hpCP">filler</span> / <span id="atkCP">filler</span> / <span id="defCP">filler</span> / <span id="spaCP">filler</span> / <span id="spdCP">filler</span> / <span id="speCP">filler</span> | BST: <span id="bst">filler</span>
+				<td>
+					<span id="hpCP">filler</span> / 
+					<span id="atkCP">filler</span> / 
+					<span id="defCP">filler</span> / 
+					<span id="spaCP">filler</span> / 
+					<span id="spdCP">filler</span> / 
+					<span id="speCP">filler</span> | BST: 
+					<span id="bst">filler</span>
+				</td>
 			</tr>
 			<tr>
 				<td class="header1">Abilities: </td>
-				<td><span id="abi1CP">filler</span> / <span id="abil2CP">filler</span> / <span id="abi3CP">filler</span></td>
+				<td>
+					<span id="abi1CP">filler</span> / 
+					<span id="abil2CP">filler</span> / 
+					<span id="abi3CP">filler</span>
+				</td>
 			</tr>
 			<!-- come back here if movepool causes table to become weird -->
 			<tr>
@@ -367,17 +403,24 @@
 		</table>
 		<!--End of Copy/Pasteable-->
 		</div>
+
 	
-		<br><br>
-	
-		<p>
-			Total: <span id="stat_tc">0</span><br>
-			Test: <span id="demo"></span>
-		</p>
+		<div style="float: right; width: 30%;">
+			Test: <span id="demo"></span><br>
+			Test2: <span id="demo2"></span><br>
+			Test3: <span id="demo3"></span>
+			<br><br>
+			<p style="font-size:20px; text-decoration:underline;">Links:</p>
+				<a href="https://www.smogon.com/forums/threads/blank-canvas.3748841/" target="_blank">Blank Canvas Main Thread</a><br>
+				<a href="https://docs.google.com/spreadsheets/d/1a-NXZB0KOsFGPzOkwGPYrg0iSMxejfKiPTosT3pfd20/edit?gid=0#gid=0" target="_blank">Spreadsheet of Existing Fakemons</a><br>
+				<a href="http://191.101.232.116/#" target="_blank">Petmod Showdown Server</a>
+		</div>
 
+		
+		
+		<!-- Scripts -->
 
-
-    <script>
+    <script>	
 			//Start of Type Cost Calculation (WIP)
 			function getType() {
 				type1_new.value = type1.value;
@@ -406,6 +449,10 @@
 			}	  
 			//End of Type Cost Calculation
 	  
+	
+	
+	
+	
 	
       //Start of Stat Cost Calculation
       function getNewStats() {
@@ -452,6 +499,10 @@
       }
       //End of Stat Cost Calculation
 	  
+		
+		
+		
+		
 	  
 			//Ability Section  	
 			function getAbilities() {
@@ -547,10 +598,13 @@
 			makeAbilityDropdown(ability3);  
 			*/
 	  
-	  
 			//End of Ability Cost Calculation
 			//End of Ability Section
 	  
+			
+			
+			
+			
 			
 			//Move Section
 			//Notable Moves, Length = 398
@@ -568,13 +622,15 @@
 			const UniversalMoves = ["Take Down","Rest","Sleep Talk","Snore","Protect","Facade","Substitute","Tera Blast"];
 			
 			
-			
 			//Move Cost Calculation
 			
 			//End of Move Cost Calculation
 			//End of Move Section
 			
 			
+
+
+
 
 			
 			//Total and Remaining cost
@@ -636,7 +692,10 @@
 			function testFunc() {
 				document.getElementById("demo").innerHTML = "hello";
 			}
-	  
+			
+			//Populating Copy/Pasteable
+			demo.innerHTML = document.GetElementById("type1").value;
+			
     </script>
   </body>
 </html>
