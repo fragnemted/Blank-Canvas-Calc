@@ -229,7 +229,7 @@
 			<tr>
 				<td class="header1">Type: </td>
 				<td>
-					<select id="type1_new" onchange="getTypeCost(); tot_rem(); giveSTAB();">
+					<select id="type1_new" onchange="getTypeCost(); tot_rem(); giveSTAB(); suggestMoves();">
 						<option value="" selected></option>
 						<option value="Normal">Normal</option>
 						<option value="Fire">Fire</option>
@@ -250,7 +250,7 @@
 						<option value="Steel">Steel</option>
 						<option value="Fairy">Fairy</option>
 					</select>
-					<select id="type2_new" onchange="getTypeCost(); tot_rem(); giveSTAB();">
+					<select id="type2_new" onchange="getTypeCost(); tot_rem(); giveSTAB(); suggestMoves();">
 						<option value="" selected></option>
 						<option value="Normal">Normal</option>
 						<option value="Fire">Fire</option>
@@ -460,6 +460,7 @@
 				type1_new.value = type1.value;
 				type2_new.value = type2.value;
 			}
+
 	  
 			function getTypeCost() {
 				if (type1_new.value != type1.value) {
@@ -485,8 +486,7 @@
 	  
 	
 	
-	
-	
+
 	
       //Start of Stat Cost Calculation
       function getNewStats() {
@@ -711,8 +711,30 @@
 			
 			//Give Suggested Useless Moves
 			function suggestMoves() {
+				let t1 = type1_new.value;
+				let t2 = type2_new.value;
 				
+				let ind1 = typeArray.indexOf(t1);
+				let ind2 = typeArray.indexOf(t2);
+			
+				let t1moves = [[],[]];
+				let t2moves = [[],[]];
+				
+				if (ind1 < 0) {
+						;
+				} else {
+					t1moves = moveTypeArray[ind1];
+				}
+				
+				if (ind2 < 0) {
+					;
+				} else {
+					t2moves = moveTypeArray[ind2];
+				}
+				
+				moves_suggest.value = t1moves[1].join(", ") + "\n" + t2moves[1].join(", ");
 			}
+
 			
 			//Move Cost Calculation
 			function getMoveCost() {
