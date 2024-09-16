@@ -3,7 +3,6 @@
 	<!--
 	To-Do list
 	- move calculation to work with given move list
-	- figure out why def_new is bugged? everything seems okay, it's the same as everything else?
 	- fix mobile formatting
 	-->
 
@@ -682,8 +681,6 @@
 			const moveTypeArray = [normalMoves,fireMoves,waterMoves,grassMoves,electricMoves,iceMoves,fightingMoves,poisonMoves,groundMoves,flyingMoves,psychicMoves,bugMoves,rockMoves,ghostMoves,dragonMoves,darkMoves,steelMoves,fairyMoves];
 			
 			
-			demo3.innerHTML = ind2;
-			
 			//Add Given STAB Moves
 			
 			function giveSTAB() {
@@ -725,8 +722,8 @@
 				let ind1 = typeArray.indexOf(t1);
 				let ind2 = typeArray.indexOf(t2);
 			
-				let t1moves = [];
-				let t2moves = [];
+				let t1moves = [[],[]];
+				let t2moves = [[],[]];
 				let totMoveCost = 0;
 			
 				if (ind1 < 0) {
