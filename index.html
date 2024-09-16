@@ -160,12 +160,12 @@
       <tr>
 				<td class="header1">Stats: </td>
 				<td>
-					<input type="number" id="hp_old" value=50 min=0 max=255 step=5 onchange="showStatCost(); tot_rem();">
-					<input type="number" id="atk_old" value=50 min=0 max=255 step=5 onchange="showStatCost(); tot_rem();">
-					<input type="number" id="def_old" value=50 min=0 max=255 step=5 onchange="showStatCost(); tot_rem();">
-					<input type="number" id="spa_old" value=50 min=0 max=255 step=5 onchange="showStatCost(); tot_rem();">
-					<input type="number" id="spd_old" value=50 min=0 max=255 step=5 onchange="showStatCost(); tot_rem();">
-					<input type="number" id="spe_old" value=50 min=0 max=255 step=5 onchange="showStatCost(); tot_rem();">
+					<input type="number" id="hp_old" value=50 min=0 max=255 step=5 oninput="showStatCost(); tot_rem();">
+					<input type="number" id="atk_old" value=50 min=0 max=255 step=5 oninput="showStatCost(); tot_rem();">
+					<input type="number" id="def_old" value=50 min=0 max=255 step=5 oninput="showStatCost(); tot_rem();">
+					<input type="number" id="spa_old" value=50 min=0 max=255 step=5 oninput="showStatCost(); tot_rem();">
+					<input type="number" id="spd_old" value=50 min=0 max=255 step=5 oninput="showStatCost(); tot_rem();">
+					<input type="number" id="spe_old" value=50 min=0 max=255 step=5 oninput="showStatCost(); tot_rem();">
 				</td>
       </tr>
 			<tr>
@@ -278,12 +278,12 @@
 			<tr>
 				<td class="header1">Stats: </td>
 				<td>
-					<input type="number" id="hp_new" value=50 min=0 max=255 step=5 onchange="showStatCost(); tot_rem();">
-					<input type="number" id="atk_new" value=50 min=0 max=255 step=5 onchange="showStatCost(); tot_rem();">
-					<input type="number" id="def_new" value=50 min=0 max=255 step=5 onchange="showStatCost(); tot_rem();)">
-					<input type="number" id="spa_new" value=50 min=0 max=255 step=5 onchange="showStatCost(); tot_rem();">
-					<input type="number" id="spd_new" value=50 min=0 max=255 step=5 onchange="showStatCost(); tot_rem();">
-					<input type="number" id="spe_new" value=50 min=0 max=255 step=5 onchange="showStatCost(); tot_rem();">
+					<input type="number" id="hp_new" value=50 min=0 max=255 step=5 oninput="showStatCost(); tot_rem();">
+					<input type="number" id="atk_new" value=50 min=0 max=255 step=5 oninput="showStatCost(); tot_rem();">
+					<input type="number" id="def_new" value=50 min=0 max=255 step=5 oninput="showStatCost(); tot_rem();)">
+					<input type="number" id="spa_new" value=50 min=0 max=255 step=5 oninput="showStatCost(); tot_rem();">
+					<input type="number" id="spd_new" value=50 min=0 max=255 step=5 oninput="showStatCost(); tot_rem();">
+					<input type="number" id="spe_new" value=50 min=0 max=255 step=5 oninput="showStatCost(); tot_rem();">
 				</td>
 				<td class="hasbutton"><button type="button" class="sidebutton" onclick="getNewStats(); showStatCost(); tot_rem();">Get Stats</button></td>
 			</tr>
