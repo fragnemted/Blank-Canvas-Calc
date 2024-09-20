@@ -730,13 +730,13 @@
 				givenMovesText = moves_given.value;
 				givenMoves = splitAndTrim(givenMovesText);
 				let [a, b] = giveSTAB();
-				givenMoves = givenMoves.concat(a).concat(b).filter(removeEmpty);
+				givenMoves = Array(Set(givenMoves.concat(a).concat(b).filter(removeEmpty)));
 			}
 			
 			//Get Movepool
 			
 			function getMovepool() {
-				movepool = givenMoves.concat(splitAndTrim(moves_new.value)).concat(UniversalMoves);
+				movepool = Array(Set(givenMoves.concat(splitAndTrim(moves_new.value)).concat(UniversalMoves)));
 			}
 
 		
