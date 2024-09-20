@@ -207,7 +207,7 @@
 			</tr>
 			<tr>
 				<td class="header1">Given Moves: </td>
-				<td><textarea id="moves_given" cols=61; rows="3" onchange="startGivenMoves();"></textarea></td>
+				<td><textarea id="moves_given" cols=61; rows="3" onchange="getGivenMoves();"></textarea></td>
 			</tr>
     </table>
 		<p style="font-size:12px;">Also gets the following moves: Take Down, Rest, Sleep Talk, Snore, Protect, Facade, Substitute, Tera Blast</p>
@@ -235,7 +235,7 @@
 			<tr>
 				<td class="header1">Type: </td>
 				<td>
-					<select id="type1_new" onchange="getTypeCost(); tot_rem(); giveSTAB(); suggestMoves();">
+					<select id="type1_new" onchange="getTypeCost(); tot_rem(); suggestMoves();">
 						<option value="" selected></option>
 						<option value="Normal">Normal</option>
 						<option value="Fire">Fire</option>
@@ -256,7 +256,7 @@
 						<option value="Steel">Steel</option>
 						<option value="Fairy">Fairy</option>
 					</select>
-					<select id="type2_new" onchange="getTypeCost(); tot_rem(); giveSTAB(); suggestMoves();">
+					<select id="type2_new" onchange="getTypeCost(); tot_rem(); suggestMoves();">
 						<option value="" selected></option>
 						<option value="Normal">Normal</option>
 						<option value="Fire">Fire</option>
@@ -451,7 +451,8 @@
 		<div>
 			Test: <span id="demo"></span><br>
 			Test2: <span id="demo2"></span><br>
-			Test3: <span id="demo3"></span>			
+			Test3: <span id="demo3"></span><br>
+			<button type="button" onclick="getMovepool();">Test</button>
 		</div>
 
 		<br><br>
@@ -547,15 +548,15 @@
 			}
 	  
 			//Normal Abilities, Length = 135
-			let text1 = "Adaptability, Aroma Veil, Aerilate, As One (Glastrier), As One (Spectrier), Battle Bond, Beads of Ruin, Chilling Neigh, Chlorophyll, Corrosion, Comatose, Contrary, Dark Aura, Dauntless Shield, Defiant, Delta Stream, Desolate Land, Download, Dragon's Maw, Drizzle, Drought, Earth Eater, Electric Surge, Electromorphosis, Fairy Aura, Filter, Flash Fire, Fluffy, Fur Coat, Galvanize, Good as Gold, Gorilla Tactics, Grassy Surge, Grim Neigh, Guts, Hadron Engine, Huge Power, Hustle, Ice Scales, Illusion, Imposter, Innards Out, Intimidate, Intrepid Sword, Iron Fist, Levitate, Libero, Lightning Rod, Magic Bounce, Magic Guard, Magnet Pull, Mega Launcher, Misty Surge, Mold Breaker, Moody, Mind's Eye, Motor Drive, Moxie, Multiscale, Neutralizing Gas, No Guard, Opportunist, Orichalcum Pulse, Parental Bond, Pixilate, Poison Heal, Poison Heal, Prankster, Primordial Sea, Prism Armor, Protean, Protosynthesis, Psychic Surge, Punk Rock, Pure Power, Purifying Salt, Quark Drive, Refrigerate, Regenerator, Rock Head, Rocky Payload, Sand Rush, Sand Spit, Seed Sower, Sand Stream, Sap Sipper, Scrappy, Serene Grace, Shadow Shield, Sharpness, Sheer Force, Simple, Skill Link, Slush Rush, Snow Warning, Solid Rock, Soul-Heart, Speed Boost, Stakeout, Stamina, Steelworker, Steely Spirit, Strong Jaw, Storm Drain, Sturdy, Supreme Overlord, Surge Surfer, Swift Swim, Sword of Ruin, Tablets of Ruin, Technician, Tera Shell, Teravolt, Thick Fat, Tinted Lens, Tough Claws, Toxic Boost, Toxic Chain, Toxic Debris, Transistor, Triage, Turboblaze, Unaware, Unburden, Vessel of Ruin, Volt Absorb, Water Absorb, Water Bubble, Weak Armor, Well-Baked Body, Wind Rider, Gale Wings, Flower Veil, Flare Boost, Wonder Skin";
+			let text1 = "Adaptability, Aerilate, Aroma Veil, As One (Glastrier), As One (Spectrier), Battle Bond, Beads of Ruin, Chilling Neigh, Chlorophyll, Comatose, Contrary, Corrosion, Dark Aura, Dauntless Shield, Defiant, Delta Stream, Desolate Land, Download, Dragon's Maw, Drizzle, Drought, Earth Eater, Electric Surge, Electromorphosis, Fairy Aura, Filter, Flare Boost, Flash Fire, Flower Veil, Fluffy, Fur Coat, Gale Wings, Galvanize, Good as Gold, Gorilla Tactics, Grassy Surge, Grim Neigh, Guts, Hadron Engine, Huge Power, Hustle, Ice Scales, Illusion, Imposter, Innards Out, Intimidate, Intrepid Sword, Iron Fist, Levitate, Libero, Lightning Rod, Magic Bounce, Magic Guard, Magnet Pull, Mega Launcher, Mind's Eye, Misty Surge, Mold Breaker, Moody, Motor Drive, Moxie, Multiscale, Neutralizing Gas, No Guard, Opportunist, Orichalcum Pulse, Parental Bond, Pixilate, Poison Heal, Poison Heal, Prankster, Primordial Sea, Prism Armor, Protean, Protosynthesis, Psychic Surge, Punk Rock, Pure Power, Purifying Salt, Quark Drive, Refrigerate, Regenerator, Rock Head, Rocky Payload, Sand Rush, Sand Spit, Sand Stream, Sap Sipper, Scrappy, Seed Sower, Serene Grace, Shadow Shield, Sharpness, Sheer Force, Simple, Skill Link, Slush Rush, Snow Warning, Solid Rock, Soul-Heart, Speed Boost, Stakeout, Stamina, Steelworker, Steely Spirit, Storm Drain, Strong Jaw, Sturdy, Supreme Overlord, Surge Surfer, Swift Swim, Sword of Ruin, Tablets of Ruin, Technician, Tera Shell, Teravolt, Thick Fat, Tinted Lens, Tough Claws, Toxic Boost, Toxic Chain, Toxic Debris, Transistor, Triage, Turboblaze, Unaware, Unburden, Vessel of Ruin, Volt Absorb, Water Absorb, Water Bubble, Weak Armor, Well-Baked Body, Wind Rider, Wonder Skin";
 			const NormalAbilities = text1.split(", ");
 			
 			//Situational Abilities, Length = 73
-			let text2 = "Aftermath, Analytic, Armor Tail, Berserk, Blaze, Cheek Pouch, Clear Body, Competitive, Cotton Down, Cud Chew, Cursed Body, Dazzling, Frisk, Flame Body, Forecast, Full Metal Body, Gooey, Guard Dog, Harvest, Heatproof, Inmunity, Infiltrator, Limber, Lingering Aroma, Marvel Scale, Mirror Armor, Mummy, Natural Cure, Neuroforce, Overcoat, Overgrow, Pastel Veil, Poison Touch, Pressure, Queenly Magesty, Quick Draw, Quick Feet, Ripen, Rough Skin, Sand Force, Shield Dust, Sniper, Solar Power, Soundproof, Shed Skin, Static, Steam Engine, Swarm, Sweet Veil, Synchronize, Tangling Hair, Thermal Exchange, Torrent, Trace, Unseen Fist, Victory Star, Wandering Spirit, Water Veil, White Smoke, Anger Shell, Bulletproof, Compound Eyes, Dry Skin, Poison Puppeteer, Reckless, Cloud Nine, Air Lock, Grass Pelt, Liquid Voice, Long Reach, Magician, Poison Point, Wind Power";
+			let text2 = "Aftermath, Air Lock, Analytic, Anger Shell, Armor Tail, Berserk, Blaze, Bulletproof, Cheek Pouch, Clear Body, Cloud Nine, Competitive, Compound Eyes, Cotton Down, Cud Chew, Cursed Body, Dazzling, Dry Skin, Flame Body, Forecast, Frisk, Full Metal Body, Gooey, Grass Pelt, Guard Dog, Harvest, Heatproof, Immunity, Infiltrator, Limber, Lingering Aroma, Liquid Voice, Long Reach, Magician, Marvel Scale, Mirror Armor, Mummy, Natural Cure, Neuroforce, Overcoat, Overgrow, Pastel Veil, Poison Point, Poison Puppeteer, Poison Touch, Pressure, Queenly Magesty, Quick Draw, Quick Feet, Reckless, Ripen, Rough Skin, Sand Force, Shed Skin, Shield Dust, Sniper, Solar Power, Soundproof, Static, Steam Engine, Swarm, Sweet Veil, Synchronize, Tangling Hair, Thermal Exchange, Torrent, Trace, Unseen Fist, Victory Star, Wandering Spirit, Water Veil, White Smoke, Wind Power";
 			const SituAbilities = text2.split(", ");
 			
 			//Useless Abilities, Length = 95
-			let text3= "Anger Point, Anticipation, Aura Break, Bad Dreams, Ball Fetch, Battery, Battle Armor, Big Pecks, Color Change, Commander, Costar, Curious Medicine, Cute Charm, Damp, Dancer, Defeatist, Early Bird, Emergency Exit, Flower Gift, Forewarn, Friend Guard, Gluttony, Healer, Heavy Metal, Honey Gather, Hospitality, Hunger Switch, Hydration, Hyper Cutter, Ice Body, Illuminate, Inner Focus, Insomnia, Keen Eye, Klutz, Leaf Guard, Light Metal, Magma Armor, Merciless, Mimicry, Minus, Oblivious, Own Tempo, Perish Body, Pickpocket, Pickup, Plus, Power of Alchemy, Power Spot, Propeller Tail, Rain Dish, Rattled, Receiver, Rivalry, Run Away, Sand Veil, Shell Armor, Slow Start, Snow Cloak, Stall, Stalwart, Steadfast, Stench, Sticky Hold, Suction Cups, Supersweet Syrup, Super Luck, Symbiosis, Tangled Feet, Telepathy, Truant, Unnerve, Vital Spirit, Wimp Out, Zen Mode, Justified, Liquid Ooze, Mycelium Might, Screen Cleaner, Power Construct, RKS System, Schooling, Shields Down, Stance Change, Tera Shift, Zero to Hero, Gulp Missile, Effect Spore, Embody Aspect (Teal), Embody Aspect (Hearthflame), Embody Aspect (Wellspring), Embody Aspect (Cornerstone), Teraform Zero, Disguise, Ice Face";
+			let text3= "Anger Point, Anticipation, Aura Break, Bad Dreams, Ball Fetch, Battery, Battle Armor, Big Pecks, Color Change, Commander, Costar, Curious Medicine, Cute Charm, Damp, Dancer, Defeatist, Disguise, Early Bird, Effect Spore, Embody Aspect (Cornerstone), Embody Aspect (Hearthflame), Embody Aspect (Teal), Embody Aspect (Wellspring), Emergency Exit, Flower Gift, Forewarn, Friend Guard, Gluttony, Gulp Missile, Healer, Heavy Metal, Honey Gather, Hospitality, Hunger Switch, Hydration, Hyper Cutter, Ice Body, Ice Face, Illuminate, Inner Focus, Insomnia, Justified, Keen Eye, Klutz, Leaf Guard, Light Metal, Liquid Ooze, Magma Armor, Merciless, Mimicry, Minus, Mycelium Might, Oblivious, Own Tempo, Perish Body, Pickpocket, Pickup, Plus, Power Construct, Power of Alchemy, Power Spot, Propeller Tail, Rain Dish, Rattled, Receiver, Rivalry, RKS System, Run Away, Sand Veil, Schooling, Screen Cleaner, Shell Armor, Shields Down, Slow Start, Snow Cloak, Stall, Stalwart, Stance Change, Steadfast, Stench, Sticky Hold, Suction Cups, Super Luck, Supersweet Syrup, Symbiosis, Tangled Feet, Telepathy, Tera Shift, Teraform Zero, Truant, Unnerve, Vital Spirit, Wimp Out, Zen Mode, Zero to Hero";
 			const UselessAbilities = text3.split(", ");
 	  
 			//Ability Dropdown Construction
@@ -649,14 +650,11 @@
 				}
 				return array;
 			}
+
 			
+			let movepool = [];
 			let givenMovesText = moves_given.value;
 			let givenMoves = splitAndTrim(givenMovesText);
-			
-			function startGivenMoves() {
-				givenMovesText = moves_given.value;
-				givenMoves = splitAndTrim(givenMovesText);
-			}
 			
 			
 			//Notable Moves, Length = 390
@@ -698,10 +696,13 @@
 			const moveTypeArray = [normalMoves,fireMoves,waterMoves,grassMoves,electricMoves,iceMoves,fightingMoves,poisonMoves,groundMoves,flyingMoves,psychicMoves,bugMoves,rockMoves,ghostMoves,dragonMoves,darkMoves,steelMoves,fairyMoves];
 			
 			
-			//Add Given STAB Moves
+			//remove empty elements in array
+			function removeEmpty(elm) {
+				return elm != "";
+			}
 			
+			//Add Given STAB Moves
 			function giveSTAB() {
-
 				let t1 = type1_new.value;
 				let t2 = type2_new.value;
 				
@@ -721,10 +722,23 @@
 				} else {
 					stabs2 = GivenSTAB[ind2];
 				}
-				givenMoves = givenMoves.concat(stabs1).concat(stabs2);
+				return [stabs1, stabs2];
 			}
 			
+			//Get Given Moves
+			function getGivenMoves() {
+				givenMovesText = moves_given.value;
+				givenMoves = splitAndTrim(givenMovesText);
+				let [a, b] = giveSTAB();
+				givenMoves = givenMoves.concat(a).concat(b).filter(removeEmpty);
+			}
 			
+			//Get Movepool
+			
+			function getMovepool() {
+				movepool = givenMoves.concat(splitAndTrim(moves_new.value)).concat(UniversalMoves);
+			}
+
 		
 			
 			//Give Suggested Useless Moves
@@ -754,6 +768,7 @@
 
 			
 			//Move Cost Calculation
+			//check for given STAB in list of new moves, and set cost to 0
 			function getMoveCost() {
 				let t1 = type1_new.value;
 				let t2 = type2_new.value;
@@ -779,10 +794,10 @@
 				}
 				
 				let newMovesText = moves_new.value;
-				let newMoves = newMovesText.split(", ");
+				let newMoves = splitAndTrim(newMovesText);
 				
 				for (let j = 0; j < newMoves.length; j++) {
-					if ((t1moves[0].includes(newMoves[j])) || (t2moves[0].includes(newMoves[j]))) {
+					if ((t1moves[0].includes(newMoves[j])) || (t2moves[0].includes(newMoves[j]))) { 
 						totMoveCost += 2;
 					} else if ((t1moves[1].includes(newMoves[j])) || (t2moves[1].includes(newMoves[j]))) {
 						totMoveCost += 0;
@@ -894,7 +909,9 @@
 				}
 				abiCP.innerHTML = abiCP_arr.join(" / ");
 			
-				movesCP.innerHTML = givenMoves.join(", ");
+				getGivenMoves();
+				getMovepool();
+				movesCP.innerHTML = movepool.join(", ");
 			}	
 			
     </script>
