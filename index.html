@@ -9,8 +9,12 @@
   <head>
     
     <meta charset="UTF-8">
+		
+		<!--
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+		-->
+		
+		
     <style>
       body {
         background-color: rgb(45,0,45);
@@ -203,7 +207,7 @@
 			</tr>
 			<tr>
 				<td class="header1">Given Moves: </td>
-				<td><textarea id="moves_given" cols=61; rows="3"></textarea></td>
+				<td><textarea id="moves_given" cols=61; rows="3" onchange="startGivenMoves();"></textarea></td>
 			</tr>
     </table>
 		<p style="font-size:12px;">Also gets the following moves: Take Down, Rest, Sleep Talk, Snore, Protect, Facade, Substitute, Tera Blast</p>
@@ -389,8 +393,6 @@
 			</tr>
 	  </table>
 	  <!--End of Cost Table-->
-		
-		<button type="button" onclick="getMoveCost();">testing</button>
 		
 		
 		<br><br>
@@ -640,9 +642,22 @@
 			
 			
 			//Move Section
-			let movepool = "";
+			function splitAndTrim(some_text) {
+				let array = some_text.split(",");
+				for (i = 0; i < array.length; i++) {
+					array[i] = array[i].trim();
+				}
+				return array;
+			}
+			
 			let givenMovesText = moves_given.value;
-			let givenMoves = givenMovesText.split(", ");
+			let givenMoves = splitAndTrim(givenMovesText);
+			
+			function startGivenMoves() {
+				givenMovesText = moves_given.value;
+				givenMoves = splitAndTrim(givenMovesText);
+			}
+			
 			
 			//Notable Moves, Length = 390
 			let text4 = "Accelerock, Acid Armor, Acrobatics, Aeroblast, Agility, Air Slash, Alluring Voice, Apple Acid, Aqua Cutter, Aqua Step, Aqua Tail, Armor Cannon, Astral Barrage, Attack Order, Aura Sphere, Aurora Veil, Avalanche, Baneful Bunker, Barb Barrage, Baton Pass, Beak Blast, Behemoth Bash, Behemoth Blade, Belly Drum, Bitter Blade, Bitter Malice, Blaze Kick, Bleakwind Storm, Blizzard, Blood Moon, Blue Flare, Body Press, Body Slam, Bolt Strike, Boomburst, Brave Bird, Brick Break, Bug Buzz, Bulk Up, Bullet Punch, Burning Bulwark, Calm Mind, Ceaseless Edge, Chilly Reception, Chloroblast, Circle Throw, Clanging Scales, Clangorous Soul, Clear Smog, Close Combat, Coil, Collision Course, Cotton Guard, Court Change, Crabhammer, Cross Chop, Crunch, Curse, Darkest Lariat, Dark Pulse, Defog, Destiny Bond, Detect, Diamond Storm, Dire Claw, Disable, Discharge, Doom Desire, Double-Edge, Double Shock, Draco Meteor, Dragon Ascent, Dragon Claw, Dragon Dance, Dragon Darts, Dragon Energy, Dragon Hammer, Dragon Pulse, Dragon Tail, Draining Kiss, Drain Punch, Drill Peck, Drill Run, Drum Beating, Dynamax Cannon, Earth Power, Earthquake, Eerie Spell, Electro Drift, Electro Shot, Encore, Endeavor, Energy Ball, Eruption, Esper Wing, Expanding Force, Explosion, Extrasensory, Extreme Speed, Fake Out, False Surrender, Fickle Beam, Fiery Dance, Fiery Wrath, Fillet Away, Fire Blast, Fire Fang, Fire Lash, Fire Punch, First Impression, Flame Charge, Flamethrower, Flare Blitz, Flash Cannon, Fleur Cannon, Flip Turn, Flower Trick, Focus Blast, Focus Punch, Foul Play, Freeze-Dry, Freezing Glare, Fusion Bolt, Fusion Flare, Future Sight, Giga Drain, Gigaton Hammer, Glacial Lance, Glaive Rush, Glare, Grass Knot, Grav Apple, Gunk Shot, Hammer Arm, Haze, Headlong Rush, Head Smash, Heal Bell, Healing Wish, Heart Swap, Heat Wave, High Horsepower, High Jump Kick, Hone Claws, Horn Leech, Hurricane, Hydro Pump, Hydro Steam, Hyper Drill, Hyper Voice, Ice Beam, Ice Fang, Ice Hammer, Ice Shard, Ice Spinner, Icicle Spear, Infernal Parade, Infestation, Iron Head, Ivy Cudgel, Judgment, Knock Off, Kowtow Cleave, Lash Out, Last Resort, Last Respects, Lava Plume, Leaf Blade, Leaf Storm, Leech Life, Leech Seed, Light Screen, Liquidation, Low Kick, Lumina Crash, Lunar Dance, Lunge, Luster Purge, Mach Punch, Magma Storm, Make It Rain, Malignant Chain, Matcha Gotcha, Megahorn, Memento, Meteor Beam, Meteor Mash, Mighty Cleave, Milk Drink, Mist Ball, Moonblast, Moongeist Beam, Moonlight, Morning Sun, Mortal Spin, Mountain Gale, Mystical Power, Nasty Plot, Night Shade, No Retreat, Nuzzle, Order Up, Origin Pulse, Overdrive, Overheat, Pain Split, Parting Shot, Perish Song, Petal Blizzard, Petal Dance, Photon Geyser, Play Rough, Poison Jab, Poltergeist, Population Bomb, Power Gem, Power Whip, Precipice Blades, Psyblade, Psychic, Psychic Fangs, Psychic Noise, Psycho Boost, Psycho Cut, Psyshield Bash, Psyshock, Psystrike, Pyro Ball, Quick Attack, Quiver Dance, Rage Fist, Raging Bull, Raging Fury, Rapid Spin, Razor Shell, Recover, Reflect, Reflect Type, Revelation Dance, Revival Blessing, Roar, Rock Blast, Rock Polish, Rock Slide, Roost, Ruination, Sacred Fire, Sacred Sword, Salt Cure, Sandsear Storm, Scald, Scorching Sands, Secret Sword, Seed Bomb, Seed Flare, Seismic Toss, Shadow Ball, Shadow Claw, Shadow Sneak, Shed Tail, Shell Side Arm, Shell Smash, Shift Gear, Shore Up, Silk Trap, Slack Off, Sludge Bomb, Sludge Wave, Snipe Shot, Soft-Boiled, Spacial Rend, Sparkling Aria, Spikes, Spiky Shield, Spin Out, Spirit Break, Spirit Shackle, Springtide Storm, Stealth Rock, Steam Eruption, Steel Beam, Steel Roller, Sticky Web, Stone Axe, Stone Edge, Stored Power, Strange Steam, Strength Sap, Sucker Punch, Sunsteel Strike, Supercell Slam, Super Fang, Superpower, Surf, Surging Strikes, Switcheroo, Swords Dance, Synthesis, Tachyon Cutter, Tail Glow, Tail Slap, Tailwind, Taunt, Teleport, Tera Starstorm, Throat Chop, Thunder, Thunderbolt, Thunder Cage, Thunderclap, Thunderous Kick, Thunder Punch, Thunder Wave, Tidy Up, Torch Song, Toxic, Toxic Spikes, Trailblaze, Transform, Tri Attack, Trick, Trick Room, Triple Arrows, Triple Axel, Triple Dive, Twin Beam, U-Turn, Victory Dance, Volt Switch, Volt Tackle, Waterfall, Water Shuriken, Water Spout, Wave Crash, Weather Ball, Whirlwind, Wicked Blow, Wildbolt Storm, Will-O-Wisp, Wish, Wood Hammer, X-Scissor, Zen Headbutt, Zing Zap, Solar Beam, Solar Blade, Dynamic Punch, Inferno, Zap Cannon, Heat Crash, Heavy Slam, Aerial Ace, Ancient Power, Aqua Jet, Axe Kick, Bullet Seed, Chilling Water, Counter, Dazzling Gleam, Dual Wingbeat, Feint, Grassy Glide, Gyro Ball, Headbutt, Hex, Ice Punch, Icicle Crash, Icy Wind, Iron Defense, Iron Tail, Mystical Fire, Night Slash, Outrage, Rising Voltage, Rock Tomb, Shelter, Smack Down, Smart Strike, Stun Spore, Temper Flare, Water Pulse, Wild Charge, Final Gambit, Jet Punch, Jungle Healing, Lunar Blessing, Mirror Coat, Pollen Puff, Power Trip, Take Heart";
@@ -879,7 +894,7 @@
 				}
 				abiCP.innerHTML = abiCP_arr.join(" / ");
 			
-				movesCP.innerHTML = givenMoves;
+				movesCP.innerHTML = givenMoves.join(", ");
 			}	
 			
     </script>
