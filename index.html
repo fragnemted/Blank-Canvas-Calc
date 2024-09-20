@@ -85,7 +85,7 @@
 			}
 			
 			a:hover, a:active {
-				color: lightblue;
+				color: aqua;
 				text-decoration: underline;
 			}
       
@@ -278,7 +278,7 @@
 						<option value="Fairy">Fairy</option>
 					</select>
 				</td>
-				<td class="hasbutton"><button type="button" class="sidebutton" onclick="getType(); getTypeCost(); tot_rem();">Get Type</button></td>
+				<td class="hasbutton"><button type="button" class="sidebutton" onclick="getType(); getTypeCost(); suggestMoves();, tot_rem();">Get Type</button></td>
 			</tr>
 			<tr>
 				<td class="header1">Stats: </td>
@@ -451,7 +451,7 @@
 		<div>
 			Test: <span id="demo"></span><br>
 			Test2: <span id="demo2"></span><br>
-			Test3: <span id="demo3"></span><br>
+			Test3: <span id="demo3"></span><br><br>
 			<button type="button" onclick="getMovepool();">Test</button>
 		</div>
 
@@ -460,7 +460,7 @@
 		<!-- Scripts -->
 
     <script>	
-			//Start of Type Cost Calculation (WIP)
+		//Start of Type Cost Calculation (WIP)
 			function getType() {
 				type1_new.value = type1.value;
 				type2_new.value = type2.value;
@@ -643,11 +643,19 @@
 			
 			
 			//Move Section
+			//turn string into list
 			function splitAndTrim(some_text) {
 				let array = some_text.split(",");
 				for (i = 0; i < array.length; i++) {
 					array[i] = array[i].trim();
 				}
+				return array;
+			}
+			
+			//remove duplicate items from array
+			function removeDupes(array) {
+				let dummy_set = new Set(array);
+				array = Array.from(dummy_set);
 				return array;
 			}
 
@@ -730,13 +738,15 @@
 				givenMovesText = moves_given.value;
 				givenMoves = splitAndTrim(givenMovesText);
 				let [a, b] = giveSTAB();
-				givenMoves = Array(Set(givenMoves.concat(a).concat(b).filter(removeEmpty)));
+				givenMoves = givenMoves.concat(a).concat(b).filter(removeEmpty);
+				givenMoves = removeDupes(givenMoves);
 			}
 			
 			//Get Movepool
 			
 			function getMovepool() {
-				movepool = Array(Set(givenMoves.concat(splitAndTrim(moves_new.value)).concat(UniversalMoves)));
+				movepool = givenMoves.concat(splitAndTrim(moves_new.value)).concat(UniversalMoves).filter(removeEmpty);
+				movepool = removeDupes(movepool);
 			}
 
 		
@@ -848,11 +858,11 @@
 			
 			//Reset
 			function reset() {
-				type1_new.value = type1.value;
-				type2_new.value = type2.value;
-				abi1_new.value = abi1.value;
-				abi2_new.value = abi2.value;
-				abi3_new.value = abi3.value;
+				type1_new.value = "";
+				type2_new.value = "";
+				abi1_new.value = "";
+				abi2_new.value = "";
+				abi3_new.value = "";
 				hp_new.value = 50;
 				atk_new.value = 50;
 				def_new.value = 50;
