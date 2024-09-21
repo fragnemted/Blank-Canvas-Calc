@@ -803,12 +803,30 @@
 					//demo3.innerHTML = t2moves;
 				}
 				
+				let stabs1 = [,];
+				let stabs2 = [,];
+				
+				if (ind1 < 0) {
+					;
+				} else {
+					stabs1 = GivenSTAB[ind1];
+				}	
+				if (ind2 < 0) {
+					;
+				} else {
+					stabs2 = GivenSTAB[ind2];
+				}
+				
 				let newMovesText = moves_new.value;
 				let newMoves = splitAndTrim(newMovesText);
 				
 				for (let j = 0; j < newMoves.length; j++) {
 					if ((t1moves[0].includes(newMoves[j])) || (t2moves[0].includes(newMoves[j]))) { 
-						totMoveCost += 2;
+						if ((stabs1.includes(newMoves[j]))||(stabs2.includes(newMoves[j]))) {
+							totMoveCost += 0;
+						} else {
+							totMoveCost += 2;
+						}
 					} else if ((t1moves[1].includes(newMoves[j])) || (t2moves[1].includes(newMoves[j]))) {
 						totMoveCost += 0;
 					} else if (NotableMoves.includes(newMoves[j])) {
