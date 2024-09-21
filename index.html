@@ -6,24 +6,24 @@
 	- fix mobile formatting
 	-->
 
-  <head>
+	<head>
     
-    <meta charset="UTF-8">
+	<meta charset="UTF-8">
 		
 		<!--
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		-->
 		
 		
-    <style>
-      body {
+		<style>
+			body {
         background-color: rgb(45,0,45);
         font-family: verdana;
         color: white;
         margin-left: 20px;
       }
 
-      h1, h2, h3 {
+			h1, h2, h3 {
         text-align: center;
         margin-right: 20px;
       }
@@ -33,7 +33,7 @@
 				border-radius: 5px;
 			}
 
-      .noinput {
+			.noinput {
         background-color: rgb(150,150,150);
         color: black;
       }
@@ -448,7 +448,7 @@
 		
 		</div>
 	
-		<div hidden>
+		<div>
 			Test: <span id="demo"></span><br>
 			Test2: <span id="demo2"></span><br>
 			Test3: <span id="demo3"></span><br><br>
@@ -794,39 +794,27 @@
 					;
 				} else {
 					t1moves = moveTypeArray[ind1];
-					//demo2.innerHTML = t1moves[1];
 				}
 				if (ind2 < 0) {
 					;
 				} else {
 					t2moves = moveTypeArray[ind2];
-					//demo3.innerHTML = t2moves;
 				}
 				
-				let stabs1 = [,];
-				let stabs2 = [,];
-				
-				if (ind1 < 0) {
-					;
-				} else {
-					stabs1 = GivenSTAB[ind1];
-				}	
-				if (ind2 < 0) {
-					;
-				} else {
-					stabs2 = GivenSTAB[ind2];
-				}
+				getGivenMoves();
 				
 				let newMovesText = moves_new.value;
 				let newMoves = splitAndTrim(newMovesText);
 				
+				
 				for (let j = 0; j < newMoves.length; j++) {
+					if (givenMoves.includes(newMoves[j])) {
+						continue;
+					} else {
+						;
+					}
 					if ((t1moves[0].includes(newMoves[j])) || (t2moves[0].includes(newMoves[j]))) { 
-						if ((stabs1.includes(newMoves[j]))||(stabs2.includes(newMoves[j]))) {
-							totMoveCost += 0;
-						} else {
-							totMoveCost += 2;
-						}
+						totMoveCost += 2;
 					} else if ((t1moves[1].includes(newMoves[j])) || (t2moves[1].includes(newMoves[j]))) {
 						totMoveCost += 0;
 					} else if (NotableMoves.includes(newMoves[j])) {
